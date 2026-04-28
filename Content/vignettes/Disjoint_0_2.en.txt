@@ -1,0 +1,7 @@
+[DO NOT PARSE]
+
+Disjoint Molecular Structures and Their Applications
+
+#Chapter I
+
+#Disjoint molecules tend to be largely stable. However, a sufficient amount of energy applied directly to a component of a disjoint molecule can cause the entire structure to be completely disrupted, and only the classically-bonded sections of the molecule will remain together. Although there have been many experimentally verified methods of applying this energy, the one that every single alchemical engineer will have access to is a Glyph of Unbonding. Destroying a bond between atoms causes this release of energy, which also has the side effect of often making it tricky to manipulate complex disjoint compounds. 

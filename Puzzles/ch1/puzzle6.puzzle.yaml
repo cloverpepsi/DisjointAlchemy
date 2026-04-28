@@ -1,0 +1,85 @@
+Name: 'Potent Alcohol'
+ID: Disjoint_1_6
+Author: ''
+Inputs:
+- Molecule:
+    Atoms:
+    - AtomType: salt
+      Position:
+        Pos: 0,0
+    - AtomType: salt
+      Position:
+        Pos: 2,0
+    Bonds: []
+    Name: Bipartite Salt
+  AmountOverride: 0
+Outputs:
+- Molecule:
+    Atoms:
+    - AtomType: water
+      Position:
+        Pos: 0,0
+    - AtomType: water
+      Position:
+        Pos: 0,-2
+    - AtomType: fire
+      Position:
+        Pos: 0,-1
+    - AtomType: fire
+      Position:
+        Pos: 0,1
+    - AtomType: salt
+      Position:
+        Pos: -1,0
+    - AtomType: salt
+      Position:
+        Pos: 1,-1
+    Bonds:
+    - A:
+        Pos: 0,0
+      B:
+        Pos: 1,-1
+      BondTypes:
+      - standard
+    - A:
+        Pos: 0,-1
+      B:
+        Pos: 1,-1
+      BondTypes:
+      - standard
+    - A:
+        Pos: -1,0
+      B:
+        Pos: 0,0
+      BondTypes:
+      - standard
+    - A:
+        Pos: -1,0
+      B:
+        Pos: 0,-1
+      BondTypes:
+      - standard
+    Name: Potent Alcohol
+  AmountOverride: 0
+- Molecule:
+    Atoms:
+    - AtomType: water
+      Position:
+        Pos: 0,0
+    - AtomType: salt
+      Position:
+        Pos: 1,0
+    Bonds:
+    - A:
+        Pos: 0,0
+      B:
+        Pos: 1,0
+      BondTypes:
+      - standard
+    Name: Stabilized Water
+  AmountOverride: 0
+OutputMultiplier: 1
+PermissionFlags: Duplication, CoreTools, BaronWheel
+CustomPermissions: []
+Highlights: []
+ProductionInfo: 

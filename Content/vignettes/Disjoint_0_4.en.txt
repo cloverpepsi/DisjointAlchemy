@@ -1,0 +1,9 @@
+[DO NOT PARSE]
+
+Disjoint Molecular Structures and Their Applications
+
+#Chapter II
+
+#Once again, like with glyphs that can be applied to any other atoms that compose a molecule, the glyphs of Purification and Rejection can be used to manipulate atoms in a disjoint molecule without severing it. In fact, one of the most common methods of creating bipartite metal amalgams is through the use of a modified form of the Glyph of Rejection. 
+
+Shown above is a very simple application of this concept. Astute readers may note that the gaps in a disjoint molecule can allow for uniquely compact geometries when designing an alchemical engine to work with disjoint metals.

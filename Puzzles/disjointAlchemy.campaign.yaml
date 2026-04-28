@@ -1,0 +1,85 @@
+
+Name: DisjointAlchemy
+Title: "Disjoint Alchemy"
+Chapters: # starts a list of Chapter models
+############################################################################
+- Title: "Prologue"
+  Subtitle: "Disjoint Molecules"
+  Place: "Imperial University"
+  Background: textures/puzzle_select/background_0 # this references a custom background in this mod's "Content" folder
+  Entries: # starts a list of entries for this chapter
+
+  - ID: "Disjoint_0_1" # THIS IS IMPORTANT!
+    Title: "Lesson: Disjoint Molecules"
+    Puzzle: "ch0/puzzle1" # this needs to point to a .puzzle or a .puzzle.yaml in the "Puzzles" folder of this mod
+    NoStoryPanel: false # not actually needed, since false is the default. this says "yes, there is a story panel"
+    Icon: "textures/puzzle_select/icon_tutorial"
+    IconSmall: "textures/puzzle_select/icon_tutorial_small"
+
+  - ID: "Disjoint_0_2"
+    Title: "Lesson: Disjoint Unbonding"
+    Puzzle: "ch0/puzzle2"
+    Requires: "Disjoint_0_1" # we put an ID here - this entry will unlock once the entry with ID "PuzzleID_001" is completed
+    Icon: "textures/puzzle_select/icon_tutorial"
+    IconSmall: "textures/puzzle_select/icon_tutorial_small"
+    
+  - ID: "Disjoint_0_3"
+    Title: "Lesson: Water Polarization"
+    Puzzle: "ch0/puzzle3"
+    Requires: "Disjoint_0_2"
+    Icon: "textures/puzzle_select/icon_tutorial"
+    IconSmall: "textures/puzzle_select/icon_tutorial_small"
+    
+  - ID: "Disjoint_0_4"
+    Title: "Lesson: Reductive Metallurgy"
+    Puzzle: "ch0/puzzle4"
+    Requires: "Disjoint_0_3"
+    Icon: "textures/puzzle_select/icon_tutorial"
+    IconSmall: "textures/puzzle_select/icon_tutorial_small"
+
+  - ID: "Disjoint_0_5"
+    Title: "Bipartite Alcohol"
+    Puzzle: "ch0/puzzle5"
+    Requires: "Disjoint_0_4"
+
+- Title: "Chapter I"
+  Subtitle: "Learning the Ropes"
+  Place: "Imperial University"
+  Background: textures/puzzle_select/background_0 
+  Entries: 
+
+  - ID: "Disjoint_1_1"
+    Title: "Effulgent Glass Polish"
+    Puzzle: "ch1/puzzle1"
+
+  - ID: "Disjoint_1_2"
+    Title: "Reinventing the Wheel"
+    Puzzle: "ch1/puzzle2"
+    Requires: "Disjoint_1_1"
+
+  - ID: "Disjoint_1_3"
+    Title: "Snow Artifice"
+    Puzzle: "ch1/puzzle3"
+    Requires: "Disjoint_1_2"
+
+  - Type: solitaire
+    ID: "solitaire-Disjoint"
+    Icon: textures/puzzle_select/icon_solitaire
+    IconSmall: textures/puzzle_select/icon_solitaire_small
+    Title: "Sigmar's Garden"
+    Puzzle: empty
+    
+  - ID: "Disjoint_1_4"
+    Title: "Unknottable Thread"
+    Puzzle: "ch1/puzzle4"
+    Requires: "Disjoint_1_3"
+
+  - ID: "Disjoint_1_5"
+    Title: "Litharge Crystal"
+    Puzzle: "ch1/puzzle5"
+    Requires: "Disjoint_1_4"    
+
+  - ID: "Disjoint_1_6"
+    Title: "Potent Alcohol"
+    Puzzle: "ch1/puzzle6"
+    Requires: "Disjoint_1_5"

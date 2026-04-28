@@ -1,0 +1,41 @@
+Name: 'BIPARTITE METALS'
+ID: Disjoint_0_4
+Author: ''
+Inputs:
+- Molecule:
+    Atoms:
+    - AtomType: tin
+      Position:
+        Pos: 1,0
+    - AtomType: tin
+      Position:
+        Pos: 3,0
+    Name: Bipartite Tin
+  AmountOverride: 0
+Outputs:
+- Molecule:
+    Atoms:
+    - AtomType: lead
+      Position:
+        Pos: 1,0
+    - AtomType: lead
+      Position:
+        Pos: 3,0
+    Name: Bipartite Lead
+  AmountOverride: 0
+- Molecule:
+    Atoms:
+    - AtomType: iron
+      Position:
+        Pos: 1,0
+    - AtomType: iron
+      Position:
+        Pos: 3,0
+    Name: Bipartite Iron
+  AmountOverride: 0
+OutputMultiplier: 1
+PermissionFlags: CoreTools, Projection
+CustomPermissions:
+- ReductiveMetallurgy:rejection
+Highlights: []
+ProductionInfo: 

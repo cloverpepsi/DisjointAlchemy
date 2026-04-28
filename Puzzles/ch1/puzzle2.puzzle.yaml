@@ -1,0 +1,70 @@
+Name: 'Reinventing The Wheel'
+ID: Disjoint_1_2
+Author: ''
+Inputs:
+- Molecule:
+    Atoms:
+    - AtomType: salt
+      Position:
+        Pos: 0, 1
+    - AtomType: salt
+      Position:
+        Pos: 2,0
+    - AtomType: salt
+      Position:
+        Pos: 1,2
+    Name: Tripartite Salt
+  AmountOverride: 0
+Outputs:
+- Molecule:
+    Atoms:
+    - AtomType: salt
+      Position:
+        Pos: 0,1
+    - AtomType: earth
+      Position:
+        Pos: 2,0
+    - AtomType: water
+      Position:
+        Pos: 1,2
+    - AtomType: air
+      Position:
+        Pos: 0,2
+    - AtomType: salt
+      Position:
+        Pos: 2,1
+    - AtomType: fire
+      Position:
+        Pos: 1,0
+    Bonds:
+    - A:
+        Pos: 0,1
+      B:
+        Pos: 1,0
+      BondTypes:
+      - standard
+    - A:
+        Pos: 0,1
+      B:
+        Pos: 0,2
+      BondTypes:
+      - standard
+    - A:
+        Pos: 2,1
+      B:
+        Pos: 2,0
+      BondTypes:
+      - standard
+    - A:
+        Pos: 2,1
+      B:
+        Pos: 1,2
+      BondTypes:
+      - standard
+    Name: Bipartite Van Berlo's Wheel
+  AmountOverride: 0
+OutputMultiplier: 1
+PermissionFlags: CoreTools, BaronWheel, Duplication
+CustomPermissions: []
+Highlights: []
+ProductionInfo: 

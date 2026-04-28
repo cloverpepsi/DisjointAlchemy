@@ -1,0 +1,47 @@
+Jerin: Have you played Sigmar's Garden?
+
+Serena: Of course. Who hasn't?
+
+Jerin: Some people are really uptight about playing with the proxies.
+
+Jerin: But they're just marbles. It won't kill you to drag them around the engine just for fun.
+
+Serena: The real question, of course, is are you any good at it?
+
+Jerin: (laughing) I guess we'll find out.
+
+----- After winning 1 game.
+
+Jerin: See? It's pretty simple.
+
+Serena: It's one thing to clear the board once, it's another to do so consistently.
+
+Jerin: Why don't you give it a go, if you're so great at it?
+
+Serena: I don't have anything to prove. Also, I never claimed to be good at Sigmar's Garden.
+
+Jerin: Mmh.
+
+Serena: I'm just teasing you. You don't actually have to keep playing.
+
+Jerin: Well... I still want to.
+
+----- After winning 5 games.
+
+Serena: Back home, I'd sneak into my mother's alchemy office and play Sigmar's on some of her production cabinets.
+
+Serena: It was... a little boring, looking back. The lack of space made it strategically uninteresting.
+
+Serena: Still, it was something to do when I was by myself.
+
+Jerin: I never played Sigmar's Garden before coming to the university.
+
+Jerin: Someone in one of my classes showed it to me. I don't know if I remember her name, though.
+
+----- After winning 10 games.
+
+Jerin: This is placeholder dialogue for winning 10 games.
+
+----- After winning 25 games.
+
+Jerin: This is placeholder dialogue for winning 25 games.

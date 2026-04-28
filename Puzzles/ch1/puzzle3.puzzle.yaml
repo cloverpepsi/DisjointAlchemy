@@ -1,0 +1,61 @@
+Name: 'Snow Artifice'
+ID: Disjoint_1_3
+Author: ''
+Inputs:
+- Molecule:
+    Atoms:
+    - AtomType: salt
+      Position:
+        Pos: 1,0
+    - AtomType: air
+      Position:
+        Pos: 0,2
+    Name: Bipartite Stabilized Air
+  AmountOverride: 0
+Outputs:
+- Molecule:
+    Atoms:
+    - AtomType: water
+      Position:
+        Pos: 0,0
+    - AtomType: water
+      Position:
+        Pos: 2,0
+    - AtomType: water
+      Position:
+        Pos: 0,2
+    - AtomType: air
+      Position:
+        Pos: 0,1
+    - AtomType: air
+      Position:
+        Pos: 1,1
+    - AtomType: air
+      Position:
+        Pos: 1,0
+    Bonds:
+    - A:
+        Pos: 0,1
+      B:
+        Pos: 1,1
+      BondTypes:
+      - standard
+    - A:
+        Pos: 1,0
+      B:
+        Pos: 0,1
+      BondTypes:
+      - standard
+    - A:
+        Pos: 1,0
+      B:
+        Pos: 1,1
+      BondTypes:
+      - standard
+    Name: Artifical Snow Crystal
+  AmountOverride: 0
+OutputMultiplier: 1
+PermissionFlags: CoreTools, BaronWheel, Duplication
+CustomPermissions: []
+Highlights: []
+ProductionInfo: 

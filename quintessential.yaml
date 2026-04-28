@@ -1,0 +1,11 @@
+Name: DisjointAlchemy
+Version: 1.0.0
+#Icon: mod_icon.png
+Title: "Disjoint Alchemy"
+Desc: "A campaign focused on disjoint molecules."
+DLL: DisjointAlchemy.dll
+Dependencies:
+- Name: Quintessential
+  Version: 0.5.1
+- Name: ReductiveMetallurgy
+  Version: 1.0.0

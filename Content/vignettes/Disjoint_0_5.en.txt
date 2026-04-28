@@ -1,0 +1,21 @@
+Talma: Now, I trust that you've all read the first two chapters of the textbook, so instead of a lecture, I'd like to have you all team up in groups of two to four around an alchemical engine for some in-class engineering work.
+
+Talma: Alcohol is one of the simplest compounds that can be manufactured by an alchemical engine, and I'm certain that all of you know how it's structured. However, what I want you to learn from this activity is that by introducing even a single disjoint element to an otherwise basic compound, there is quite a bit more room for complexity.
+
+-----------
+
+Serena: You know, despite this college being the only one in the University where students are _encouraged_ to make alcohol, nobody I've met here seems to be the kind of person to throw that kind of party.
+
+Jerin: (holding the output bottle of Bipartite Alcohol) Oh, this stuff won't get you drunk anyways.
+
+Jerin: It acts pretty different at the alchemical scale, I think.
+
+Serena: I guess that makes sense.
+
+Serena: ...wait, how do you know that? Since when were you any good at the theoretical stuff?
+
+Jerin: ...
+
+Serena: Oh my god. You've already tried to get drunk on it. You idiot.
+
+Jerin: (getting back to work) Tastes just as awful, though. 

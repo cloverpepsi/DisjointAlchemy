@@ -1,0 +1,36 @@
+Name: 'WATER POLARIZATION'
+ID: Disjoint_0_3
+Author: ''
+Inputs:
+- Molecule:
+    Atoms:
+    - AtomType: salt
+      Position:
+        Pos: 1,0
+    - AtomType: salt
+      Position:
+        Pos: 3,0
+    - AtomType: water
+      Position:
+        Pos: 1,2
+    Name: Depolarized Tripartite Water
+  AmountOverride: 0
+Outputs:
+- Molecule:
+    Atoms:
+    - AtomType: salt
+      Position:
+        Pos: 1,0
+    - AtomType: water
+      Position:
+        Pos: 3,0
+    - AtomType: water
+      Position:
+        Pos: 1,2
+    Name: Polarized Tripartite Water
+  AmountOverride: 0
+OutputMultiplier: 1
+PermissionFlags: CoreTools, Duplication, BaronWheel
+CustomPermissions: []
+Highlights: []
+ProductionInfo: 
