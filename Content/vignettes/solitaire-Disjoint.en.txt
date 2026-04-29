@@ -1,47 +1,53 @@
 Jerin: Have you played Sigmar's Garden?
-
 Serena: Of course. Who hasn't?
-
 Jerin: Some people are really uptight about playing with the proxies.
-
 Jerin: But they're just marbles. It won't kill you to drag them around the engine just for fun.
-
 Serena: The real question, of course, is are you any good at it?
-
-Jerin: (laughing) I guess we'll find out.
+Jerin: (laughing) I suppose we'll find out.
 
 ----- After winning 1 game.
 
 Jerin: See? It's pretty simple.
-
 Serena: It's one thing to clear the board once, it's another to do so consistently.
-
 Jerin: Why don't you give it a go, if you're so great at it?
-
 Serena: I don't have anything to prove. Also, I never claimed to be good at Sigmar's Garden.
-
 Jerin: Mmh.
-
 Serena: I'm just teasing you. You don't actually have to keep playing.
-
 Jerin: Well... I still want to.
 
 ----- After winning 5 games.
 
 Serena: Back home, I'd sneak into my mother's alchemy office and play Sigmar's on some of her production cabinets.
-
 Serena: It was... a little boring, looking back. The lack of space made it strategically uninteresting.
-
 Serena: Still, it was something to do when I was by myself.
-
 Jerin: I never played Sigmar's Garden before coming to the university.
-
-Jerin: Someone in one of my classes showed it to me. I don't know if I remember her name, though.
+Jerin: Someone in one of my classes showed it to me. I can't seem to remember her name, though.
+Jerin: Come to think of it, she was awfully kind to me during my first few weeks. I didn't really know what I was doing. 
 
 ----- After winning 10 games.
 
-Jerin: This is placeholder dialogue for winning 10 games.
+Serena: "Awfully kind"?
+Jerin: Well, yes. I think she noticed that I wasn't familiar with the "culture" around alchemical engineers, and-
+Serena: I was in that class. Tullia wasn't just being "awfully kind", she was head over heels for you!
+Serena: It was so obvious. I thought you just weren't interested.
+Jerin: (embarrassed) Oh! I... I suppose that makes a lot more sense, looking back.
+Serena: (playful) But it seems that instead her advances weren't able to pierce through that thick skull of yours.
+Jerin: Maybe I should talk to her and apologize...
+Serena: Oh, don't take it seriously. Honestly, I think it would be stranger to apologize now.
+Jerin: Mmmh.
 
 ----- After winning 25 games.
 
-Jerin: This is placeholder dialogue for winning 25 games.
+Jerin: Don't you have better things to do than watch me play with these marbles all day?
+Serena: I like the company.
+Jerin: Really?
+Serena: Well, I like _your_ company.
+Jerin: ...
+Serena: Besides, it's certainly more fun than constantly writing papers.
+Serena: I hardly get to do any real alchemy in most of my classes. 
+Jerin: I thought you loved doing that kind of work.
+Serena: I never said that. I just happen to be better at it than most.
+Serena: Don't mistake competence with enjoyment.
+Jerin: Well, it's quite fortunate that I'm both good at _and_ enjoying this game.
+Serena: Don't go boasting now. Perhaps someone will think you're trying to usurp their Sigmar's Garden prowess!
+Jerin: Hah. Perhaps.
