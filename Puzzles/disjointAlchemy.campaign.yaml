@@ -66,6 +66,7 @@ Chapters: # starts a list of Chapter models
     ID: "solitaire-Disjoint"
     Icon: textures/puzzle_select/icon_solitaire
     IconSmall: textures/puzzle_select/icon_solitaire_small
+    Requires: "Disjoint_1_3"
     Title: "Sigmar's Garden"
     Puzzle: empty
     
@@ -83,3 +84,29 @@ Chapters: # starts a list of Chapter models
     Title: "Potent Alcohol"
     Puzzle: "ch1/puzzle6"
     Requires: "Disjoint_1_5"
+
+
+- Title: "Chapter II"
+  Subtitle: "Pushing the Boundaries"
+  Place: "Imperial University"
+  Background: textures/puzzle_select/background_0 
+  Entries: 
+
+  - ID: "Disjoint_2_0c"
+    Title: "A Night of Revelry"
+    Icon: textures/puzzle_select/icon_cinematic
+    IconSmall: textures/puzzle_select/icon_cinematic_small
+    Puzzle: "ch2/cutscene1"
+
+  - ID: "Disjoint_2_1"
+    Title: "Headache Remedy"
+    Puzzle: "ch2/puzzle1"
+
+  - Type: solitaire
+    ID: "solitaire-Disjoint"
+    Icon: textures/puzzle_select/icon_solitaire
+    IconSmall: textures/puzzle_select/icon_solitaire_small
+    Requires: "Disjoint_2_1"
+    Title: "Sigmar's Garden"
+    Puzzle: empty
+    
