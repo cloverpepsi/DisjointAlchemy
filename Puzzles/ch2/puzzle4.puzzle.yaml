@@ -1,4 +1,4 @@
-Name: BUOYANT CABLE
+Name: FRICTIONAL FILAMENT
 ID: Disjoint_2_4
 Author: ''
 Inputs:
@@ -11,7 +11,7 @@ Inputs:
       Position:
         Pos: -1,2
     Bonds: []
-    Name: ''
+    Name: 'Bipartite Lead Amalgam'
   AmountOverride: 0
 - Molecule:
     Atoms:
@@ -22,7 +22,7 @@ Inputs:
       Position:
         Pos: -1,2
     Bonds: []
-    Name: ''
+    Name: 'Bipartite Lead Amalgam'
   AmountOverride: 0
 Outputs:
 - Molecule:
@@ -70,7 +70,7 @@ Outputs:
         Pos: 4,0
       BondTypes:
       - standard
-    Name: ''
+    Name: 'Frictional Filament'
   AmountOverride: 0
 OutputMultiplier: 1
 PermissionFlags: Projection, Purification, CoreTools

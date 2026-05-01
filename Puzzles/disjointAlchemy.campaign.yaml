@@ -121,7 +121,7 @@ Chapters: # starts a list of Chapter models
     Requires: "Disjoint_2_2"
 
   - ID: "Disjoint_2_4"
-    Title: "Buoyant Cable"
+    Title: "Frictional Filament"
     Puzzle: "ch2/puzzle4"
     Requires: "Disjoint_2_3"
 
