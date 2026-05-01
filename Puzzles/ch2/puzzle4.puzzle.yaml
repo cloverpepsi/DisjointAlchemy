@@ -1,0 +1,80 @@
+Name: BUOYANT CABLE
+ID: Disjoint_2_4
+Author: ''
+Inputs:
+- Molecule:
+    Atoms:
+    - AtomType: lead
+      Position:
+        Pos: 0,0
+    - AtomType: quicksilver
+      Position:
+        Pos: -1,2
+    Bonds: []
+    Name: ''
+  AmountOverride: 0
+- Molecule:
+    Atoms:
+    - AtomType: lead
+      Position:
+        Pos: 0,0
+    - AtomType: quicksilver
+      Position:
+        Pos: -1,2
+    Bonds: []
+    Name: ''
+  AmountOverride: 0
+Outputs:
+- Molecule:
+    Atoms:
+    - AtomType: iron
+      Position:
+        Pos: 2,0
+    - AtomType: quicksilver
+      Position:
+        Pos: 1,-1
+    - AtomType: quicksilver
+      Position:
+        Pos: 1,1
+    - AtomType: iron
+      Position:
+        Pos: 0,0
+    - AtomType: iron
+      Position:
+        Pos: 3,0
+    - AtomType: repeat
+      Position:
+        Pos: 4,0
+    Bonds:
+    - A:
+        Pos: 0,0
+      B:
+        Pos: 1,-1
+      BondTypes:
+      - standard
+    - A:
+        Pos: 1,1
+      B:
+        Pos: 2,0
+      BondTypes:
+      - standard
+    - A:
+        Pos: 2,0
+      B:
+        Pos: 3,0
+      BondTypes:
+      - standard
+    - A:
+        Pos: 3,0
+      B:
+        Pos: 4,0
+      BondTypes:
+      - standard
+    Name: ''
+  AmountOverride: 0
+OutputMultiplier: 1
+PermissionFlags: Projection, Purification, CoreTools
+CustomPermissions:
+- DisjointAlchemy:talma
+Highlights: []
+ProductionInfo: 

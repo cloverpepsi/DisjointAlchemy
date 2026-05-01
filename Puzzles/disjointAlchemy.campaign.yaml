@@ -102,11 +102,38 @@ Chapters: # starts a list of Chapter models
     Title: "Headache Remedy"
     Puzzle: "ch2/puzzle1"
 
+  - ID: "Disjoint_2_2"
+    Title: "Aerosol Lubricant"
+    Puzzle: "ch2/puzzle2"
+    Requires: "Disjoint_2_1"
+
   - Type: solitaire
     ID: "solitaire-Disjoint"
     Icon: textures/puzzle_select/icon_solitaire
     IconSmall: textures/puzzle_select/icon_solitaire_small
-    Requires: "Disjoint_2_1"
+    Requires: "Disjoint_2_2"
     Title: "Sigmar's Garden"
     Puzzle: empty
-    
+
+  - ID: "Disjoint_2_3"
+    Title: "Erasable Ink"
+    Puzzle: "ch2/puzzle3"
+    Requires: "Disjoint_2_2"
+
+  - ID: "Disjoint_2_4"
+    Title: "Buoyant Cable"
+    Puzzle: "ch2/puzzle4"
+    Requires: "Disjoint_2_3"
+
+  - ID: "Disjoint_2_5"
+    Title: "PLACEHOLDER PUZZLE"
+    Puzzle: "ch2/puzzle5"
+    Requires: "Disjoint_2_4"
+    NoStoryPanel: true 
+
+  - ID: "Disjoint_2_5c"
+    Title: "All Consuming"
+    Icon: textures/puzzle_select/icon_cinematic
+    IconSmall: textures/puzzle_select/icon_cinematic_small
+    Requires: "Disjoint_2_5"
+    Puzzle: "ch2/cutscene2"

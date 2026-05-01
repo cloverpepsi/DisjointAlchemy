@@ -38,6 +38,18 @@ Jerin: Mmmh.
 
 ----- After winning 25 games.
 
+Serena: You've never mentioned much about your life before coming to the University.
+Jerin: It's because I'd rather keep it to myself.
+Serena: How come?
+Jerin: I wasn't brought up in affluence, Serena. Life is hard in the city. Especially in the wake of the collapse of two great houses.
+Serena: Oh. I'm sorry I brought it up, then.
+Jerin: No, it's fine. I just would rather avoid getting into the details.
+Jerin: I suppose it's why I feel so out of place here. 
+Serena: It's been almost four years, though. Surely you don't _still_ feel out of place?
+Jerin: Well, I certainly feel a lot more comfortable with you around.
+
+----- After winning 50 games.
+
 Jerin: Don't you have better things to do than watch me play with these marbles all day?
 Serena: I like the company.
 Jerin: Really?

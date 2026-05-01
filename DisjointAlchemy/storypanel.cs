@@ -54,7 +54,7 @@ public static class StoryPanelPatcher
     public static void PostLoad()
     {
         //IL.StoryPanel.method_2175 += skipDrawingTheReturnButton;
-        On.OptionsScreen.method_50 += hotswapOptionsStorypanel;
+        //On.OptionsScreen.method_50 += hotswapOptionsStorypanel;
         On.StoryPanel.method_2172 += customStorypanelUnlocks;
     }
 
@@ -69,9 +69,9 @@ public static class StoryPanelPatcher
             var screen_dyn = new DynamicData(screen_self);
             var currentStoryPanel = screen_dyn.Get<StoryPanel>("field_2680");
             var stringArray = new DynamicData(currentStoryPanel).Get<string[]>("field_4093");
-            if (!stringArray.Any(x => x.Contains("Jerin") || x.Contains("Serena")))
+            if (!stringArray.Any(x => x.Contains("Jerin") || x.Contains("Serena") || x.Contains("Talma")))
             {
-                var class264 = new class_264("options-disjoint");
+                var class264 = new class_264("options-Disjoint");
                 class264.field_2090 = optionsID;
                 screen_dyn.Set("field_2680", new StoryPanel((Maybe<class_264>)class264, false));
             }
