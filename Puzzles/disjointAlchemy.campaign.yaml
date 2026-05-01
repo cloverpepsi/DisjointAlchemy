@@ -126,10 +126,9 @@ Chapters: # starts a list of Chapter models
     Requires: "Disjoint_2_3"
 
   - ID: "Disjoint_2_5"
-    Title: "PLACEHOLDER PUZZLE"
+    Title: "Sparkler Dust"
     Puzzle: "ch2/puzzle5"
     Requires: "Disjoint_2_4"
-    NoStoryPanel: true 
 
   - ID: "Disjoint_2_5c"
     Title: "All Consuming"

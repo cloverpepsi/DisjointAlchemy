@@ -1,24 +1,89 @@
-Name: Placeholder Puzzle
+Name: SPARKLER DUST
 ID: Disjoint_2_5
 Author: ''
 Inputs:
 - Molecule:
     Atoms:
-    - AtomType: salt
+    - AtomType: fire
       Position:
         Pos: 0,0
-    Name: Elemental Salt
+    - AtomType: air
+      Position:
+        Pos: 1,0
+    Bonds: []
+    Name: Bipartite Smoke
   AmountOverride: 0
 Outputs:
 - Molecule:
     Atoms:
-    - AtomType: salt
+    - AtomType: fire
       Position:
         Pos: 0,0
-    Name: Elemental Salt
+    - AtomType: fire
+      Position:
+        Pos: -1,0
+    - AtomType: fire
+      Position:
+        Pos: -2,1
+    - AtomType: fire
+      Position:
+        Pos: 1,-1
+    - AtomType: salt
+      Position:
+        Pos: -2,0
+    - AtomType: salt
+      Position:
+        Pos: 1,0
+    - AtomType: air
+      Position:
+        Pos: 2,-1
+    - AtomType: air
+      Position:
+        Pos: -3,1
+    Bonds:
+    - A:
+        Pos: -1,0
+      B:
+        Pos: 0,0
+      BondTypes:
+      - triplex_0
+      - triplex_1
+      - triplex_2
+    - A:
+        Pos: -2,1
+      B:
+        Pos: -2,0
+      BondTypes:
+      - standard
+    - A:
+        Pos: 1,0
+      B:
+        Pos: 1,-1
+      BondTypes:
+      - standard
+    Name: Sparkler Dust
   AmountOverride: 0
 OutputMultiplier: 1
-PermissionFlags: CoreTools
+PermissionFlags: PrismaBonder, Duplication, CoreTools
 CustomPermissions: []
 Highlights: []
-ProductionInfo: 
+ProductionInfo:
+  Chambers:
+  - ChamberType: Large
+    Position:
+      Pos: 0,0
+  - ChamberType: Medium
+    Position:
+      Pos: 7,0
+  Conduits:
+  - PosA:
+      Pos: 2,1
+    PosB:
+      Pos: 5,0
+    Shape:
+    - Pos: 0,0
+    - Pos: 1,-1
+  Vials: []
+  Isolation: false
+  ShrinkLeft: false
+  ShrinkRight: false
