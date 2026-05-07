@@ -42,6 +42,7 @@ namespace DisjointAlchemy {
         public override void LoadPuzzleContent()
         {
     		Wheel.LoadContent();
+            StoryPanelPatcher.LoadContent();
     		QApi.AddPuzzlePermission("DisjointAlchemy:talma", "Talma's Wheel", "Disjoint Alchemy");
             IL.SolutionEditorBase.method_1984 += drawTalmaWheelAtoms;
 
@@ -83,6 +84,7 @@ namespace DisjointAlchemy {
         {
             SigmarGardenPatcher.Unload();
         }
+
 
 		public override void PostLoad()
         {

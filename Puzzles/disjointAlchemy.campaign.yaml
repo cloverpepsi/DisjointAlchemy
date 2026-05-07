@@ -3,6 +3,7 @@ Name: DisjointAlchemy
 Title: "Disjoint Alchemy"
 Chapters: # starts a list of Chapter models
 ############################################################################
+
 - Title: "Prologue"
   Subtitle: "Disjoint Molecules"
   Place: "Imperial University"
@@ -45,7 +46,7 @@ Chapters: # starts a list of Chapter models
 - Title: "Chapter I"
   Subtitle: "Learning the Ropes"
   Place: "Imperial University"
-  Background: textures/puzzle_select/background_0 
+  Background: textures/backgrounds/background_1
   Entries: 
 
   - ID: "Disjoint_1_1"
@@ -89,7 +90,7 @@ Chapters: # starts a list of Chapter models
 - Title: "Chapter II"
   Subtitle: "Pushing the Boundaries"
   Place: "Imperial University"
-  Background: textures/puzzle_select/background_0 
+  Background: textures/backgrounds/background_2
   Entries: 
 
   - ID: "Disjoint_2_0c"
@@ -136,3 +137,13 @@ Chapters: # starts a list of Chapter models
     IconSmall: textures/puzzle_select/icon_cinematic_small
     Requires: "Disjoint_2_5"
     Puzzle: "ch2/cutscene2"
+
+- Title: "Chapter III"
+  Subtitle: "Finding the Truth"
+  Place: "Imperial University"
+  Background: textures/backgrounds/background_3
+  Entries: 
+
+  - ID: "Disjoint_3_1"
+    Title: "Suspended Quintessence"
+    Puzzle: "ch3/puzzle1"
