@@ -52,6 +52,7 @@ namespace DisjointAlchemy {
             class_172.field_1670.Add("Serena", new class_230(class_134.method_253("Serena Penney", string.Empty), class_235.method_615("textures/portraits/serena_large") /* Cutscene Portrait */, class_235.method_615("textures/portraits/serena_small") /* Story Lore Portrait */, Color.FromHex(0x564F2D), param_3968: true));
             Logger.Log("[DisjointAlchemy] Adding Talma");
             class_172.field_1670.Add("Talma", new class_230(class_134.method_253("Professor Genea Talma", string.Empty), class_235.method_615("textures/portraits/talma_small") /* Cutscene Portrait */, class_235.method_615("textures/portraits/talma_small") /* Story Lore Portrait */, Color.FromHex(0x38572d), param_3968: true));
+        
         }
 
         private static void drawTalmaWheelAtoms(ILContext il)

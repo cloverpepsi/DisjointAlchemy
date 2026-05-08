@@ -46,6 +46,7 @@ public static class CampaignLoader
     // helpers
     private static void patchCampaign(Campaign campaign)
     {
+
         foreach (CampaignChapter campaignChapter in campaign.field_2309)
         {
             foreach (CampaignItem campaignItem in campaignChapter.field_2314)
@@ -65,6 +66,7 @@ public static class CampaignLoader
                 }
             }
         }
+        
     }
     public static void Load()
     {

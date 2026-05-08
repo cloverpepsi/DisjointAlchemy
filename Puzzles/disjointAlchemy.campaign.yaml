@@ -147,3 +147,23 @@ Chapters: # starts a list of Chapter models
   - ID: "Disjoint_3_1"
     Title: "Suspended Quintessence"
     Puzzle: "ch3/puzzle1"
+
+  - Type: solitaire
+    ID: "solitaire-Disjoint"
+    Icon: textures/puzzle_select/icon_solitaire
+    IconSmall: textures/puzzle_select/icon_solitaire_small
+    Requires: "Disjoint_3_2"
+    Title: "Sigmar's Garden"
+    Puzzle: empty
+
+  - ID: "Disjoint_3_2"
+    Title: "Voltaic Crystal"
+    Puzzle: "ch3/puzzle2"
+    Requires: "Disjoint_3_1"
+
+  - ID: "Disjoint_3_2c"
+    Title: "The Confrontation"
+    Icon: textures/puzzle_select/icon_cinematic
+    IconSmall: textures/puzzle_select/icon_cinematic_small
+    Puzzle: "ch3/cutscene1"
+    Requires: "Disjoint_3_2"
