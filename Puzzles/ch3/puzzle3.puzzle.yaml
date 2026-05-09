@@ -1,0 +1,126 @@
+Name: Synthetic Silk
+ID: Disjoint_3_3
+Author: ''
+Inputs:
+- Molecule:
+    Atoms:
+    - AtomType: air
+      Position:
+        Pos: 0,0
+    - AtomType: air
+      Position:
+        Pos: 2,0
+    Bonds: []
+    Name: 'Bipartite Air'
+  AmountOverride: 0
+- Molecule:
+    Atoms:
+    - AtomType: earth
+      Position:
+        Pos: 0,0
+    - AtomType: earth
+      Position:
+        Pos: 2,0
+    Bonds: []
+    Name: 'Bipartite Earth'
+  AmountOverride: 0
+Outputs:
+- Molecule:
+    Atoms:
+    - AtomType: earth
+      Position:
+        Pos: 0,0
+    - AtomType: salt
+      Position:
+        Pos: 1,0
+    - AtomType: air
+      Position:
+        Pos: 1,1
+    - AtomType: salt
+      Position:
+        Pos: 1,2
+    - AtomType: earth
+      Position:
+        Pos: 2,2
+    - AtomType: repeat
+      Position:
+        Pos: 4,0
+    Bonds:
+    - A:
+        Pos: 1,2
+      B:
+        Pos: 1,1
+      BondTypes:
+      - standard
+    - A:
+        Pos: 1,2
+      B:
+        Pos: 2,2
+      BondTypes:
+      - standard
+    - A:
+        Pos: 1,1
+      B:
+        Pos: 1,0
+      BondTypes:
+      - standard
+    - A:
+        Pos: 0,0
+      B:
+        Pos: 1,0
+      BondTypes:
+      - standard
+    Name: 'Synthetic Silk, Part A'
+  AmountOverride: 0
+- Molecule:
+    Atoms:
+    - AtomType: air
+      Position:
+        Pos: 0,0
+    - AtomType: salt
+      Position:
+        Pos: 1,0
+    - AtomType: earth
+      Position:
+        Pos: 1,1
+    - AtomType: salt
+      Position:
+        Pos: 1,2
+    - AtomType: air
+      Position:
+        Pos: 2,2
+    - AtomType: repeat
+      Position:
+        Pos: 4,0
+    Bonds:
+    - A:
+        Pos: 1,2
+      B:
+        Pos: 1,1
+      BondTypes:
+      - standard
+    - A:
+        Pos: 1,2
+      B:
+        Pos: 2,2
+      BondTypes:
+      - standard
+    - A:
+        Pos: 1,1
+      B:
+        Pos: 1,0
+      BondTypes:
+      - standard
+    - A:
+        Pos: 0,0
+      B:
+        Pos: 1,0
+      BondTypes:
+      - standard
+    Name: 'Synthetic Silk, Part B'
+  AmountOverride: 0
+OutputMultiplier: 1
+PermissionFlags: Duplication, CoreTools
+CustomPermissions: []
+Highlights: []
+ProductionInfo: 

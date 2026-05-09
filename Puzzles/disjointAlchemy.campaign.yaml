@@ -5,7 +5,7 @@ Chapters: # starts a list of Chapter models
 ############################################################################
 
 - Title: "Prologue"
-  Subtitle: "Disjoint Molecules"
+  Subtitle: "Learning to Walk"
   Place: "Imperial University"
   Background: textures/puzzle_select/background_0 # this references a custom background in this mod's "Content" folder
   Entries: # starts a list of entries for this chapter
@@ -44,7 +44,7 @@ Chapters: # starts a list of Chapter models
     Requires: "Disjoint_0_4"
 
 - Title: "Chapter I"
-  Subtitle: "Learning the Ropes"
+  Subtitle: "So You Can Run"
   Place: "Imperial University"
   Background: textures/backgrounds/background_1
   Entries: 
@@ -88,7 +88,7 @@ Chapters: # starts a list of Chapter models
 
 
 - Title: "Chapter II"
-  Subtitle: "Pushing the Boundaries"
+  Subtitle: "Just Don't Forget"
   Place: "Imperial University"
   Background: textures/backgrounds/background_2
   Entries: 
@@ -139,7 +139,7 @@ Chapters: # starts a list of Chapter models
     Puzzle: "ch2/cutscene2"
 
 - Title: "Chapter III"
-  Subtitle: "Finding the Truth"
+  Subtitle: "To Take in the View"
   Place: "Imperial University"
   Background: textures/backgrounds/background_3
   Entries: 
@@ -161,9 +161,14 @@ Chapters: # starts a list of Chapter models
     Puzzle: "ch3/puzzle2"
     Requires: "Disjoint_3_1"
 
+  - ID: "Disjoint_3_3"
+    Title: "Synthetic Silk"
+    Puzzle: "ch3/puzzle3"
+    Requires: "Disjoint_3_2"
+
   - ID: "Disjoint_3_2c"
     Title: "The Confrontation"
     Icon: textures/puzzle_select/icon_cinematic
     IconSmall: textures/puzzle_select/icon_cinematic_small
     Puzzle: "ch3/cutscene1"
-    Requires: "Disjoint_3_2"
+    Requires: "Disjoint_3_3"
