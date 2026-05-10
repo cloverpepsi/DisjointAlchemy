@@ -1,0 +1,120 @@
+Name: SHIMMERING LIPSTICK
+ID: DIsjoint_3_4
+Author: ''
+Inputs:
+- Molecule:
+    Atoms:
+    - AtomType: earth
+      Position:
+        Pos: 0,0
+    - AtomType: fire
+      Position:
+        Pos: 2,0
+    Bonds: []
+    Name: ''
+  AmountOverride: 0
+- Molecule:
+    Atoms:
+    - AtomType: salt
+      Position:
+        Pos: 0,0
+    - AtomType: copper
+      Position:
+        Pos: 1,0
+    Bonds: []
+    Name: ''
+  AmountOverride: 0
+Outputs:
+- Molecule:
+    Atoms:
+    - AtomType: earth
+      Position:
+        Pos: 0,-1
+    - AtomType: earth
+      Position:
+        Pos: 0,0
+    - AtomType: salt
+      Position:
+        Pos: -2,0
+    - AtomType: salt
+      Position:
+        Pos: -1,1
+    - AtomType: fire
+      Position:
+        Pos: -2,1
+    - AtomType: salt
+      Position:
+        Pos: 1,1
+    - AtomType: salt
+      Position:
+        Pos: -1,2
+    - AtomType: silver
+      Position:
+        Pos: 0,2
+    - AtomType: earth
+      Position:
+        Pos: 1,0
+    Bonds:
+    - A:
+        Pos: -2,1
+      B:
+        Pos: -1,1
+      BondTypes:
+      - standard
+    - A:
+        Pos: -2,1
+      B:
+        Pos: -2,0
+      BondTypes:
+      - standard
+    - A:
+        Pos: 0,0
+      B:
+        Pos: 0,-1
+      BondTypes:
+      - standard
+    - A:
+        Pos: 0,2
+      B:
+        Pos: 1,1
+      BondTypes:
+      - standard
+    - A:
+        Pos: -1,2
+      B:
+        Pos: 0,2
+      BondTypes:
+      - standard
+    - A:
+        Pos: 0,0
+      B:
+        Pos: 1,0
+      BondTypes:
+      - standard
+    Name: ''
+  AmountOverride: 0
+OutputMultiplier: 1
+PermissionFlags: Duplication, Projection, Purification, Disposal, CoreTools
+CustomPermissions:
+- ReductiveMetallurgy:rejection
+Highlights: []
+ProductionInfo:
+  Chambers:
+  - ChamberType: Large
+    Position:
+      Pos: -5,0
+  - ChamberType: Medium
+    Position:
+      Pos: 3,0
+  Conduits:
+  - PosA:
+      Pos: -2,-1
+    PosB:
+      Pos: 1,0
+    Shape:
+    - Pos: 0,0
+    - Pos: 0,1
+  Vials: []
+  Isolation: false
+  ShrinkLeft: false
+  ShrinkRight: false

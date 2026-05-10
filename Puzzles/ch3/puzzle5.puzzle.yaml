@@ -1,64 +1,85 @@
-Name: AEROSOL LUBRICANT
-ID: Disjoint_2_2
+Name: Floral Fragrance
+ID: Disjoint_3_5
 Author: ''
 Inputs:
-- Molecule:
-    Atoms:
-    - AtomType: air
-      Position:
-        Pos: 0,0
-    - AtomType: water
-      Position:
-        Pos: 1,0
-    Bonds: []
-    Name: Bipartite Mist
-  AmountOverride: 0
-- Molecule:
-    Atoms:
-    - AtomType: gold
-      Position:
-        Pos: 0,0
-    Bonds: []
-    Name: Elemental Gold
-  AmountOverride: 0
-Outputs:
 - Molecule:
     Atoms:
     - AtomType: salt
       Position:
         Pos: 0,0
-    - AtomType: water
+    - AtomType: salt
       Position:
-        Pos: 1,0
-    - AtomType: water
+        Pos: -1,2
+    Bonds: []
+    Name: 'Bipartite Salt'
+  AmountOverride: 0
+- Molecule:
+    Atoms:
+    - AtomType: copper
+      Position:
+        Pos: 0,0
+    - AtomType: salt
+      Position:
+        Pos: 2,0
+    Bonds: []
+    Name: 'Bipartite Stabilized Copper'
+  AmountOverride: 0
+Outputs:
+- Molecule:
+    Atoms:
+    - AtomType: earth
       Position:
         Pos: 0,-1
+    - AtomType: salt
+      Position:
+        Pos: 0,-2
     - AtomType: water
       Position:
-        Pos: -1,1
-    - AtomType: air
+        Pos: 1,-1
+    - AtomType: water
       Position:
         Pos: -1,0
-    - AtomType: air
+    - AtomType: copper
       Position:
-        Pos: 0,1
-    - AtomType: air
+        Pos: 0,0
+    - AtomType: vitae
       Position:
-        Pos: 1,-1
-    - AtomType: tin
+        Pos: -1,1
+    - AtomType: vitae
+      Position:
+        Pos: 1,0
+    - AtomType: air
       Position:
         Pos: -2,0
-    - AtomType: tin
-      Position:
-        Pos: 0,2
-    - AtomType: tin
+    - AtomType: air
       Position:
         Pos: 2,-2
+    - AtomType: salt
+      Position:
+        Pos: 0,1
     Bonds:
     - A:
+        Pos: 0,0
+      B:
+        Pos: 0,-1
+      BondTypes:
+      - standard
+    - A:
+        Pos: -1,0
+      B:
+        Pos: 0,0
+      BondTypes:
+      - standard
+    - A:
+        Pos: 0,0
+      B:
+        Pos: 1,-1
+      BondTypes:
+      - standard
+    - A:
         Pos: -1,1
       B:
-        Pos: -1,0
+        Pos: 0,1
       BondTypes:
       - standard
     - A:
@@ -68,36 +89,15 @@ Outputs:
       BondTypes:
       - standard
     - A:
-        Pos: 0,-1
-      B:
-        Pos: 1,-1
-      BondTypes:
-      - standard
-    - A:
-        Pos: -2,0
-      B:
-        Pos: -1,0
-      BondTypes:
-      - standard
-    - A:
-        Pos: 0,2
-      B:
         Pos: 0,1
-      BondTypes:
-      - standard
-    - A:
-        Pos: 1,-1
       B:
-        Pos: 2,-2
+        Pos: 0,0
       BondTypes:
       - standard
-    Name: Aerosol Lubricant
+    Name: 'Floral Fragrance'
   AmountOverride: 0
 OutputMultiplier: 1
-PermissionFlags: Duplication, Projection, CoreTools, Disposal
-CustomPermissions:
-- ReductiveMetallurgy:rejection
-- ReductiveMetallurgy:deposition
-- DisjointAlchemy:talma
+PermissionFlags: Duplication, LifeAndDeath, Disposal, CoreTools, BaronWheel
+CustomPermissions: []
 Highlights: []
 ProductionInfo: 
