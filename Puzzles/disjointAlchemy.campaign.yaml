@@ -5,6 +5,22 @@ Chapters: # starts a list of Chapter models
 ############################################################################
 
 - Title: "Prologue"
+  Subtitle: "A Path Forward"
+  Place: "The Downriver Quarters"
+  Background: textures/backgrounds/background_prologue # this references a custom background in this mod's "Content" folder
+  Entries: # starts a list of entries for this chapter
+
+  - ID: Disjoint_doc_0
+    Title: "Letter of Acceptance"
+    Puzzle: empty
+    Requires: ""
+
+  - ID: "Disjoint_0_0c"
+    Title: "Two Years Later"
+    Requires: Disjoint_doc_0
+    Puzzle: empty
+
+- Title: "Chapter I"
   Subtitle: "Learning to Walk"
   Place: "Imperial University"
   Background: textures/puzzle_select/background_0 # this references a custom background in this mod's "Content" folder
@@ -43,7 +59,7 @@ Chapters: # starts a list of Chapter models
     Puzzle: "ch0/puzzle5"
     Requires: "Disjoint_0_4"
 
-- Title: "Chapter I"
+- Title: "Chapter II"
   Subtitle: "So You Can Run"
   Place: "Imperial University"
   Background: textures/backgrounds/background_1
@@ -86,18 +102,16 @@ Chapters: # starts a list of Chapter models
     Puzzle: "ch1/puzzle6"
     Requires: "Disjoint_1_5"
 
+  - ID: "Disjoint_2_0c"
+    Title: "A Night of Revelry"
+    Requires: "Disjoint_1_6"
+    Puzzle: empty
 
-- Title: "Chapter II"
+- Title: "Chapter III"
   Subtitle: "Just Don't Forget"
   Place: "Imperial University"
   Background: textures/backgrounds/background_2
   Entries: 
-
-  - ID: "Disjoint_2_0c"
-    Title: "A Night of Revelry"
-    Icon: textures/puzzle_select/icon_cinematic
-    IconSmall: textures/puzzle_select/icon_cinematic_small
-    Puzzle: "ch2/cutscene1"
 
   - ID: "Disjoint_2_1"
     Title: "Headache Remedy"
@@ -133,12 +147,10 @@ Chapters: # starts a list of Chapter models
 
   - ID: "Disjoint_2_5c"
     Title: "All Consuming"
-    Icon: textures/puzzle_select/icon_cinematic
-    IconSmall: textures/puzzle_select/icon_cinematic_small
     Requires: "Disjoint_2_5"
-    Puzzle: "ch2/cutscene2"
+    Puzzle: empty
 
-- Title: "Chapter III"
+- Title: "Chapter IV"
   Subtitle: "To Take in the View"
   Place: "Imperial University"
   Background: textures/backgrounds/background_3
@@ -168,15 +180,13 @@ Chapters: # starts a list of Chapter models
 
   - ID: "Disjoint_3_2c"
     Title: "The Confrontation"
-    Icon: textures/puzzle_select/icon_cinematic
-    IconSmall: textures/puzzle_select/icon_cinematic_small
-    Puzzle: "ch3/cutscene1"
+    Puzzle: empty
     Requires: "Disjoint_3_3"
 
   - ID: "Disjoint_3_4"
     Title: "Shimmering Lipstick"
     Puzzle: "ch3/puzzle4"
-    Requires: "Disjoint_3_3"
+    Requires: "Disjoint_3_2c"
 
   - ID: "Disjoint_3_5"
     Title: "Floral Fragrance"
@@ -185,7 +195,31 @@ Chapters: # starts a list of Chapter models
 
   - ID: "Disjoint_3_5c"
     Title: "The Confession"
-    Icon: textures/puzzle_select/icon_cinematic
-    IconSmall: textures/puzzle_select/icon_cinematic_small
-    Puzzle: "ch3/cutscene2"
+    Puzzle: empty
     Requires: "Disjoint_3_5"
+
+#- Title: "Appendix I"
+#  Subtitle: "A Curious Discovery"
+#  Place: "Imperial University"
+#  Background: textures/backgrounds/background_appendix
+#  Entries: 
+#  - Type: solitaire
+#    ID: "solitaire-Disjoint"
+#    Icon: textures/puzzle_select/icon_solitaire
+#    IconSmall: textures/puzzle_select/icon_solitaire_small
+#    Requires: "Disjoint_3_2"
+#    Title: "Sigmar's Garden"
+#    Puzzle: empty
+#
+#- Title: "Appendix II"
+#  Subtitle: "Unusual Consequences"
+#  Place: "Imperial University"
+#  Background: textures/backgrounds/background_appendix
+#  Entries: 
+#  - Type: solitaire
+#    ID: "solitaire-Disjoint"
+#    Icon: textures/puzzle_select/icon_solitaire
+#    IconSmall: textures/puzzle_select/icon_solitaire_small
+#    Requires: "Disjoint_3_2"
+#    Title: "Sigmar's Garden"
+#    Puzzle: empty

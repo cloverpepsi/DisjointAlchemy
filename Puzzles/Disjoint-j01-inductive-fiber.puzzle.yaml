@@ -1,0 +1,116 @@
+Name: Inductive Fiber
+ID: Disjoint-j01-inductive-fiber
+Author: "Penney, J."
+Inputs:
+- Molecule:
+    Atoms:
+    - AtomType: salt
+      Position:
+        Pos: 0,0
+    - AtomType: iron
+      Position:
+        Pos: 1,0
+    - AtomType: iron
+      Position:
+        Pos: -1,0
+    Bonds: []
+    Name: 'Tripartite Hematite'
+  AmountOverride: 0
+Outputs:
+- Molecule:
+    Atoms:
+    - AtomType: vitae
+      Position:
+        Pos: 0,0
+    - AtomType: salt
+      Position:
+        Pos: 1,0
+    - AtomType: iron
+      Position:
+        Pos: 0,1
+    - AtomType: mors
+      Position:
+        Pos: 2,0
+    - AtomType: iron
+      Position:
+        Pos: 2,-1
+    - AtomType: salt
+      Position:
+        Pos: 3,0
+    - AtomType: iron
+      Position:
+        Pos: 2,1
+    - AtomType: iron
+      Position:
+        Pos: 3,-1
+    - AtomType: repeat
+      Position:
+        Pos: 4,0
+    - AtomType: iron
+      Position:
+        Pos: 3,1
+    - AtomType: iron
+      Position:
+        Pos: 4,-1
+    - AtomType: iron
+      Position:
+        Pos: 1,-1
+    - AtomType: iron
+      Position:
+        Pos: 1,1
+    Bonds:
+    - A:
+        Pos: 0,0
+      B:
+        Pos: 1,0
+      BondTypes:
+      - standard
+    - A:
+        Pos: 1,0
+      B:
+        Pos: 2,0
+      BondTypes:
+      - standard
+    - A:
+        Pos: 2,0
+      B:
+        Pos: 3,0
+      BondTypes:
+      - standard
+    - A:
+        Pos: 3,0
+      B:
+        Pos: 4,0
+      BondTypes:
+      - standard
+    - A:
+        Pos: 2,1
+      B:
+        Pos: 3,1
+      BondTypes:
+      - standard
+    - A:
+        Pos: 3,-1
+      B:
+        Pos: 4,-1
+      BondTypes:
+      - standard
+    - A:
+        Pos: 1,-1
+      B:
+        Pos: 2,-1
+      BondTypes:
+      - standard
+    - A:
+        Pos: 0,1
+      B:
+        Pos: 1,1
+      BondTypes:
+      - standard
+    Name: 'Inductive Fiber'
+  AmountOverride: 0
+OutputMultiplier: 1
+PermissionFlags: LifeAndDeath, CoreTools
+CustomPermissions: []
+Highlights: []
+ProductionInfo: 

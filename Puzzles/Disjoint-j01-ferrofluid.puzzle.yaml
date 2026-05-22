@@ -1,0 +1,110 @@
+Name: Ferrofluid
+ID: Disjoint-j01-ferrofluid
+Author: 'Talma, G.'
+Inputs:
+- Molecule:
+    Atoms:
+    - AtomType: water
+      Position:
+        Pos: 0,0
+    - AtomType: tin
+      Position:
+        Pos: -1,2
+    Bonds: []
+    Name: 'Bipartite Oil'
+  AmountOverride: 0
+- Molecule:
+    Atoms:
+    - AtomType: water
+      Position:
+        Pos: 0,0
+    - AtomType: tin
+      Position:
+        Pos: -1,2
+    Bonds: []
+    Name: 'Bipartite Oil'
+  AmountOverride: 0
+Outputs:
+- Molecule:
+    Atoms:
+    - AtomType: mors
+      Position:
+        Pos: 0,0
+    - AtomType: water
+      Position:
+        Pos: 1,-1
+    - AtomType: water
+      Position:
+        Pos: -1,1
+    - AtomType: iron
+      Position:
+        Pos: 0,-1
+    - AtomType: iron
+      Position:
+        Pos: -1,0
+    Bonds:
+    - A:
+        Pos: 0,0
+      B:
+        Pos: 1,-1
+      BondTypes:
+      - standard
+    - A:
+        Pos: -1,1
+      B:
+        Pos: 0,0
+      BondTypes:
+      - standard
+    - A:
+        Pos: -1,0
+      B:
+        Pos: 0,-1
+      BondTypes:
+      - standard
+    Name: 'Ferrofluid, Part A'
+  AmountOverride: 0
+- Molecule:
+    Atoms:
+    - AtomType: vitae
+      Position:
+        Pos: 0,0
+    - AtomType: water
+      Position:
+        Pos: -1,1
+    - AtomType: water
+      Position:
+        Pos: 1,-1
+    - AtomType: iron
+      Position:
+        Pos: 0,1
+    - AtomType: iron
+      Position:
+        Pos: 1,0
+    Bonds:
+    - A:
+        Pos: -1,1
+      B:
+        Pos: 0,0
+      BondTypes:
+      - standard
+    - A:
+        Pos: 0,0
+      B:
+        Pos: 1,-1
+      BondTypes:
+      - standard
+    - A:
+        Pos: 0,1
+      B:
+        Pos: 1,0
+      BondTypes:
+      - standard
+    Name: 'Ferrofluid, Part B'
+  AmountOverride: 0
+OutputMultiplier: 1
+PermissionFlags: Projection, Purification, LifeAndDeath, Disposal, CoreTools
+CustomPermissions:
+- ReductiveMetallurgy:rejection
+- ReductiveMetallurgy:deposition
+Highlights: []
+ProductionInfo: 

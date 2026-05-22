@@ -1,0 +1,84 @@
+Name: Pole-Seeking Powder
+ID: Disjoint-j01-pole-seeking-powder
+Author: 'Duriel, W.'
+Inputs:
+- Molecule:
+    Atoms:
+    - AtomType: salt
+      Position:
+        Pos: 0,0
+    - AtomType: salt
+      Position:
+        Pos: 1,0
+    - AtomType: salt
+      Position:
+        Pos: -1,1
+    Bonds:
+    - A:
+        Pos: 0,0
+      B:
+        Pos: 1,0
+      BondTypes:
+      - standard
+    - A:
+        Pos: -1,1
+      B:
+        Pos: 0,0
+      BondTypes:
+      - standard
+    Name: 'Tristabilized Salt'
+  AmountOverride: 0
+Outputs:
+- Molecule:
+    Atoms:
+    - AtomType: earth
+      Position:
+        Pos: 2,0
+    - AtomType: earth
+      Position:
+        Pos: 0,0
+    - AtomType: mors
+      Position:
+        Pos: -1,1
+    - AtomType: mors
+      Position:
+        Pos: 0,-1
+    - AtomType: vitae
+      Position:
+        Pos: 3,-1
+    - AtomType: vitae
+      Position:
+        Pos: 2,1
+    Bonds:
+    - A:
+        Pos: -1,1
+      B:
+        Pos: 0,0
+      BondTypes:
+      - standard
+    - A:
+        Pos: 0,0
+      B:
+        Pos: 0,-1
+      BondTypes:
+      - standard
+    - A:
+        Pos: 2,0
+      B:
+        Pos: 3,-1
+      BondTypes:
+      - standard
+    - A:
+        Pos: 2,1
+      B:
+        Pos: 2,0
+      BondTypes:
+      - standard
+    Name: 'Pole-Seeking Powder'
+  AmountOverride: 0
+OutputMultiplier: 1
+PermissionFlags: Duplication, LifeAndDeath, CoreTools, BaronWheel
+CustomPermissions:
+- DisjointAlchemy:disjunction
+Highlights: []
+ProductionInfo: 

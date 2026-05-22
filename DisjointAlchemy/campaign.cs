@@ -23,16 +23,16 @@ namespace DisjointAlchemy {
 //using BondSite = class_222;
 //using AtomTypes = class_175;
 //using PartTypes = class_191;
-//using Texture = class_256;
+using Texture = class_256;
 //using Song = class_186;
 //using Tip = class_215;
 //using Font = class_1;
 
 public static class CampaignLoader
 {
-    const string FirstPuzzleID = "Disjoint-ch1-1-bacon-and-antimony";
+    const string FirstPuzzleID = "Disjoint_0_0c";
     private static Campaign campaign_self;
-    private static CampaignModelDisjoint campaign_model;
+    private static AdvancedContentModelDisjoint campaign_model;
 
     public const enum_129 typePuzzle = (enum_129)0;
     public const enum_129 typeCutscene = (enum_129)1;
@@ -40,7 +40,7 @@ public static class CampaignLoader
     public const enum_129 typeSolitaire = (enum_129)3;
 
     public static bool CurrentCampaignIsDisjoint() => campaign_self == Campaigns.field_2330;
-    public static CampaignModelDisjoint getModel() => campaign_model;
+    public static AdvancedContentModelDisjoint getModel() => campaign_model;
 
     /////////////////////////////////////////////////////////////////////////////////////////////////
     // helpers
@@ -68,6 +68,7 @@ public static class CampaignLoader
         }
         
     }
+
     public static void Load()
     {
         // load campaign model
@@ -79,7 +80,7 @@ public static class CampaignLoader
         }
         using (StreamReader streamReader = new StreamReader(filepath + "/Puzzles/Disjoint.advanced.yaml"))
         {
-            campaign_model = YamlHelper.Deserializer.Deserialize<CampaignModelDisjoint>(streamReader);
+            campaign_model = YamlHelper.Deserializer.Deserialize<AdvancedContentModelDisjoint>(streamReader);
         }
 
         // hooking
@@ -106,7 +107,7 @@ public static class CampaignLoader
 
     /////////////////////////////////////////////////////////////////////////////////////////////////
     // puzzle-loader functions
-    static Dictionary<string, Action<Puzzle>> LevelLoaders = new()
+    public static Dictionary<string, Action<Puzzle>> LevelLoaders = new()
     {
         {FirstPuzzleID, LoadFirstPuzzle }
     };
@@ -158,7 +159,7 @@ public static class CampaignLoader
         CampaignChapter[] campaignChapters = campaign_self.field_2309;
         foreach (var campaignChapter in campaignChapters)
         {
-            if (campaignChapter.field_2310 == 1) campaignChapter.field_2321 = true;
+            if (DisjointAlchemy.AdvancedContent.LeftHandedChapters.Contains(campaignChapter.field_2310)) campaignChapter.field_2321 = true;
 
             foreach (var campaignItem in campaignChapter.field_2314)
             {
@@ -167,6 +168,11 @@ public static class CampaignLoader
                 {
                     Puzzle puzzle = campaignItem.field_2325.method_1087();
                     string puzzleID = puzzle.field_2766;
+
+					// run hard-coded stuff
+					if (LevelLoaders.ContainsKey(puzzleID)) LevelLoaders[puzzleID](puzzle);
+
+                    DisjointAlchemy.AdvancedContent.modifyCampaignItem(campaignItem);
 
                     if (sigmarsGardensIDList.Contains(puzzleID))
                     {
@@ -178,8 +184,6 @@ public static class CampaignLoader
                 }
             }
         }
-
-        //JournalLoader.modifyJournals(campaign_self);
     }
 
     public static Maybe<Solution> Solution_Method_1958(On.Solution.orig_method_1958 orig, string filePath)

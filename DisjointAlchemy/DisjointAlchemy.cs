@@ -12,12 +12,18 @@ using MonoMod.Cil;
 using System.Linq;
 //using System.Reflection;
 
+using Texture = class_256;
+
 namespace DisjointAlchemy {
 
 	public class DisjointAlchemy : QuintessentialMod {
-
+	public static AdvancedContentModelDisjoint AdvancedContent;
     public static MethodInfo PrivateMethod<T>(string method) => typeof(T).GetMethod(method, BindingFlags.NonPublic | BindingFlags.Instance | BindingFlags.Static);
     public static List<class_259> customSolitaires = new(); // LEft over from RMC debugging or something. Not touching this
+	private static IDetour hook_Sim_method_1835, hook_QuintessentialLoader_LoadJournals;
+
+	public static string FilePath = "";
+
 	public static Vector2 hexGraphicalOffset(HexIndex hex) => class_187.field_1742.method_492(hex);
         public static bool findModMetaFilepath(string name, out string filepath)
         {
@@ -33,26 +39,46 @@ namespace DisjointAlchemy {
             return false;
         }
 
+        static void LoadAdvancedContent()
+        {
+            string subpath = "/Puzzles/";
+            string file = "Disjoint.advanced.yaml";
+            using (StreamReader streamReader = new StreamReader(FilePath + subpath + file))
+            {
+                AdvancedContent = YamlHelper.Deserializer.Deserialize<AdvancedContentModelDisjoint>(streamReader);
+            }
+        }
+
+
 		public override void Load()
         {
+
+            string name = "DisjointAlchemy";
+            foreach (ModMeta mod in QuintessentialLoader.Mods)
+            {
+                if (mod.Name == name)
+                {
+                    FilePath = mod.PathDirectory;
+                    break;
+                }
+            }
+            
+            LoadAdvancedContent();
             CampaignLoader.Load();
+            CutscenePatcher.Load();
+            Document.Load();
+            JournalLoader.Load();
             StoryPanelPatcher.Load();
         }
 
         public override void LoadPuzzleContent()
         {
     		Wheel.LoadContent();
+            Parts.AddPartTypes();
             StoryPanelPatcher.LoadContent();
     		QApi.AddPuzzlePermission("DisjointAlchemy:talma", "Talma's Wheel", "Disjoint Alchemy");
+            QApi.AddPuzzlePermission("DisjointAlchemy:disjunction", "Glyph of Disjunction", "Disjoint Alchemy");
             IL.SolutionEditorBase.method_1984 += drawTalmaWheelAtoms;
-
-            Logger.Log("[DisjointAlchemy] Adding Jerin");
-            class_172.field_1670.Add("Jerin", new class_230(class_134.method_253("Jerin Tenka", string.Empty), class_235.method_615("textures/portraits/jerin_large") /* Cutscene Portrait */, class_235.method_615("textures/portraits/jerin_small") /* Story Lore Portrait */, Color.FromHex(0x542C52), param_3968: false));
-            Logger.Log("[DisjointAlchemy] Adding Serena");
-            class_172.field_1670.Add("Serena", new class_230(class_134.method_253("Serena Penney", string.Empty), class_235.method_615("textures/portraits/serena_large") /* Cutscene Portrait */, class_235.method_615("textures/portraits/serena_small") /* Story Lore Portrait */, Color.FromHex(0x564F2D), param_3968: true));
-            Logger.Log("[DisjointAlchemy] Adding Talma");
-            class_172.field_1670.Add("Talma", new class_230(class_134.method_253("Professor Genea Talma", string.Empty), class_235.method_615("textures/portraits/talma_small") /* Cutscene Portrait */, class_235.method_615("textures/portraits/talma_small") /* Story Lore Portrait */, Color.FromHex(0x38572d), param_3968: true));
-        
         }
 
         private static void drawTalmaWheelAtoms(ILContext il)
@@ -83,7 +109,10 @@ namespace DisjointAlchemy {
 
 		public override void Unload()
         {
+            hook_Sim_method_1835.Dispose();
+            hook_QuintessentialLoader_LoadJournals.Dispose();
             SigmarGardenPatcher.Unload();
+            JournalLoader.Unload();
         }
 
 

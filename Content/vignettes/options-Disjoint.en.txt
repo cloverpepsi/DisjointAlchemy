@@ -1,7 +1,11 @@
-Talma: And please remember to clean up your alchemical engine and put away the proxies when you're done working.
+Talma: And, finally, please remember to clean up the alchemical engine and organize the proxies for the next person to use it.
 
 -----------
 
-Serena: This is a complete mess.
-
-Jerin: Sorry.
+Jerin: There. Everything's been put away.
+Serena: I wouldn't call any of this organized. 
+Serena: You've got the pistons mixed in with the regular arms, and none of the proxy atoms are sorted whatsoever.
+Jerin: Do you really take the time to put everything where it's supposed to be?
+Serena: Yes, I do! In fact, I believe I've had to arrange the mess left by people like you about once every other time I use an engine.
+Jerin: (embarrassed) Oh. Sorry, then. I'll take better care of it next time.
+Serena: (playful) You better.

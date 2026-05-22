@@ -28,6 +28,7 @@ using Texture = class_256;
 
 public static class StoryPanelPatcher
 {
+	static Texture ch5_locked, ch5_unlocked, ch5_hover, ch6_locked, ch6_unlocked, ch6_hover;
 	private static Puzzle optionsUnlock = null;
 	public const string optionsID = "Disjoint-options";
 
@@ -42,21 +43,42 @@ public static class StoryPanelPatcher
 	// public functions
 	public static void LoadContent()
 	{
+		string path = "textures/story/";
+		ch5_locked = class_235.method_615(path + "chapter_locked_5");
+		ch5_unlocked = class_235.method_615(path + "chapter_unlocked_5");
+		ch5_hover = class_235.method_615(path + "chapter_hover_5");
+		ch6_locked = class_235.method_615(path + "chapter_locked_6");
+		ch6_unlocked = class_235.method_615(path + "chapter_unlocked_6");
+		ch6_hover = class_235.method_615(path + "chapter_hover_6");
 	}
+
 
 	public static void Load()
 	{
+		On.class_172.method_480 += new On.class_172.hook_method_480(AddCharactersToDictionary);
 	}
 
 	public static void PostLoad()
 	{
 		IL.StoryPanel.method_2175 += skipDrawingTheReturnButton;
-		//On.OptionsScreen.method_50 += hotswapOptionsStorypanel;
+		On.class_135.method_272 += hotswapChapterSelectTextures;
+		On.OptionsScreen.method_50 += hotswapOptionsStorypanel;
 		On.StoryPanel.method_2172 += customStorypanelUnlocks;
 	}
 
 	/////////////////////////////////////////////////////////////////////////////////////////////////
 	// hooking
+
+	private static void AddCharactersToDictionary(On.class_172.orig_method_480 orig)
+	{
+		orig();
+		Logger.Log("[ReductiveMetallurgyCampaign] Adding vignette actors.");
+		
+		foreach (CharacterModelDisjoint character in DisjointAlchemy.AdvancedContent.Characters)
+		{
+			class_172.field_1670[character.ID] = character.FromModel();
+		}
+	}
 
 	private static void skipDrawingTheReturnButton(ILContext il)
 	{
@@ -77,20 +99,34 @@ public static class StoryPanelPatcher
 			string storyPanelID = new DynamicData(panel_self).Get<Maybe<class_264>>("field_4090").method_1087().field_2090;
 			if (storyPanelID == SigmarGardenPatcher.solitaireID) return false;
 			if (storyPanelID == optionsID) return false;
-			//if (JournalLoader.journal_puzzles.Any(x => x.ID == storyPanelID)) return false;
+			if (JournalLoader.journal_puzzles.Any(x => x.ID == storyPanelID)) return false;
 
 			return isOptionsScreen;
 		});
 	}
+	private static void hotswapChapterSelectTextures(On.class_135.orig_method_272 orig, Texture texture, Vector2 position)
+	{
+		if (CampaignLoader.CurrentCampaignIsDisjoint())
+		{
+			if (texture == class_238.field_1989.field_96.field_853) { texture = ch5_locked; }
+			else if (texture == class_238.field_1989.field_96.field_854) { texture = ch6_locked; }
+			else if (texture == class_238.field_1989.field_96.field_860) { texture = ch5_unlocked; }
+			else if (texture == class_238.field_1989.field_96.field_861) { texture = ch6_unlocked; }
+			else if (texture == class_238.field_1989.field_96.field_846) { texture = ch5_hover; }
+			else if (texture == class_238.field_1989.field_96.field_847) { texture = ch6_hover; }
+		}
+		orig(texture, position);
+		return;
+	}
 
 	public static void hotswapOptionsStorypanel(On.OptionsScreen.orig_method_50 orig, OptionsScreen screen_self, float timeDelta)
 	{
-		if (false) //(CampaignLoader.CurrentCampaignIsDisjoint())
+		if (CampaignLoader.CurrentCampaignIsDisjoint())
 		{
 			var screen_dyn = new DynamicData(screen_self);
 			var currentStoryPanel = screen_dyn.Get<StoryPanel>("field_2680");
 			var stringArray = new DynamicData(currentStoryPanel).Get<string[]>("field_4093");
-			if (!stringArray.Any(x => x.Contains("Talma") || x.Contains("Jerin") || x.Contains("Serena")))
+			if (!stringArray.Any(x => x.Contains("Serena") || x.Contains("Jerin") || x.Contains("Talma")))
 			{
 				var class264 = new class_264("options-Disjoint");
 				class264.field_2090 = optionsID;
@@ -119,7 +155,6 @@ public static class StoryPanelPatcher
 	{
 		if (CampaignLoader.CurrentCampaignIsDisjoint() && tuple.Length == 2 && tuple[0].Item2 == class_134.method_253("Complete the prologue", string.Empty))
 		{
-            if (false){
 			// then we're doing the options code while in the Disjoint campaign
 			// hijack the inputs so we draw it our way
 			bool flag = GameLogic.field_2434.field_2451.method_573(optionsUnlock);
@@ -129,7 +164,6 @@ public static class StoryPanelPatcher
 				Tuple.Create(1, class_134.method_253("Complete the prologue", string.Empty)),
 				Tuple.Create(int.MaxValue, LocString.field_2597)
 			};
-            }
 		}
 		else if (CampaignLoader.CurrentCampaignIsDisjoint() && tuple.Length == 7 && tuple[0].Item2 == class_134.method_253("Win 1 game", string.Empty))
 		{

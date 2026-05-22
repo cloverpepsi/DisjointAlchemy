@@ -1,4 +1,4 @@
-﻿//using MonoMod.RuntimeDetour;
+﻿using MonoMod.RuntimeDetour;
 using MonoMod.Utils;
 using Quintessential;
 //using Quintessential.Settings;
@@ -8,6 +8,11 @@ using System;
 using System.Linq;
 using System.Collections.Generic;
 //using System.Reflection;
+using MonoMod.Cil;
+using MonoMod;
+using Quintessential.Serialization;
+using YamlDotNet.Core;
+
 
 namespace DisjointAlchemy;
 
@@ -23,7 +28,7 @@ public static class Wheel
 
 	const float sixtyDegrees = 60f * (float)Math.PI / 180f;
 	const string TalmaWheelAtomsField = "DisjointAlchemy_TalmaWheelAtoms";
-
+    private static Hook change_talma_description;
 
 	public static AtomType[] other_atomTypes => new AtomType[9] {
 		AtomTypes.field_1675, // salt
@@ -119,7 +124,7 @@ public static class Wheel
 			/*ID*/field_1528 = "disjoint-alchemy-Talma",
 			/*Name*/field_1529 = class_134.method_253("Talma's Wheel", string.Empty),
 			/*Desc*/field_1530 = class_134.method_253("By using Talma's wheel with the glyph of disjuncti- oh, that doesn't exist? I guess it doesn't do anything.", string.Empty),
-			/*Cost*/field_1531 = 30,
+			/*Cost*/field_1531 = 50,
 			/*Type*/field_1532 = (enum_2) 1,
 			/*Programmable?*/field_1533 = true,
 			/*Force-rotatable*/field_1536 = true,
@@ -134,6 +139,23 @@ public static class Wheel
 		}
 		QApi.AddPartTypeToPanel(Talma, Berlo);
 		QApi.AddPartType(Talma, DrawTalmaPart);
+
+		// hook from Iris. Thanks Iris
+		change_talma_description = new Hook(
+        typeof(PuzzleInfoScreen).GetMethod("method_1275", System.Reflection.BindingFlags.NonPublic | System.Reflection.BindingFlags.Instance),
+        (Action<PuzzleInfoScreen, Solution> orig,
+        PuzzleInfoScreen self,
+        Solution param_5012) => {
+        var puzzle = param_5012.method_1934();
+        if (puzzle.CustomPermissions.Contains("DisjointAlchemy:disjunction")) {
+            Talma.field_1530 = class_134.method_253("By using Talma's wheel with the glyph of disjunction, you can accomplish absolutely nothing.", string.Empty);
+        }
+        else {
+            Talma.field_1530 = class_134.method_253("By using Talma's wheel with the glyph of disjuncti- oh, that doesn't exist? I guess it doesn't do anything.", string.Empty);
+        }
+        orig(self, param_5012);
+        }
+    	);
 	}
 
 	// private methods

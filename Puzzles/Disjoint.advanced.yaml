@@ -9,3 +9,67 @@ SigmarStoryUnlocks:
 SigmarsGardens:
 - "Disjoint_sigmar"
 ##################################################
+LeftHandedChapters:
+- 5
+- 6
+##################################################
+Documents:
+##########
+- ID: Disjoint_doc_0
+  Texture: textures/documents/letter_1
+  DrawItems:
+  - Position: 236, 555
+    Font: "cormorant 12.75"
+    Color: 2299924 
+    Align: left
+    LineSpacing: 1
+    ColumnWidth: 950
+  - Position: 236, 250
+    Font: "cormorant 12.75"
+    Color: 2299924 
+    Align: left
+    LineSpacing: 1
+    ColumnWidth: 950
+##################################################
+Cutscenes:
+- ID: Disjoint_0_0c
+  Location: Lecture Hall, Imperial University
+  Background: textures/puzzle_select/background_0
+  Music: Story1
+- ID: Disjoint_2_0c
+  Location: A Nearby Tavern
+  Background: textures/backgrounds/background_3
+  Music: Story1
+- ID: Disjoint_2_5c
+  Location: The Alchemical Lab, Imperial University
+  Background: textures/backgrounds/background_2
+  Music: Story1
+- ID: Disjoint_3_2c
+  Location: Student Dormitories, Imperial University
+  Background: textures/backgrounds/background_1
+  Music: Story1
+- ID: Disjoint_3_5c
+  Location: Student Dormitories, Imperial University
+  Background: textures/backgrounds/background_1
+  Music: Story1
+##################################################
+Characters:
+##########
+- ID: "Jerin"
+  Name: "Jerin Tenka"
+  SmallPortrait: textures/portraits/jerin_small
+  LargePortrait: textures/portraits/jerin_large
+  Color: 5516370
+- ID: "Serena"
+  Name: "Serena Penney"
+  SmallPortrait: textures/portraits/serena_small
+  LargePortrait: textures/portraits/serena_large
+  Color: 5656365
+  IsOnLeft: true
+- ID: "Talma"
+  Name: "Professor Genea Talma"
+  SmallPortrait: textures/portraits/talma_small
+  LargePortrait: textures/portraits/talma_small
+  Color: 3692333
+  IsOnLeft: true
+##################################################
