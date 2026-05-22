@@ -6,6 +6,6 @@ Desc: "A campaign focused on disjoint molecules."
 DLL: DisjointAlchemy.dll
 Dependencies:
 - Name: Quintessential
-  Version: 0.5.1
+  Version: 0.5.4
 - Name: ReductiveMetallurgy
   Version: 1.0.0
