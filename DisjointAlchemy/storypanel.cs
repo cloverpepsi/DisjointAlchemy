@@ -72,7 +72,7 @@ public static class StoryPanelPatcher
 	private static void AddCharactersToDictionary(On.class_172.orig_method_480 orig)
 	{
 		orig();
-		Logger.Log("[ReductiveMetallurgyCampaign] Adding vignette actors.");
+		Logger.Log("[DisjointAlchemy] Adding vignette actors.");
 		
 		foreach (CharacterModelDisjoint character in DisjointAlchemy.AdvancedContent.Characters)
 		{
