@@ -269,44 +269,41 @@ public class SigmarGardenPatcher
         if (!CampaignLoader.CurrentCampaignIsDisjoint() || quintessenceSigmar) return orig(quintessenceSigmar);
 
         // try to find solitaire-bitboards.dat
-        string subpath = "/Content/solitaire-bitboards.dat";
+        string subpath = "/Content/solitaire-bitboards.txt";
         string filepath;
         if (!DisjointAlchemy.findModMetaFilepath("DisjointAlchemy", out filepath) || !File.Exists(filepath + subpath))
         {
-            Logger.Log("[TrueAnimismusCampaign] Could not find 'solitaire-bitboards.dat' in the folder '" + filepath + "/Content/'");
+            Logger.Log("[DisjointAlchemy] Could not find 'solitaire-bitboards.txt' in the folder '" + filepath + "/Content/'");
             throw new Exception("getRandomizedSolitaireBoard: Solitaire data is missing.");
         }
 
         // first, pick a bitboard and generate a board template
         HexIndex center = new HexIndex(2,3);
         List<HexIndex> marbleHexes = new();
-        using (BinaryReader binaryReader = new BinaryReader(new FileStream(filepath + subpath, FileMode.Open, FileAccess.Read)))
+
+        string[] bitStrings = File.ReadAllLines(filepath + subpath);
+
+        //const int bytesPerBitboard = 16;
+
+        int boardID = RandomInt(bitStrings.Length);
+        string bitString = bitStrings[boardID];
+        //binaryReader.BaseStream.Seek(boardID * bytesPerBitboard, SeekOrigin.Current);
+
+        bool mirrorBoard = false;
+        HexRotation rotation = new HexRotation(RandomInt(3)*2);
+
+        for (int i = 0; i < 16; i++)
         {
-
-            string bitString = "00000000110000000011110000000111100110011110011110010000111000000011110010000110011110000000111100000011110000000110000000000000";
-
-            const int bytesPerBitboard = 16;
-            int bitboardCount = binaryReader.ReadInt32();
-
-            int boardID = RandomInt(1);
-            binaryReader.BaseStream.Seek(boardID * bytesPerBitboard, SeekOrigin.Current);
-
-            bool mirrorBoard = false;
-            HexRotation rotation = new HexRotation(RandomInt(3)*2);
-
-            for (int i = 0; i < 16; i++)
+            for (int j = 0; j < 8; j++)
             {
-                for (int j = 0; j < 8; j++)
+                int num = i * 8 + j;
+                if (bitString[num] == '1')
                 {
-                    int num = i * 8 + j;
-                    if (bitString[num] == '1')
-                    {
-                        // add hex
-                        int q = num / 11;
-                        int r = (num % 11) - 5;
-                        if (mirrorBoard) { q += r; r = -r; }
-                        marbleHexes.Add(new HexIndex(q, r));
-                    }
+                    // add hex
+                    int q = num / 11;
+                    int r = (num % 11) - 5;
+                    if (mirrorBoard) { q += r; r = -r; }
+                    marbleHexes.Add(new HexIndex(q, r));
                 }
             }
         }
