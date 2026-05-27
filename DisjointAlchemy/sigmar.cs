@@ -40,6 +40,8 @@ public class SigmarGardenPatcher
 
     static Texture sigmar_foreground = class_235.method_615("textures/prod_solitaire/overlay");
 
+    public static bool sigmarEmpty = false;
+
     private static int sigmarWins_Disjoint = 0;
     public static AtomType nullAtom;
     public static SolitaireState solitaireState_Disjoint;
@@ -290,7 +292,9 @@ public class SigmarGardenPatcher
         //binaryReader.BaseStream.Seek(boardID * bytesPerBitboard, SeekOrigin.Current);
 
         bool mirrorBoard = false;
-        HexRotation rotation = new HexRotation(RandomInt(3)*2);
+        //HexRotation rotation = new HexRotation(RandomInt(3)*2);
+
+        if (sigmarEmpty) {bitString = "00000000111000000011110000000111100110011110011110110001111100000011110110000111011110000001111100000011110000000111000000000000";}
 
         for (int i = 0; i < 16; i++)
         {
@@ -417,7 +421,7 @@ public class SigmarGardenPatcher
         {
             saltlikeBag.Add(Tuple.Create(getAtomType(8), getAtomType(9))); // vitae and mors
         }
-		int[] cardinals = new int[5] { 4, 6, 6, 6, 6 }; // salt, air, water, fire, earth
+		int[] cardinals = sigmarEmpty ? new int[5] { 4, 8, 8, 8, 8 } : new int[5] { 4, 6, 6, 6, 6 }; // salt, air, water, fire, earth
 
 		// put salt matches in the saltlikeBag
 		while (cardinals[0] > 0)

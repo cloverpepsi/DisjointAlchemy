@@ -24,6 +24,31 @@ namespace DisjointAlchemy {
 
 	public static string FilePath = "";
 
+	public override Type SettingsType => typeof(MySettings);
+	public static QuintessentialMod MainClassAsMod;
+	public class MySettings
+	{
+		public static MySettings Instance => MainClassAsMod.Settings as MySettings;
+
+		[SettingsLabel("Increase Sigmar Garden Atom Count")]
+		public bool sigmarEmpty = false;
+		[SettingsLabel("")]
+		public DisplaySettings displayEditingSettings = new();
+		public class DisplaySettings : SettingsGroup
+		{
+			public override bool Enabled => Instance.sigmarEmpty;
+
+		}
+	}
+
+	public override void ApplySettings()
+	{
+		base.ApplySettings();
+
+		var SET = (MySettings)Settings;
+		SigmarGardenPatcher.sigmarEmpty = SET.sigmarEmpty;
+	}
+
 	public static Vector2 hexGraphicalOffset(HexIndex hex) => class_187.field_1742.method_492(hex);
         public static bool findModMetaFilepath(string name, out string filepath)
         {
@@ -63,6 +88,9 @@ namespace DisjointAlchemy {
                 }
             }
             
+    		MainClassAsMod = this;
+    		Settings = new MySettings();
+
             LoadAdvancedContent();
             CampaignLoader.Load();
             CutscenePatcher.Load();
