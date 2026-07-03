@@ -108,6 +108,7 @@ namespace DisjointAlchemy {
     		QApi.AddPuzzlePermission("DisjointAlchemy:talma", "Talma's Wheel", "Disjoint Alchemy");
             QApi.AddPuzzlePermission("DisjointAlchemy:disjunction", "Glyph of Disjunction", "Disjoint Alchemy");
             IL.SolutionEditorBase.method_1984 += drawTalmaWheelAtoms;
+            Wheel.LoadPuzzleContent();
         }
 
         private static void drawTalmaWheelAtoms(ILContext il)
