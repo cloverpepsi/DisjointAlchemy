@@ -87,7 +87,7 @@ Outputs:
   AmountOverride: 0
 OutputMultiplier: 1
 PermissionFlags: LifeAndDeath, CoreTools
-CustomPermissions: []
+CustomPermissions:
 Highlights: []
 ProductionInfo:
   Chambers:

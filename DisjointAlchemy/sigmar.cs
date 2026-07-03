@@ -225,37 +225,10 @@ public class SigmarGardenPatcher
         Vector2 offset = (class_115.field_1433 / 2 - new Vector2(1516f, 922f) / 2 + new Vector2(-2f, -11f)).Rounded();
 
         class_135.method_272(sigmar_foreground, offset + new Vector2(597f, 92f));
-
-        int Method_1901(AtomType atomType, Vector2 pos)
-        {
-            SolitaireScreen.class_413 class413 = new SolitaireScreen.class_413();
-            class413.field_3889 = atomType;
-            class413.field_3888 = 0;
-            class413.field_3890 = 0;
-
-            var class301 = SolitaireScreen.class_301.field_2343;
-            void Method_1907(SolitaireState.struct_123 param_5448) => DisjointAlchemy.PrivateMethod<SolitaireScreen.class_413>("method_1907").Invoke(class413, new object[] { param_5448 });
-            void Method_1909(SolitaireState.struct_124 param_5449) => DisjointAlchemy.PrivateMethod<SolitaireScreen.class_413>("method_1909").Invoke(class413, new object[] { param_5449 });
-            void Method_1911(SolitaireState.WaitingForNewGameFields param_5451) => DisjointAlchemy.PrivateMethod<SolitaireScreen.class_301>("method_1907").Invoke(class301, new object[] { param_5451 });
-            void Method_1914(SolitaireState.WonLastGameFields param_5452) => DisjointAlchemy.PrivateMethod<SolitaireScreen.class_301>("method_1907").Invoke(class301, new object[] { param_5452 });
-            var state = (SolitaireState)DisjointAlchemy.PrivateMethod<SolitaireScreen>("method_1889").Invoke(class412.field_3883, new object[] { });
-            state.method_1933(SolitaireScreen.class_301.field_3893 ?? (SolitaireScreen.class_301.field_3893 = new Action<SolitaireState.WaitingForNewGameFields>(Method_1911)), new Action<SolitaireState.struct_123>(Method_1907), new Action<SolitaireState.struct_124>(Method_1909), SolitaireScreen.class_301.field_3896 ?? (SolitaireScreen.class_301.field_3896 = new Action<SolitaireState.WonLastGameFields>(Method_1914)));
-
-            // draw the number of atoms remaining for that atomType
-            int count = class413.field_3888;
-            Color color = count == 0 ? class_181.field_1718.WithAlpha(0.2f) : class_181.field_1718;
-            if (count % 2 == 1) color = class_181.field_1720;
-            string total = count.ToString();
-            Font crimson_10_5 = class_238.field_1990.field_2141;
-            pos += new Vector2(19f, 12f);
-            class_135.method_290(total, pos, crimson_10_5, color, (enum_0)1, 1f, 0.6f, float.MaxValue, float.MaxValue, 0, new Color(), null, int.MaxValue, false, true);
-            return count;
-        }
     }
 
     static bool HexesAreCompatible(HexIndex hexA, HexIndex hexB)
     {
-        
         HexIndex leftHex = hexA.Q + hexA.R < hexB.Q + hexB.R ? hexA : hexB;
         HexIndex rightHex = leftHex == hexB ? hexA : hexB;
 

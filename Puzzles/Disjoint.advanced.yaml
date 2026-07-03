@@ -72,4 +72,9 @@ Characters:
   LargePortrait: textures/portraits/talma_small
   Color: 3692333
   IsOnLeft: true
+- ID: "Placeholder"
+  Name: "! WARNING !"
+  SmallPortrait: textures/portraits/placeholder_small
+  LargePortrait: textures/portraits/placeholder_large
+  Color: 11711139
 ##################################################

@@ -18,9 +18,10 @@ namespace DisjointAlchemy {
 
 	public class DisjointAlchemy : QuintessentialMod {
 	public static AdvancedContentModelDisjoint AdvancedContent;
+    public static FieldInfo PrivateField<T>(string field) => typeof(T).GetField(field, BindingFlags.NonPublic | BindingFlags.Instance);
     public static MethodInfo PrivateMethod<T>(string method) => typeof(T).GetMethod(method, BindingFlags.NonPublic | BindingFlags.Instance | BindingFlags.Static);
-    public static List<class_259> customSolitaires = new(); // LEft over from RMC debugging or something. Not touching this
-	private static IDetour hook_Sim_method_1835, hook_QuintessentialLoader_LoadJournals;
+    public static List<class_259> customSolitaires = new(); // Left over from RMC debugging or something. Not touching this
+    private delegate void orig_MoleculeEditorScreen_method_1132(MoleculeEditorScreen self);
 
 	public static string FilePath = "";
 
@@ -137,8 +138,6 @@ namespace DisjointAlchemy {
 
 		public override void Unload()
         {
-            hook_Sim_method_1835.Dispose();
-            hook_QuintessentialLoader_LoadJournals.Dispose();
             SigmarGardenPatcher.Unload();
             JournalLoader.Unload();
         }

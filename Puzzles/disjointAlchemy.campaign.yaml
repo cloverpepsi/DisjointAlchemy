@@ -203,14 +203,12 @@ Chapters: # starts a list of Chapter models
 #  Place: "Imperial University"
 #  Background: textures/backgrounds/background_appendix
 #  Entries: 
-#  - Type: solitaire
-#    ID: "solitaire-Disjoint"
-#    Icon: textures/puzzle_select/icon_solitaire
-#    IconSmall: textures/puzzle_select/icon_solitaire_small
-#    Requires: "Disjoint_3_2"
-#    Title: "Sigmar's Garden"
-#    Puzzle: empty
 #
+#  - ID: "Disjoint_A1_1" 
+#    Title: "Synthesis Via Disjunction"
+#    Puzzle: "chA1/puzzle1" 
+#    NoStoryPanel: true 
+
 #- Title: "Appendix II"
 #  Subtitle: "Unusual Consequences"
 #  Place: "Imperial University"

@@ -51,8 +51,8 @@ public static class Parts
 
     public static Texture disjunctionBowl = class_238.field_1989.field_90.field_170;
 
-    public static readonly HexIndex disjunctionL = new(-1, 0);
-    public static readonly HexIndex disjunctionR = new(1, 0);
+    public static readonly HexIndex disjunctionL = new(0, 0);
+    public static readonly HexIndex disjunctionR = new(1, 1);
 
     // these two methods are taken from Brimstone API
     public static Maybe<Molecule> FindMoleculeRelative(Sim sim, Part part, HexIndex offset)
@@ -106,15 +106,15 @@ public static class Parts
 
         QApi.AddPartType(Disjunction, static (part, pos, editor, renderer) =>
         {
-            renderer.method_523(disjunctionBase, Vector2.Zero, new Vector2(123f, 48f), 0f);
+            renderer.method_523(disjunctionBase, Vector2.Zero, new Vector2(164f, 121f), 0f);
             renderer.method_530(class_238.field_1989.field_90.field_228.field_273, disjunctionL, 3f);
             renderer.method_530(class_238.field_1989.field_90.field_228.field_273, disjunctionR, 3f);
             renderer.method_528(disjunctionBowl, disjunctionL, Vector2.Zero);
             renderer.method_528(disjunctionBowl, disjunctionR, Vector2.Zero);
             renderer.method_529(saltSymbol, disjunctionL, Vector2.Zero);
             renderer.method_529(saltSymbol, disjunctionR, Vector2.Zero);
-            renderer.method_523(saltPip, Vector2.Zero, new Vector2(81f, 21f), 0f);
-            renderer.method_523(saltPip, Vector2.Zero, new Vector2(-40f, 21f), 0f);
+            renderer.method_523(saltPip, Vector2.Zero, new Vector2(0f, 9f), 0f);
+            renderer.method_523(saltPip, Vector2.Zero, new Vector2(-82f, -38f), 0f);
         });
 
         QApi.RunAfterCycle((sim, first) =>
