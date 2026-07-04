@@ -122,6 +122,8 @@ public static class Wheel
         (Action<PuzzleInfoScreen, Solution> orig,
         PuzzleInfoScreen self,
         Solution param_5012) => {
+
+		try {
         var puzzle = param_5012.method_1934();
         if (puzzle.CustomPermissions.Contains("DisjointAlchemy:disjunction")) {
             Talma.field_1530 = class_134.method_253("By using Talma's wheel with the glyph of disjunction, you can accomplish absolutely nothing.", string.Empty);
@@ -130,7 +132,8 @@ public static class Wheel
             Talma.field_1530 = class_134.method_253("By using Talma's wheel with the glyph of disjuncti- oh, that doesn't exist? I guess it doesn't do anything.", string.Empty);
         }
         orig(self, param_5012);
-        }
+		} catch {}
+		}
     	);
 	}
 	public static void LoadContent()
