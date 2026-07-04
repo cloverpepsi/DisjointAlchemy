@@ -131,8 +131,8 @@ public static class Wheel
         else {
             Talma.field_1530 = class_134.method_253("By using Talma's wheel with the glyph of disjuncti- oh, that doesn't exist? I guess it doesn't do anything.", string.Empty);
         }
-        orig(self, param_5012);
 		} catch {}
+		orig(self, param_5012);
 		}
     	);
 	}
