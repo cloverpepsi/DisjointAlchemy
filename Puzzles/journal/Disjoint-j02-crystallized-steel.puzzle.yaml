@@ -101,7 +101,7 @@ Outputs:
     Name: Crystallized Steel
   AmountOverride: 0
 OutputMultiplier: 1
-PermissionFlags: Duplication, CoreTools
+PermissionFlags: CoreTools
 CustomPermissions:
 - ReductiveMetallurgy:deposition
 - DisjointAlchemy:disjunction
