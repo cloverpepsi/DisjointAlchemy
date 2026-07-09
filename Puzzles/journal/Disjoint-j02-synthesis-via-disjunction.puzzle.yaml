@@ -53,5 +53,6 @@ OutputMultiplier: 1
 PermissionFlags: Duplication, CoreTools, BaronWheel
 CustomPermissions:
 - DisjointAlchemy:disjunction
+- DisjointAlchemy:talma
 Highlights: []
 ProductionInfo: 
