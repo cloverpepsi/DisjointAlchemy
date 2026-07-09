@@ -1,6 +1,6 @@
 Name: 'Synthesis Via Disjunction'
-ID: Disjoint_A1_1
-Author: ''
+ID: Disjoint-j02-synthesis-via-disjunction
+Author: 'Talma, G.'
 Inputs:
 - Molecule:
     Atoms:

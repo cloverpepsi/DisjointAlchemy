@@ -12,7 +12,7 @@ using System.Linq;
 using System.Collections.Generic;
 
 //using System.Globalization;
-//using System.Reflection;
+using System.Reflection;
 
 namespace DisjointAlchemy;
 
@@ -35,6 +35,7 @@ public class SigmarGardenPatcher
     private static IDetour hook_SolitaireScreen_method_1890;
     private static IDetour hook_SolitaireScreen_method_1893;
     private static IDetour hook_SolitaireScreen_method_1894;
+    private static Hook hookJournalEntryRender;
 
     public const string solitaireID = "Disjoint-solitaire";
 
@@ -46,8 +47,16 @@ public class SigmarGardenPatcher
     public static AtomType nullAtom;
     public static SolitaireState solitaireState_Disjoint;
 
+    public static Texture sigmarSprite, sigmarHoverSprite;
+
     private static bool isQuintessenceSigmarGarden(SolitaireScreen screen) => new DynamicData(screen).Get<bool>("field_3874");
-    private static bool currentCampaignIsDisjoint(SolitaireScreen screen) => CampaignLoader.CurrentCampaignIsDisjoint() && !isQuintessenceSigmarGarden(screen);
+
+    private static bool currentCampaignIsDisjoint(SolitaireScreen screen = null) {
+
+        return (CampaignLoader.CurrentCampaignIsDisjoint() && !DisjointAlchemy.CurrentlyInJournal()) || (DisjointAlchemy.CurrentlyInJournal() && JournalScreen.CurrentJournalName() == "The Journal of Disjoint Alchemy");
+
+    }
+
     private static void setSigmarWins_Disjoint() => GameLogic.field_2434.field_2451.field_1929.method_858("Disjoint-SigmarWins", sigmarWins_Disjoint.method_453());
     private static void getSigmarWins_Disjoint() { sigmarWins_Disjoint = GameLogic.field_2434.field_2451.field_1929.method_862<int>(new delegate_384<int>(int.TryParse), "Disjoint-SigmarWins").method_1090(0); }
     public static AtomType getAtomType(int i)
@@ -84,6 +93,10 @@ public class SigmarGardenPatcher
         On.class_198.method_537 += getRandomizedSolitaireBoard;
         On.class_135.method_272 += hotswapBoardTexture;
 
+        hookJournalEntryRender = new Hook(
+            typeof(JournalScreen).GetMethod("method_1040", BindingFlags.Instance | BindingFlags.NonPublic), OnJournalEntryRender
+        );
+
         nullAtom = new AtomType()
         {
             field_2283 = (byte)0,
@@ -104,6 +117,9 @@ public class SigmarGardenPatcher
         hook_SolitaireScreen_method_1890 = new Hook(DisjointAlchemy.PrivateMethod<SolitaireScreen>("method_1890"), OnSolitaireScreen_Method_1890);
         hook_SolitaireScreen_method_1893 = new Hook(DisjointAlchemy.PrivateMethod<SolitaireScreen>("method_1893"), OnSolitaireScreen_Method_1893);
         hook_SolitaireScreen_method_1894 = new Hook(DisjointAlchemy.PrivateMethod<SolitaireScreen>("method_1894"), OnSolitaireScreen_Method_1894);
+
+        sigmarSprite = class_235.method_615("textures/prod_solitaire/solitaire");
+        sigmarHoverSprite = class_235.method_615("textures/prod_solitaire/solitaire_hover");
     }
 
 	private static void hotswapBoardTexture(On.class_135.orig_method_272 orig, Texture texture, Vector2 position)
@@ -165,6 +181,7 @@ public class SigmarGardenPatcher
         hook_SolitaireScreen_method_1890.Dispose();
         hook_SolitaireScreen_method_1893.Dispose();
         hook_SolitaireScreen_method_1894.Dispose();
+        hookJournalEntryRender.Dispose();
     }
 
     public static bool DetermineIfCampaignItemIsCompleted(On.CampaignItem.orig_method_825 orig, CampaignItem item_self)
@@ -178,15 +195,14 @@ public class SigmarGardenPatcher
     public static bool DetermineIfSolitaireGameWasWon(On.SolitaireGameState.orig_method_1885 orig, SolitaireGameState state_self)
     {
         bool ret = orig(state_self);
-        AtomType quintessence = class_175.field_1690;
-        if (ret && CampaignLoader.CurrentCampaignIsDisjoint() && !state_self.field_3864.ContainsValue(quintessence)) sigmarWins_Disjoint++;
+        if (ret && currentCampaignIsDisjoint()) sigmarWins_Disjoint++;
         setSigmarWins_Disjoint();
         return ret;
     }
 
     public static bool DetermineIfMatchIsValid(On.SolitaireGameState.orig_method_1884 orig, SolitaireGameState state_self, HexIndex atomA, HexIndex atomB)
     {
-        if (CampaignLoader.CurrentCampaignIsDisjoint())
+        if (currentCampaignIsDisjoint())
         {
             if (!HexesAreCompatible(atomA, atomB)) {return false;}
         }
@@ -241,7 +257,7 @@ public class SigmarGardenPatcher
     {
         int RandomInt(int max) => class_269.field_2103.method_299(0, max);
 
-        if (!CampaignLoader.CurrentCampaignIsDisjoint() || quintessenceSigmar) return orig(quintessenceSigmar);
+        if (!currentCampaignIsDisjoint()) return orig(quintessenceSigmar);
 
         // try to find solitaire-bitboards.dat
         string subpath = "/Content/solitaire-bitboards.txt";
@@ -496,10 +512,35 @@ public class SigmarGardenPatcher
         return solitaireGameState;
     }
 
+    private delegate void orig_method_1040(JournalScreen self, Puzzle puzzle, Vector2 pos, bool big);
+    private static void OnJournalEntryRender(orig_method_1040 orig, JournalScreen self, Puzzle puzzle, Vector2 pos, bool big)
+    {
+        if (puzzle.field_2766 == "production-sigmar")
+        {
+            Texture puzzleBg = big ? class_238.field_1989.field_88.field_894 : class_238.field_1989.field_88.field_895;
+            class_256 tick = sigmarWins_Disjoint > 0 /* TODO: count wins */ ? class_238.field_1989.field_96.field_879 : class_238.field_1989.field_96.field_882;
+            class_256 divider = big ? class_238.field_1989.field_88.field_892 : class_238.field_1989.field_88.field_893;
+            Bounds2 bounds = Bounds2.WithSize(pos, puzzleBg.field_2056.ToVector2());
+            bool hover = bounds.Contains(Input.MousePos());
+            class_135.method_290("Sigmar's Garden", pos + new Vector2(9, -19), class_238.field_1990.field_2144, class_181.field_1718, 0, 1f, 0.6f, float.MaxValue, float.MaxValue, 0, new Color(), null, int.MaxValue, false, true);
+            UI.DrawTexture(tick, pos + new Vector2(puzzleBg.field_2056.X - 27, -23f));
+            UI.DrawTexture(puzzleBg, pos);
+            UI.DrawTexture(divider, pos + new Vector2(7f, -34f));
+            UI.DrawTexture(hover ? sigmarHoverSprite : sigmarSprite, bounds.Min + new Vector2(13f, 13f));
+            if (hover && Input.IsLeftClickPressed())
+            {
+                var solitaireScreen = new SolitaireScreen(true);
+                UI.OpenScreen(solitaireScreen);
+                class_238.field_1991.field_1821.method_28(1f);
+            }
+        }
+        else { orig(self, puzzle, pos, big); }
+    }
+
     
 	public static void SolitaireRulesScreen_Method_50(On.class_16.orig_method_50 orig, class_16 screen_self, float timeDelta)
 	{
-		if (CampaignLoader.CurrentCampaignIsDisjoint())
+		if (currentCampaignIsDisjoint())
 		{
 			var screen_dyn = new DynamicData(screen_self);
 			string rule = "Select a free marble, and then pick a matching marble to remove them both from the board.\n\nMarbles in different chambers can only be matched if a conduit is connecting the two chambers.";

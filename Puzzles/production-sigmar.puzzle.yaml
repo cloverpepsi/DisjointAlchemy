@@ -1,0 +1,26 @@
+Name: Sigmar's Garden
+ID: production-sigmar
+Author: 'Penney, S.'
+Inputs:
+- Molecule:
+    Atoms:
+    - AtomType: salt
+      Position:
+        Pos: 0,0
+    Bonds: []
+    Name: ''
+  AmountOverride: 0
+Outputs:
+- Molecule:
+    Atoms:
+    - AtomType: salt
+      Position:
+        Pos: 0,0
+    Bonds: []
+    Name: ''
+  AmountOverride: 0
+OutputMultiplier: 1
+PermissionFlags: CoreTools
+CustomPermissions:
+Highlights: []
+ProductionInfo: 

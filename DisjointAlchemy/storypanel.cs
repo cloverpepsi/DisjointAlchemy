@@ -10,6 +10,7 @@ using System;
 //using System.IO;
 using System.Linq;
 using System.Collections.Generic;
+using System.Diagnostics.Eventing.Reader;
 //using System.Globalization;
 //using System.Reflection;
 
@@ -153,6 +154,9 @@ public static class StoryPanelPatcher
 
 	public static void customStorypanelUnlocks(On.StoryPanel.orig_method_2172 orig, StoryPanel panel_self, float timeDelta, Vector2 pos, int index, Tuple<int, LocString>[] tuple)
 	{
+
+		bool currentIsDisjoint = (CampaignLoader.CurrentCampaignIsDisjoint() && !DisjointAlchemy.CurrentlyInJournal()) || (DisjointAlchemy.CurrentlyInJournal() && JournalScreen.CurrentJournalName() == "The Journal of Disjoint Alchemy");		
+
 		if (CampaignLoader.CurrentCampaignIsDisjoint() && tuple.Length == 2 && tuple[0].Item2 == class_134.method_253("Complete the prologue", string.Empty))
 		{
 			// then we're doing the options code while in the Disjoint campaign
@@ -165,7 +169,7 @@ public static class StoryPanelPatcher
 				Tuple.Create(int.MaxValue, LocString.field_2597)
 			};
 		}
-		else if (CampaignLoader.CurrentCampaignIsDisjoint() && tuple.Length == 7 && tuple[0].Item2 == class_134.method_253("Win 1 game", string.Empty))
+		else if (currentIsDisjoint && tuple.Length == 7 && tuple[0].Item2 == class_134.method_253("Win 1 game", string.Empty))
 		{
 			// then we're doing the solitaire code while in the Disjoint campaign
 			// hijack the inputs so we draw it our way

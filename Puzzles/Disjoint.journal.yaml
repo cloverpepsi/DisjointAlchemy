@@ -5,6 +5,14 @@ Chapters:
   Puzzles:
   - "journal/Disjoint-j01-magnetic-wire"
   - "journal/Disjoint-j01-polarized-salts"
-  - "journal/Disjoint-j01-pole-seeking-powder"
   - "journal/Disjoint-j01-ferrofluid"
   - "journal/Disjoint-j01-inductive-fiber"
+  - "production-sigmar"
+- Title: "Volume XVII, Issue II: Applications of Disjunction"
+  Description: "The Glyph of Disjunction is viewed by some alchemists as a mere curiosity that costs more to produce than it is worth, due to the fact that the reaction it enables can already very easily be done outside of the alchemical engine. This is not the case, however. This issue explores a handful of alchemical processes that can be significantly expedited with the use of the glyph, as well as the original experiment by Genea Talma that confirmed its functionality."  
+  Puzzles:
+  - "journal/Disjoint-j02-synthesis-via-disjunction"
+  - "journal/Disjoint-j01-pole-seeking-powder"
+  - "journal/Disjoint-j02-potion-of-endurance"
+  - "journal/Disjoint-j02-salt-of-selene"
+  - "journal/Disjoint-j02-crystallized-steel"

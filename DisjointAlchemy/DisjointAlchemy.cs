@@ -20,6 +20,18 @@ namespace DisjointAlchemy {
 	public static AdvancedContentModelDisjoint AdvancedContent;
     public static FieldInfo PrivateField<T>(string field) => typeof(T).GetField(field, BindingFlags.NonPublic | BindingFlags.Instance);
     public static MethodInfo PrivateMethod<T>(string method) => typeof(T).GetMethod(method, BindingFlags.NonPublic | BindingFlags.Instance | BindingFlags.Static);
+
+    public static bool CurrentlyInJournal()
+    {
+        class_197<IScreen> screen_data = (class_197<IScreen>)PrivateField<GameLogic>("field_2454").GetValue(GameLogic.field_2434);
+
+        foreach (IScreen o in screen_data.field_1808)
+            {
+                if (o is JournalScreen) {return true;}
+            }
+
+        return false;
+    }
     public static List<class_259> customSolitaires = new(); // Left over from RMC debugging or something. Not touching this
     private delegate void orig_MoleculeEditorScreen_method_1132(MoleculeEditorScreen self);
 
