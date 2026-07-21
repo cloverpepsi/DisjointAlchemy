@@ -26,14 +26,14 @@ public static class Parts
 
     public static PartType Disjunction;
 
-    public static Texture disjunctionBase = GetTexture("textures/parts/disjunction_base");
-    public static Texture disjunctionGlow = GetTexture("textures/parts/disjunction_glow");
-    public static Texture disjunctionStroke = GetTexture("textures/parts/disjunction_stroke");
-    public static Texture saltSymbol = GetTexture("textures/parts/symbol_salt");
-    public static Texture saltPip = GetTexture("textures/parts/symbol_pip");
+    public static Texture disjunctionBase = GetTexture("textures/parts/disjunction/disjunction_base");
+    public static Texture disjunctionGlow = GetTexture("textures/parts/disjunction/disjunction_glow");
+    public static Texture disjunctionStroke = GetTexture("textures/parts/disjunction/disjunction_stroke");
+    public static Texture saltSymbol = GetTexture("textures/parts/disjunction/symbol_salt");
+    public static Texture saltPip = GetTexture("textures/parts/disjunction/symbol_pip");
 
-    public static Texture disjunctionIcon = GetTexture("textures/parts/disjunction_icon");
-    public static Texture disjunctionHover = GetTexture("textures/parts/disjunction_icon_hover");
+    public static Texture disjunctionIcon = GetTexture("textures/parts/disjunction/disjunction_icon");
+    public static Texture disjunctionHover = GetTexture("textures/parts/disjunction/disjunction_icon_hover");
 
 	public static Texture[] disjunctionFlash = new Texture[10]
 		{
