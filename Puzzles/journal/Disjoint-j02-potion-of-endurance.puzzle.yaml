@@ -1,4 +1,4 @@
-Name: Potion of Endurance
+Name: Tonic of Endurance
 ID: Disjoint-j02-potion-of-endurance
 Author: 'Penney, S.'
 Inputs:
@@ -86,7 +86,7 @@ Outputs:
         Pos: 1,1
       BondTypes:
       - standard
-    Name: 'Potion of Endurance'
+    Name: 'Tonic of Endurance'
   AmountOverride: 0
 OutputMultiplier: 1
 PermissionFlags: Purification, CoreTools

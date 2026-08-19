@@ -1,4 +1,4 @@
-Name: SHIMMERING LIPSTICK
+Name: Shimmering Lipstick
 ID: DIsjoint_3_4
 Author: ''
 Inputs:
@@ -11,7 +11,7 @@ Inputs:
       Position:
         Pos: 2,0
     Bonds: []
-    Name: ''
+    Name: 'Bipartite Ash'
   AmountOverride: 0
 - Molecule:
     Atoms:
@@ -22,7 +22,7 @@ Inputs:
       Position:
         Pos: 1,0
     Bonds: []
-    Name: ''
+    Name: 'Bipartite Stabilized Copper'
   AmountOverride: 0
 Outputs:
 - Molecule:
@@ -91,7 +91,7 @@ Outputs:
         Pos: 1,0
       BondTypes:
       - standard
-    Name: ''
+    Name: 'Shimmering Lipstick'
   AmountOverride: 0
 OutputMultiplier: 1
 PermissionFlags: Duplication, Projection, Purification, Disposal, CoreTools

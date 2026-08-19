@@ -11,7 +11,7 @@ Inputs:
       Position:
         Pos: 1,0
     Bonds: []
-    Name: ''
+    Name: 'Bipartite Stabilized Lead'
   AmountOverride: 0
 Outputs:
 - Molecule:
@@ -74,7 +74,7 @@ Outputs:
         Pos: 0,-1
       BondTypes:
       - standard
-    Name: ''
+    Name: 'Litharge Crystal'
   AmountOverride: 0
 OutputMultiplier: 1
 PermissionFlags: Disposal, CoreTools

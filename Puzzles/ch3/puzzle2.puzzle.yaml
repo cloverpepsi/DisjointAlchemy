@@ -94,7 +94,7 @@ Outputs:
         Pos: -1,0
       BondTypes:
       - standard
-    Name: ''
+    Name: 'Voltaic Crystal'
   AmountOverride: 0
 OutputMultiplier: 1
 PermissionFlags: Duplication, Projection, CoreTools, BaronWheel
