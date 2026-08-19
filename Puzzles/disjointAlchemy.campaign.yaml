@@ -138,7 +138,7 @@ Chapters: # starts a list of Chapter models
   - ID: "Disjoint_2_4"
     Title: "Frictional Filament"
     Puzzle: "ch2/puzzle4"
-    Requires: "Disjoint_2_3"
+    Requires: "Disjoint_2_2"
 
   - ID: "Disjoint_2_5"
     Title: "Sparkler Dust"
@@ -164,7 +164,7 @@ Chapters: # starts a list of Chapter models
     ID: "solitaire-Disjoint"
     Icon: textures/puzzle_select/icon_solitaire
     IconSmall: textures/puzzle_select/icon_solitaire_small
-    Requires: "Disjoint_3_2"
+    Requires: "Disjoint_3_1"
     Title: "Sigmar's Garden"
     Puzzle: empty
 
