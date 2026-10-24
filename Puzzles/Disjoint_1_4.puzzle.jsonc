@@ -1,0 +1,125 @@
+{
+  "Id": "Disjoint_1_4",
+  "Name": "\u003CUnknottable Thread\u003E",
+  "Permissions": "Duplication, CoreTools, BaronWheel",
+  "Inputs": [
+    {
+      "Name": "\u003CBipartite Salt\u003E",
+      "Atoms": {
+        "0,0": {
+          "Type": "om:salt"
+        },
+        "2,0": {
+          "Type": "om:salt"
+        }
+      }
+    }
+  ],
+  "Outputs": [
+    {
+      "Atoms": {
+        "0,0": {
+          "Type": "om:salt"
+        },
+        "0,2": {
+          "Type": "om:salt"
+        },
+        "1,2": {
+          "Type": "om:salt"
+        },
+        "1,1": {
+          "Type": "om:earth"
+        },
+        "3,0": {
+          "Type": "om:salt"
+        },
+        "3,1": {
+          "Type": "om:earth"
+        },
+        "4,0": {
+          "Type": "om:repeat"
+        }
+      },
+      "Bonds": [
+        {
+          "Types": [
+            "om:standard"
+          ],
+          "Pos1": {
+            "Q": 0,
+            "R": 2
+          },
+          "Pos2": {
+            "Q": 1,
+            "R": 2
+          }
+        },
+        {
+          "Types": [
+            "om:standard"
+          ],
+          "Pos1": {
+            "Q": 0,
+            "R": 2
+          },
+          "Pos2": {
+            "Q": 1,
+            "R": 1
+          }
+        },
+        {
+          "Types": [
+            "om:standard"
+          ],
+          "Pos1": {
+            "Q": 1,
+            "R": 2
+          },
+          "Pos2": {
+            "Q": 1,
+            "R": 1
+          }
+        },
+        {
+          "Types": [
+            "om:standard"
+          ],
+          "Pos1": {
+            "Q": 3,
+            "R": 0
+          },
+          "Pos2": {
+            "Q": 4,
+            "R": 0
+          }
+        },
+        {
+          "Types": [
+            "om:standard"
+          ],
+          "Pos1": {
+            "Q": 3,
+            "R": 0
+          },
+          "Pos2": {
+            "Q": 3,
+            "R": 1
+          }
+        },
+        {
+          "Types": [
+            "om:standard"
+          ],
+          "Pos1": {
+            "Q": 3,
+            "R": 1
+          },
+          "Pos2": {
+            "Q": 4,
+            "R": 0
+          }
+        }
+      ]
+    }
+  ]
+}

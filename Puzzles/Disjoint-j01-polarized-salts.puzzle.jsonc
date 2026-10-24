@@ -1,0 +1,161 @@
+{
+  "Id": "Disjoint-j01-polarized-salts",
+  "Name": "\u003CPolarized Salts\u003E",
+  "Author": "Darex, B. R. K.",
+  "Permissions": "LifeAndDeath, CoreTools",
+  "Inputs": [
+    {
+      "Name": "\u003CTripartite Salt\u003E",
+      "Atoms": {
+        "0,0": {
+          "Type": "om:salt"
+        },
+        "6,-3": {
+          "Type": "om:salt"
+        },
+        "-3,-3": {
+          "Type": "om:salt"
+        }
+      }
+    }
+  ],
+  "Outputs": [
+    {
+      "Name": "\u003CPolarized Salts\u003E",
+      "Atoms": {
+        "0,0": {
+          "Type": "om:salt"
+        },
+        "6,-3": {
+          "Type": "om:salt"
+        },
+        "1,0": {
+          "Type": "om:mors"
+        },
+        "7,-4": {
+          "Type": "om:mors"
+        },
+        "-1,0": {
+          "Type": "om:vitae"
+        },
+        "5,-3": {
+          "Type": "om:vitae"
+        },
+        "-3,-3": {
+          "Type": "om:salt"
+        },
+        "-4,-3": {
+          "Type": "om:vitae"
+        },
+        "-3,-4": {
+          "Type": "om:mors"
+        }
+      },
+      "Bonds": [
+        {
+          "Types": [
+            "om:standard"
+          ],
+          "Pos1": {
+            "Q": 0,
+            "R": 0
+          },
+          "Pos2": {
+            "Q": 1,
+            "R": 0
+          }
+        },
+        {
+          "Types": [
+            "om:standard"
+          ],
+          "Pos1": {
+            "Q": 6,
+            "R": -3
+          },
+          "Pos2": {
+            "Q": 7,
+            "R": -4
+          }
+        },
+        {
+          "Types": [
+            "om:standard"
+          ],
+          "Pos1": {
+            "Q": -1,
+            "R": 0
+          },
+          "Pos2": {
+            "Q": 0,
+            "R": 0
+          }
+        },
+        {
+          "Types": [
+            "om:standard"
+          ],
+          "Pos1": {
+            "Q": 5,
+            "R": -3
+          },
+          "Pos2": {
+            "Q": 6,
+            "R": -3
+          }
+        },
+        {
+          "Types": [
+            "om:standard"
+          ],
+          "Pos1": {
+            "Q": -4,
+            "R": -3
+          },
+          "Pos2": {
+            "Q": -3,
+            "R": -3
+          }
+        },
+        {
+          "Types": [
+            "om:standard"
+          ],
+          "Pos1": {
+            "Q": -3,
+            "R": -3
+          },
+          "Pos2": {
+            "Q": -3,
+            "R": -4
+          }
+        }
+      ]
+    }
+  ],
+  "ProductionInfo": {
+    "Chambers": [
+      {
+        "Pos": {
+          "Q": 0,
+          "R": 0
+        },
+        "Name": "Medium"
+      },
+      {
+        "Pos": {
+          "Q": -3,
+          "R": -3
+        },
+        "Name": "Medium"
+      },
+      {
+        "Pos": {
+          "Q": 6,
+          "R": -3
+        },
+        "Name": "Medium"
+      }
+    ]
+  }
+}

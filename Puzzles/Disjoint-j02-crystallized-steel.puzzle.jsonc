@@ -1,0 +1,170 @@
+{
+  "Id": "Disjoint-j02-crystallized-steel",
+  "Name": "\u003CCrystallized Steel\u003E",
+  "Author": "Indigo, Q.",
+  "Permissions": "Division, CoreTools",
+  "CustomPermissions": [
+    "disjoint_alchemy:disjunction"
+  ],
+  "Inputs": [
+    {
+      "Name": "\u003CAcetic Gold\u003E",
+      "Atoms": {
+        "0,0": {
+          "Type": "om:gold"
+        },
+        "-1,0": {
+          "Type": "om:salt"
+        },
+        "0,1": {
+          "Type": "om:water"
+        }
+      },
+      "Bonds": [
+        {
+          "Types": [
+            "om:standard"
+          ],
+          "Pos1": {
+            "Q": 0,
+            "R": 0
+          },
+          "Pos2": {
+            "Q": 0,
+            "R": 1
+          }
+        },
+        {
+          "Types": [
+            "om:standard"
+          ],
+          "Pos1": {
+            "Q": -1,
+            "R": 0
+          },
+          "Pos2": {
+            "Q": 0,
+            "R": 0
+          }
+        }
+      ]
+    }
+  ],
+  "Outputs": [
+    {
+      "Name": "\u003CCrystallized Steel\u003E",
+      "Atoms": {
+        "0,0": {
+          "Type": "om:salt"
+        },
+        "2,-1": {
+          "Type": "om:salt"
+        },
+        "-1,-1": {
+          "Type": "om:salt"
+        },
+        "-1,2": {
+          "Type": "om:salt"
+        },
+        "-1,1": {
+          "Type": "om:lead"
+        },
+        "1,0": {
+          "Type": "om:lead"
+        },
+        "0,-1": {
+          "Type": "om:lead"
+        },
+        "-1,0": {
+          "Type": "om:iron"
+        },
+        "1,-1": {
+          "Type": "om:iron"
+        },
+        "0,1": {
+          "Type": "om:iron"
+        }
+      },
+      "Bonds": [
+        {
+          "Types": [
+            "om:standard"
+          ],
+          "Pos1": {
+            "Q": -1,
+            "R": -1
+          },
+          "Pos2": {
+            "Q": 0,
+            "R": -1
+          }
+        },
+        {
+          "Types": [
+            "om:standard"
+          ],
+          "Pos1": {
+            "Q": -1,
+            "R": 1
+          },
+          "Pos2": {
+            "Q": -1,
+            "R": 2
+          }
+        },
+        {
+          "Types": [
+            "om:standard"
+          ],
+          "Pos1": {
+            "Q": 1,
+            "R": 0
+          },
+          "Pos2": {
+            "Q": 2,
+            "R": -1
+          }
+        },
+        {
+          "Types": [
+            "om:standard"
+          ],
+          "Pos1": {
+            "Q": 1,
+            "R": -1
+          },
+          "Pos2": {
+            "Q": 2,
+            "R": -1
+          }
+        },
+        {
+          "Types": [
+            "om:standard"
+          ],
+          "Pos1": {
+            "Q": -1,
+            "R": -1
+          },
+          "Pos2": {
+            "Q": -1,
+            "R": 0
+          }
+        },
+        {
+          "Types": [
+            "om:standard"
+          ],
+          "Pos1": {
+            "Q": -1,
+            "R": 2
+          },
+          "Pos2": {
+            "Q": 0,
+            "R": 1
+          }
+        }
+      ]
+    }
+  ]
+}

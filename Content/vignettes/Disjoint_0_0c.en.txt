@@ -1,3 +1,5 @@
+Background: textures/puzzle_select/background_0
+Title: Lecture Hall, Imperial University
 Portraits: Serena, Jerin
 
 Serena: The first class of the term. Are you excited?

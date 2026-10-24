@@ -1,0 +1,183 @@
+{
+  "Id": "Disjoint_3_3",
+  "Name": "\u003CSynthetic Silk\u003E",
+  "Permissions": "Duplication, CoreTools",
+  "Inputs": [
+    {
+      "Name": "\u003CBipartite Air\u003E",
+      "Atoms": {
+        "0,0": {
+          "Type": "om:air"
+        },
+        "2,0": {
+          "Type": "om:air"
+        }
+      }
+    },
+    {
+      "Name": "\u003CBipartite Earth\u003E",
+      "Atoms": {
+        "0,0": {
+          "Type": "om:earth"
+        },
+        "2,0": {
+          "Type": "om:earth"
+        }
+      }
+    }
+  ],
+  "Outputs": [
+    {
+      "Atoms": {
+        "0,0": {
+          "Type": "om:earth"
+        },
+        "1,0": {
+          "Type": "om:salt"
+        },
+        "1,1": {
+          "Type": "om:air"
+        },
+        "1,2": {
+          "Type": "om:salt"
+        },
+        "2,2": {
+          "Type": "om:earth"
+        },
+        "4,0": {
+          "Type": "om:repeat"
+        }
+      },
+      "Bonds": [
+        {
+          "Types": [
+            "om:standard"
+          ],
+          "Pos1": {
+            "Q": 1,
+            "R": 2
+          },
+          "Pos2": {
+            "Q": 1,
+            "R": 1
+          }
+        },
+        {
+          "Types": [
+            "om:standard"
+          ],
+          "Pos1": {
+            "Q": 1,
+            "R": 2
+          },
+          "Pos2": {
+            "Q": 2,
+            "R": 2
+          }
+        },
+        {
+          "Types": [
+            "om:standard"
+          ],
+          "Pos1": {
+            "Q": 1,
+            "R": 1
+          },
+          "Pos2": {
+            "Q": 1,
+            "R": 0
+          }
+        },
+        {
+          "Types": [
+            "om:standard"
+          ],
+          "Pos1": {
+            "Q": 0,
+            "R": 0
+          },
+          "Pos2": {
+            "Q": 1,
+            "R": 0
+          }
+        }
+      ]
+    },
+    {
+      "Atoms": {
+        "0,0": {
+          "Type": "om:air"
+        },
+        "1,0": {
+          "Type": "om:salt"
+        },
+        "1,1": {
+          "Type": "om:earth"
+        },
+        "1,2": {
+          "Type": "om:salt"
+        },
+        "2,2": {
+          "Type": "om:air"
+        },
+        "4,0": {
+          "Type": "om:repeat"
+        }
+      },
+      "Bonds": [
+        {
+          "Types": [
+            "om:standard"
+          ],
+          "Pos1": {
+            "Q": 1,
+            "R": 2
+          },
+          "Pos2": {
+            "Q": 1,
+            "R": 1
+          }
+        },
+        {
+          "Types": [
+            "om:standard"
+          ],
+          "Pos1": {
+            "Q": 1,
+            "R": 2
+          },
+          "Pos2": {
+            "Q": 2,
+            "R": 2
+          }
+        },
+        {
+          "Types": [
+            "om:standard"
+          ],
+          "Pos1": {
+            "Q": 1,
+            "R": 1
+          },
+          "Pos2": {
+            "Q": 1,
+            "R": 0
+          }
+        },
+        {
+          "Types": [
+            "om:standard"
+          ],
+          "Pos1": {
+            "Q": 0,
+            "R": 0
+          },
+          "Pos2": {
+            "Q": 1,
+            "R": 0
+          }
+        }
+      ]
+    }
+  ]
+}

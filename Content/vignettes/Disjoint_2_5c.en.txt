@@ -1,3 +1,5 @@
+Background: textures/disjoint/backgrounds/background_2
+Title: The Alchemical Lab, Imperial University
 Portraits: Serena, Jerin
 
 Serena: What are your plans after the end of the term?

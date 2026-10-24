@@ -1,6 +1,9 @@
-﻿﻿//using Mono.Cecil.Cil;
-//using MonoMod.Cil;
-using MonoMod.RuntimeDetour;
+﻿﻿#pragma warning disable CS1591 // Missing XML comment for publicly visible type or member
+#pragma warning disable CS0626 // Method, operator, or accessor is marked external and has no attributes on it
+
+//using Mono.Cecil.Cil;
+using MonoMod;
+using MonoMod.Cil;
 using MonoMod.Utils;
 using Quintessential;
 //using Quintessential.Serialization;
@@ -13,237 +16,60 @@ using System.Collections.Generic;
 
 //using System.Globalization;
 using System.Reflection;
+using DisjointAlchemy;
 
-namespace DisjointAlchemy;
+namespace DisjointAlchemy {
 
-//using PartType = class_139;
-//using Permissions = enum_149;
-//using BondType = enum_126;
-//using BondSite = class_222;
-//using AtomTypes = class_175;
-//using PartTypes = class_191;
-using Texture = class_256;
-//using Song = class_186;
-//using Tip = class_215;
-using Font = class_1;
+// all of this code has been through the fucking ringer. most of it is from rmc indirectly though
 
-// all this code is taken from True Animismus Campaign and pared down, which I believe is taken from Reductive Metallurgy and pared down.
-
-public class SigmarGardenPatcher
+public class Solitaire
 {
-    private static IDetour hook_SolitaireScreen_method_1889;
-    private static IDetour hook_SolitaireScreen_method_1890;
-    private static IDetour hook_SolitaireScreen_method_1893;
-    private static IDetour hook_SolitaireScreen_method_1894;
-    private static Hook hookJournalEntryRender;
-
     public const string solitaireID = "Disjoint-solitaire";
 
-    static Texture sigmar_foreground = class_235.method_615("textures/prod_solitaire/overlay");
+    public static Texture sigmar_foreground = AssetLoaderHelper.LoadTexture("textures/disjoint/prod_solitaire/overlay");
+    public static Texture sigmarSprite = AssetLoaderHelper.LoadTexture("textures/disjoint/prod_solitaire/solitaire");
+    public static Texture sigmarHoverSprite = AssetLoaderHelper.LoadTexture("textures/disjoint/prod_solitaire/solitaire_hover");
 
     public static bool sigmarEmpty = false;
 
-    private static int sigmarWins_Disjoint = 0;
-    public static AtomType nullAtom;
+    public static int sigmarWins_Disjoint = 0;
     public static SolitaireState solitaireState_Disjoint;
 
-    public static Texture sigmarSprite, sigmarHoverSprite;
-
-    private static bool isQuintessenceSigmarGarden(SolitaireScreen screen) => new DynamicData(screen).Get<bool>("field_3874");
-
-    private static bool currentCampaignIsDisjoint(SolitaireScreen screen = null) {
-
-        return (CampaignLoader.CurrentCampaignIsDisjoint() && !DisjointAlchemy.CurrentlyInJournal()) || (DisjointAlchemy.CurrentlyInJournal() && JournalScreen.CurrentJournalName() == "The Journal of Disjoint Alchemy");
-
+    public static bool currentCampaignIsDisjoint() {
+        return (DisjointAlchemy.CurrentCampaignIsDisjoint() && !DisjointAlchemy.CurrentlyInJournal()) || (DisjointAlchemy.CurrentlyInJournal() && JournalScreen.CurrentJournalTitle().ToString() == "The Journal of Disjoint Alchemy");
     }
 
-    private static void setSigmarWins_Disjoint() => GameLogic.field_2434.field_2451.field_1929.method_858("Disjoint-SigmarWins", sigmarWins_Disjoint.method_453());
-    private static void getSigmarWins_Disjoint() { sigmarWins_Disjoint = GameLogic.field_2434.field_2451.field_1929.method_862<int>(new delegate_384<int>(int.TryParse), "Disjoint-SigmarWins").method_1090(0); }
+    public static void setSigmarWins_Disjoint() => GameLogic.instance.saveData.configFile.Set("Disjoint-SigmarWins", Utils.ToInvariant(sigmarWins_Disjoint));
+    public static void getSigmarWins_Disjoint() { sigmarWins_Disjoint = GameLogic.instance.saveData.configFile.Get<int>(new ConfigValueMap<int>(int.TryParse), "Disjoint-SigmarWins").GetOrDefault(0); }
     public static AtomType getAtomType(int i)
     {
         return new AtomType[17]
         {
-            SigmarGardenPatcher.nullAtom, // 00 - filler
-			class_175.field_1681, // 01 - lead
-			class_175.field_1683, // 02 - tin
-			class_175.field_1684, // 03 - iron
-			class_175.field_1682, // 04 - copper
-			class_175.field_1685, // 05 - silver
-			class_175.field_1686, // 06 - gold
-			class_175.field_1680, // 07 - quicksilver
-			class_175.field_1687, // 08 - vitae
-			class_175.field_1688, // 09 - mors
-			class_175.field_1675, // 10 - salt
-			class_175.field_1676, // 11 - air
-			class_175.field_1679, // 12 - water
-			class_175.field_1678, // 13 - fire
-			class_175.field_1677, // 14 - earth
-			class_175.field_1689, // 15 - repeat
-			class_175.field_1690, // 16 - quintessence
+            null, // 00 - filler
+			AtomTypes.lead, // 01 - lead
+			AtomTypes.tin, // 02 - tin
+			AtomTypes.iron, // 03 - iron
+			AtomTypes.copper, // 04 - copper
+			AtomTypes.silver, // 05 - silver
+			AtomTypes.gold, // 06 - gold
+			AtomTypes.quicksilver, // 07 - quicksilver
+			AtomTypes.vitae, // 08 - vitae
+			AtomTypes.mors, // 09 - mors
+			AtomTypes.salt, // 10 - salt
+			AtomTypes.air, // 11 - air
+			AtomTypes.water, // 12 - water
+			AtomTypes.fire, // 13 - fire
+			AtomTypes.earth, // 14 - earth
+			AtomTypes.repeat, // 15 - repeat
+			AtomTypes.quintessence, // 16 - quintessence
 		}[i];
     }
     public static void PostLoad()
     {
         getSigmarWins_Disjoint();
-        On.CampaignItem.method_825 += DetermineIfCampaignItemIsCompleted;
-        On.SolitaireGameState.method_1884 += DetermineIfMatchIsValid;
-        On.SolitaireGameState.method_1885 += DetermineIfSolitaireGameWasWon;
-        On.SolitaireScreen.method_50 += SolitaireScreen_Method_50;
-        On.class_16.method_50 += SolitaireRulesScreen_Method_50;
-        On.class_198.method_537 += getRandomizedSolitaireBoard;
-        On.class_135.method_272 += hotswapBoardTexture;
-
-        hookJournalEntryRender = new Hook(
-            typeof(JournalScreen).GetMethod("method_1040", BindingFlags.Instance | BindingFlags.NonPublic), OnJournalEntryRender
-        );
-
-        nullAtom = new AtomType()
-        {
-            field_2283 = (byte)0,
-            field_2284 = (string)class_134.method_254("Null"),
-            field_2285 = class_134.method_253("Elemental Null", string.Empty),
-            field_2286 = class_134.method_253("Null", string.Empty),
-            field_2287 = class_238.field_1989.field_81.field_598,
-            field_2288 = class_238.field_1989.field_81.field_599,
-            field_2290 = new class_106()
-            {
-                field_994 = class_238.field_1989.field_81.field_596,
-                field_995 = class_238.field_1989.field_81.field_597
-            }
-        };
-
-        //On.SolitaireScreen.method_47 += OnSolitaireScreen_Method_47;
-        hook_SolitaireScreen_method_1889 = new Hook(DisjointAlchemy.PrivateMethod<SolitaireScreen>("method_1889"), OnSolitaireScreen_Method_1889);
-        hook_SolitaireScreen_method_1890 = new Hook(DisjointAlchemy.PrivateMethod<SolitaireScreen>("method_1890"), OnSolitaireScreen_Method_1890);
-        hook_SolitaireScreen_method_1893 = new Hook(DisjointAlchemy.PrivateMethod<SolitaireScreen>("method_1893"), OnSolitaireScreen_Method_1893);
-        hook_SolitaireScreen_method_1894 = new Hook(DisjointAlchemy.PrivateMethod<SolitaireScreen>("method_1894"), OnSolitaireScreen_Method_1894);
-
-        sigmarSprite = class_235.method_615("textures/prod_solitaire/solitaire");
-        sigmarHoverSprite = class_235.method_615("textures/prod_solitaire/solitaire_hover");
     }
 
-	private static void hotswapBoardTexture(On.class_135.orig_method_272 orig, Texture texture, Vector2 position)
-	{
-		if (CampaignLoader.CurrentCampaignIsDisjoint())
-		{
-			//if (texture == class_238.field_1989.field_98.field_545) { texture = sigmar_background; }
-		}
-		orig(texture, position);
-		return;
-	}
-
-    private delegate SolitaireState orig_SolitaireScreen_method_1889(SolitaireScreen self);
-    private delegate void orig_SolitaireScreen_method_47(SolitaireScreen self, bool param_5434);
-    private delegate void orig_SolitaireScreen_method_1890(SolitaireScreen self, SolitaireState param_5433);
-    private delegate bool orig_SolitaireScreen_method_1893(SolitaireScreen self);
-    private delegate bool orig_SolitaireScreen_method_1894(SolitaireScreen self);
-
-    private delegate void orig_SolitaireScreen_method_1905(SolitaireScreen self, SolitaireState.struct_124 param_5446);
-
-    private static SolitaireState OnSolitaireScreen_Method_1889(orig_SolitaireScreen_method_1889 orig, SolitaireScreen screen_self)
-    {
-        if (currentCampaignIsDisjoint(screen_self)) return solitaireState_Disjoint;
-        return orig(screen_self);
-    }
-    private static void OnSolitaireScreen_Method_1890(orig_SolitaireScreen_method_1890 orig, SolitaireScreen screen_self, SolitaireState param_5433)
-    {
-        if (currentCampaignIsDisjoint(screen_self))
-        {
-            solitaireState_Disjoint = param_5433;
-            return;
-        }
-        orig(screen_self, param_5433);
-    }
-    private static bool OnSolitaireScreen_Method_1893(orig_SolitaireScreen_method_1894 orig, SolitaireScreen screen_self)
-    {
-        // used to show the rules button
-        if (currentCampaignIsDisjoint(screen_self))
-        {
-            var state = (SolitaireState)DisjointAlchemy.PrivateMethod<SolitaireScreen>("method_1889").Invoke(screen_self, new object[] { });
-            return new DynamicData(screen_self).Get<StoryPanel>("field_3872").method_2170() >= 8;
-        }
-        return orig(screen_self);
-    }
-    private static bool OnSolitaireScreen_Method_1894(orig_SolitaireScreen_method_1894 orig, SolitaireScreen screen_self)
-    {
-        // used to enable the NEW GAME button
-        if (currentCampaignIsDisjoint(screen_self))
-        {
-            var state = (SolitaireState)DisjointAlchemy.PrivateMethod<SolitaireScreen>("method_1889").Invoke(screen_self, new object[] { });
-            return new DynamicData(screen_self).Get<StoryPanel>("field_3872").method_2170() >= 1 && !state.method_1922();
-        }
-        return orig(screen_self);
-    }
-
-    public static void Unload()
-    {
-        hook_SolitaireScreen_method_1889.Dispose();
-        hook_SolitaireScreen_method_1890.Dispose();
-        hook_SolitaireScreen_method_1893.Dispose();
-        hook_SolitaireScreen_method_1894.Dispose();
-        hookJournalEntryRender.Dispose();
-    }
-
-    public static bool DetermineIfCampaignItemIsCompleted(On.CampaignItem.orig_method_825 orig, CampaignItem item_self)
-    {
-        bool ret = orig(item_self);
-        if (CampaignLoader.CurrentCampaignIsDisjoint())
-            ret = ret || (item_self.field_2324 == CampaignLoader.typeSolitaire && sigmarWins_Disjoint > 0);
-        return ret;
-    }
-
-    public static bool DetermineIfSolitaireGameWasWon(On.SolitaireGameState.orig_method_1885 orig, SolitaireGameState state_self)
-    {
-        bool ret = orig(state_self);
-        if (ret && currentCampaignIsDisjoint()) sigmarWins_Disjoint++;
-        setSigmarWins_Disjoint();
-        return ret;
-    }
-
-    public static bool DetermineIfMatchIsValid(On.SolitaireGameState.orig_method_1884 orig, SolitaireGameState state_self, HexIndex atomA, HexIndex atomB)
-    {
-        if (currentCampaignIsDisjoint())
-        {
-            if (!HexesAreCompatible(atomA, atomB)) {return false;}
-        }
-        return orig(state_self, atomA, atomB);
-    }
-
-    public static void SolitaireScreen_Method_50(On.SolitaireScreen.orig_method_50 orig, SolitaireScreen screen_self, float timeDelta)
-    {
-        if (currentCampaignIsDisjoint(screen_self))
-        {
-            var screen_dyn = new DynamicData(screen_self);
-            screen_dyn.Set("field_3871", sigmarWins_Disjoint);
-            var currentStoryPanel = screen_dyn.Get<StoryPanel>("field_3872");
-            var stringArray = new DynamicData(currentStoryPanel).Get<string[]>("field_4093");
-            if (!stringArray.Any(x => x.Contains("Jerin") || x.Contains("Serena")))
-            {
-                var class264 = new class_264("solitaire-Disjoint");
-                class264.field_2090 = solitaireID;
-                screen_dyn.Set("field_3872", new StoryPanel((Maybe<class_264>)class264, true));
-            }
-        }
-
-        orig(screen_self, timeDelta);
-
-        if (!currentCampaignIsDisjoint(screen_self)) return;
-
-        //Some 'draw metals remaining' code from RMC solitaire; I don't know how much of this is safe to yank out, so I just delabled the actual draw-numbers-pls line.
-        SolitaireScreen.class_412 class412 = new SolitaireScreen.class_412();
-        class412.field_3883 = screen_self;
-        class412.field_3886 = timeDelta;
-        if (GameLogic.field_2434.method_938() is class_16) return;
-
-        Vector2 vector2_1 = new Vector2(1516f, 922f);
-        //class412.field_3884 = (class_115.field_1433 / 2 - vector2_1 / 2 + new Vector2(-2f, -11f)).Rounded();
-
-        Vector2 offset = (class_115.field_1433 / 2 - new Vector2(1516f, 922f) / 2 + new Vector2(-2f, -11f)).Rounded();
-
-        class_135.method_272(sigmar_foreground, offset + new Vector2(597f, 92f));
-    }
-
-    static bool HexesAreCompatible(HexIndex hexA, HexIndex hexB)
+    public static bool HexesAreCompatible(HexIndex hexA, HexIndex hexB)
     {
         HexIndex leftHex = hexA.Q + hexA.R < hexB.Q + hexB.R ? hexA : hexB;
         HexIndex rightHex = leftHex == hexB ? hexA : hexB;
@@ -253,18 +79,14 @@ public class SigmarGardenPatcher
         return true;
     }
 
-    public static SolitaireGameState getRandomizedSolitaireBoard(On.class_198.orig_method_537 orig, bool quintessenceSigmar)
+    public static SolitaireGameState getRandomizedSolitaireBoard()
     {
-        int RandomInt(int max) => class_269.field_2103.method_299(0, max);
-
-        if (!currentCampaignIsDisjoint()) return orig(quintessenceSigmar);
-
+        int RandomInt(int max) => PlatformBridge.rng.GetInt(0, max);
         // try to find solitaire-bitboards.dat
         string subpath = "/Content/solitaire-bitboards.txt";
-        string filepath;
-        if (!DisjointAlchemy.findModMetaFilepath("DisjointAlchemy", out filepath) || !File.Exists(filepath + subpath))
+        if (DisjointAlchemy.FilePath == null || !File.Exists(DisjointAlchemy.FilePath + subpath))
         {
-            Logger.Log("[DisjointAlchemy] Could not find 'solitaire-bitboards.txt' in the folder '" + filepath + "/Content/'");
+            Logger.Log("[DisjointAlchemy] Could not find 'solitaire-bitboards.txt' in the folder '" + DisjointAlchemy.FilePath + "/Content/'");
             throw new Exception("getRandomizedSolitaireBoard: Solitaire data is missing.");
         }
 
@@ -272,7 +94,7 @@ public class SigmarGardenPatcher
         HexIndex center = new HexIndex(2,3);
         List<HexIndex> marbleHexes = new();
 
-        string[] bitStrings = File.ReadAllLines(filepath + subpath);
+        string[] bitStrings = File.ReadAllLines(DisjointAlchemy.FilePath + subpath);
 
         //const int bytesPerBitboard = 16;
 
@@ -332,7 +154,7 @@ public class SigmarGardenPatcher
 
         while (!boardGenerated)
         {
-            List<HexIndex> temporaryMarbles = [.. marbleHexes];
+            List<HexIndex> temporaryMarbles = marbleHexes.Select(p => new HexIndex(p.Q, p.R)).ToList();
             moveHistory = new();
             while (temporaryMarbles.Count > 0)
             {
@@ -346,7 +168,7 @@ public class SigmarGardenPatcher
                 if (choosableMarbles.Count >= 2)
                 {
                     HexIndex marbleA = new HexIndex(100,100), marbleB = new HexIndex(100,100);
-                    List<HexIndex> MarbleAs = [.. choosableMarbles];
+                    List<HexIndex> MarbleAs = choosableMarbles.Select(p => new HexIndex(p.Q, p.R)).ToList();;
                     
                     while (MarbleAs.Count >= 1) {
 
@@ -474,7 +296,7 @@ public class SigmarGardenPatcher
             if (hexes.Item1 == hexes.Item2)
             {
                 // the Gold match!
-                solitaireGameState.field_3864.Add(hexes.Item1, getAtomType(6));
+                solitaireGameState.atoms.Add(hexes.Item1, getAtomType(6));
                 placedGold = true;
                 continue;
             }
@@ -504,50 +326,127 @@ public class SigmarGardenPatcher
                 match = metalBag[0];
                 metalBag.Remove(match);
             }
-            solitaireGameState.field_3864.Add(hexes.Item1, match.Item1);
-            solitaireGameState.field_3864.Add(hexes.Item2, match.Item2);
+            solitaireGameState.atoms.Add(hexes.Item1, match.Item1);
+            solitaireGameState.atoms.Add(hexes.Item2, match.Item2);
         }
 
         // tada! randomized board
         return solitaireGameState;
     }
+}
+}
 
-    private delegate void orig_method_1040(JournalScreen self, Puzzle puzzle, Vector2 pos, bool big);
-    private static void OnJournalEntryRender(orig_method_1040 orig, JournalScreen self, Puzzle puzzle, Vector2 pos, bool big)
+public class patch_SolitaireScreen : SolitaireScreen {
+    public patch_SolitaireScreen(SolitaireType solitaireType) : base(solitaireType) {}
+
+    [MonoModIgnore]
+    private StoryPanel storyPanel;
+
+    private extern SolitaireState orig_GetState();
+    private SolitaireState GetState()
     {
-        if (puzzle.field_2766 == "production-sigmar")
-        {
-            Texture puzzleBg = big ? class_238.field_1989.field_88.field_894 : class_238.field_1989.field_88.field_895;
-            class_256 tick = sigmarWins_Disjoint > 0 /* TODO: count wins */ ? class_238.field_1989.field_96.field_879 : class_238.field_1989.field_96.field_882;
-            class_256 divider = big ? class_238.field_1989.field_88.field_892 : class_238.field_1989.field_88.field_893;
-            Bounds2 bounds = Bounds2.WithSize(pos, puzzleBg.field_2056.ToVector2());
-            bool hover = bounds.Contains(Input.MousePos());
-            class_135.method_290("Sigmar's Garden", pos + new Vector2(9, -19), class_238.field_1990.field_2144, class_181.field_1718, 0, 1f, 0.6f, float.MaxValue, float.MaxValue, 0, new Color(), null, int.MaxValue, false, true);
-            UI.DrawTexture(tick, pos + new Vector2(puzzleBg.field_2056.X - 27, -23f));
-            UI.DrawTexture(puzzleBg, pos);
-            UI.DrawTexture(divider, pos + new Vector2(7f, -34f));
-            UI.DrawTexture(hover ? sigmarHoverSprite : sigmarSprite, bounds.Min + new Vector2(13f, 13f));
-            if (hover && Input.IsLeftClickPressed())
-            {
-                var solitaireScreen = new SolitaireScreen(true);
-                UI.OpenScreen(solitaireScreen);
-                class_238.field_1991.field_1821.method_28(1f);
-            }
-        }
-        else { orig(self, puzzle, pos, big); }
+        if (Solitaire.currentCampaignIsDisjoint()) return Solitaire.solitaireState_Disjoint;
+        return orig_GetState();
     }
 
-    
-	public static void SolitaireRulesScreen_Method_50(On.class_16.orig_method_50 orig, class_16 screen_self, float timeDelta)
-	{
-		if (currentCampaignIsDisjoint())
-		{
-			var screen_dyn = new DynamicData(screen_self);
-			string rule = "Select a free marble, and then pick a matching marble to remove them both from the board.\n\nMarbles in different chambers can only be matched if a conduit is connecting the two chambers.";
-			screen_dyn.Set("field_64", class_134.method_253(rule, string.Empty));
-		}
+    private extern void orig_SetState(SolitaireState state);
+    private void SetState(SolitaireState state)
+    {
+        if (Solitaire.currentCampaignIsDisjoint())
+        {
+            Solitaire.solitaireState_Disjoint = state;
+            return;
+        }
+        orig_SetState(state);
+    }
 
-		orig(screen_self, timeDelta);
-	}
+    private extern bool orig_CanGenerateNewGame();
+    private bool CanGenerateNewGame()
+    {
+        // used to enable the NEW GAME button
+        if (Solitaire.currentCampaignIsDisjoint())
+        {
+            return storyPanel.GetCompletion() >= 1 && !GetState().IsRevealNewGame();
+        }
+        return orig_CanGenerateNewGame();
+    }
+
+
+    private extern void orig_RenderFrame(float timeDelta);
+    public void RenderFrame(float timeDelta)
+    {
+        if (Solitaire.currentCampaignIsDisjoint())
+        {
+            var screen_dyn = new DynamicData((SolitaireScreen)(object)this);
+            screen_dyn.Set("solitaireStat", Solitaire.sigmarWins_Disjoint);
+            var currentStoryPanel = screen_dyn.Get<StoryPanel>("storyPanel");
+            var stringArray = new DynamicData(currentStoryPanel).Get<string[]>("parsedText");
+            if (!stringArray.Any(x => x.Contains("Jerin") || x.Contains("Serena")))
+            {
+                var myVignette = new LocalizedVignette("solitaire-Disjoint");
+                myVignette.vignettePath = Solitaire.solitaireID;
+                screen_dyn.Set("storyPanel", new StoryPanel((Maybe<LocalizedVignette>)myVignette, true));
+            }
+        }
+
+        orig_RenderFrame(timeDelta);
+
+        if (!Solitaire.currentCampaignIsDisjoint()) return;
+
+        // Render production overlay
+        Vector2 offset = (InputManager.screenSize / 2 - new Vector2(1516f, 922f) / 2 + new Vector2(-2f, -11f)).Rounded();
+        TextureRenderer.Render(Solitaire.sigmar_foreground, offset + new Vector2(597f, 92f));
+    }
+
+}
+
+public class patch_SolitaireFileManager : SolitaireScreen {
+    public patch_SolitaireFileManager(SolitaireType solitaireType) : base(solitaireType) {}
+
+    public static extern SolitaireGameState orig_GetRandomFromFile(SolitaireType type);
+    public static SolitaireGameState GetRandomFromFile(SolitaireType type) {
+        return Solitaire.currentCampaignIsDisjoint() ? Solitaire.getRandomizedSolitaireBoard() : orig_GetRandomFromFile(type);
+    }
+}
+
+// remember to patch in a change to the help screen, maybe
+
+public class patch_SolitaireGameState : SolitaireGameState {
+
+
+    public extern bool orig_IsEmpty();
+    public bool IsEmpty()
+    {
+        bool ret = orig_IsEmpty();
+        if (ret && Solitaire.currentCampaignIsDisjoint()) Solitaire.sigmarWins_Disjoint++;
+        Solitaire.setSigmarWins_Disjoint();
+        return ret;
+    }
+
+    public extern bool orig_IsValidPair(HexIndex atomA, HexIndex atomB);
+    public bool IsValidPair(HexIndex atomA, HexIndex atomB)
+    {
+        if (Solitaire.currentCampaignIsDisjoint())
+        {
+            if (!Solitaire.HexesAreCompatible(atomA, atomB)) {return false;}
+        }
+        return orig_IsValidPair(atomA, atomB);
+    }
+
+}
+
+public class patch_CampaignItem : CampaignItem {
+    public patch_CampaignItem(string itemId, LocString itemName, CampaignItemType itemType, Maybe<Puzzle> puzzle, UnlockRequirement requirement, MusicTrack musicTrack, Sound fanfare, Campaign campaign) : base(itemId, itemName, itemType, puzzle, requirement, musicTrack, fanfare, campaign) {}
+
+    [MonoModIgnore]
+    public CampaignItemType itemType;
+
+    public extern bool orig_IsComplete();
+    public bool IsComplete()
+    {
+        if (Solitaire.currentCampaignIsDisjoint() && itemType == CampaignItemType.Solitaire)
+            return Solitaire.sigmarWins_Disjoint > 0;
+        return orig_IsComplete();
+    }
 
 }

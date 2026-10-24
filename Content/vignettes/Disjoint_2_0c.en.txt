@@ -1,3 +1,5 @@
+Background: textures/disjoint/backgrounds/background_3
+Title: A Nearby Tavern
 Portraits: Serena, Jerin
 
 Serena: And... ugh. Maybe I simply wasn't prepared for that kind of relationship.

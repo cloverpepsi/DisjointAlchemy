@@ -1,0 +1,156 @@
+{
+  "Id": "Disjoint_2_3",
+  "Name": "\u003CErasable Ink\u003E",
+  "Permissions": "Duplication, Projection, CoreTools",
+  "Inputs": [
+    {
+      "Name": "\u003CBipartite Tin Amalgam\u003E",
+      "Atoms": {
+        "0,0": {
+          "Type": "om:tin"
+        },
+        "1,0": {
+          "Type": "om:quicksilver"
+        }
+      }
+    },
+    {
+      "Name": "\u003CBipartite Water\u003E",
+      "Atoms": {
+        "1,0": {
+          "Type": "om:water"
+        },
+        "0,2": {
+          "Type": "om:water"
+        }
+      }
+    }
+  ],
+  "Outputs": [
+    {
+      "Name": "\u003CErasable Ink, Part A\u003E",
+      "Atoms": {
+        "0,0": {
+          "Type": "om:iron"
+        },
+        "1,0": {
+          "Type": "om:quicksilver"
+        },
+        "1,1": {
+          "Type": "om:salt"
+        },
+        "0,1": {
+          "Type": "om:water"
+        },
+        "1,-1": {
+          "Type": "om:water"
+        },
+        "-1,2": {
+          "Type": "om:salt"
+        },
+        "-1,0": {
+          "Type": "om:salt"
+        }
+      },
+      "Bonds": [
+        {
+          "Types": [
+            "om:standard"
+          ],
+          "Pos1": {
+            "Q": 1,
+            "R": 1
+          },
+          "Pos2": {
+            "Q": 1,
+            "R": 0
+          }
+        },
+        {
+          "Types": [
+            "om:standard"
+          ],
+          "Pos1": {
+            "Q": 0,
+            "R": 1
+          },
+          "Pos2": {
+            "Q": 0,
+            "R": 0
+          }
+        },
+        {
+          "Types": [
+            "om:standard"
+          ],
+          "Pos1": {
+            "Q": 0,
+            "R": 0
+          },
+          "Pos2": {
+            "Q": 1,
+            "R": -1
+          }
+        }
+      ]
+    },
+    {
+      "Name": "\u003CErasable Ink, Part B\u003E",
+      "Atoms": {
+        "0,0": {
+          "Type": "om:tin"
+        },
+        "2,0": {
+          "Type": "om:salt"
+        },
+        "-1,1": {
+          "Type": "om:water"
+        },
+        "1,0": {
+          "Type": "om:water"
+        }
+      },
+      "Bonds": [
+        {
+          "Types": [
+            "om:standard"
+          ],
+          "Pos1": {
+            "Q": 1,
+            "R": 0
+          },
+          "Pos2": {
+            "Q": 2,
+            "R": 0
+          }
+        },
+        {
+          "Types": [
+            "om:standard"
+          ],
+          "Pos1": {
+            "Q": 0,
+            "R": 0
+          },
+          "Pos2": {
+            "Q": 1,
+            "R": 0
+          }
+        },
+        {
+          "Types": [
+            "om:standard"
+          ],
+          "Pos1": {
+            "Q": -1,
+            "R": 1
+          },
+          "Pos2": {
+            "Q": 0,
+            "R": 0
+          }
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,146 @@
+{
+  "Id": "Disjoint_3_5",
+  "Name": "\u003CFloral Fragrance\u003E",
+  "Permissions": "Duplication, LifeAndDeath, Disposal, CoreTools, BaronWheel",
+  "Inputs": [
+    {
+      "Name": "\u003CBipartite Salt\u003E",
+      "Atoms": {
+        "0,0": {
+          "Type": "om:salt"
+        },
+        "-1,2": {
+          "Type": "om:salt"
+        }
+      }
+    },
+    {
+      "Name": "\u003CBipartite Stabilized Copper\u003E",
+      "Atoms": {
+        "0,0": {
+          "Type": "om:copper"
+        },
+        "2,0": {
+          "Type": "om:salt"
+        }
+      }
+    }
+  ],
+  "Outputs": [
+    {
+      "Name": "\u003CFloral Fragrance\u003E",
+      "Atoms": {
+        "0,-1": {
+          "Type": "om:earth"
+        },
+        "0,-2": {
+          "Type": "om:salt"
+        },
+        "1,-1": {
+          "Type": "om:water"
+        },
+        "-1,0": {
+          "Type": "om:water"
+        },
+        "0,0": {
+          "Type": "om:copper"
+        },
+        "-1,1": {
+          "Type": "om:vitae"
+        },
+        "1,0": {
+          "Type": "om:vitae"
+        },
+        "-2,0": {
+          "Type": "om:air"
+        },
+        "2,-2": {
+          "Type": "om:air"
+        },
+        "0,1": {
+          "Type": "om:salt"
+        }
+      },
+      "Bonds": [
+        {
+          "Types": [
+            "om:standard"
+          ],
+          "Pos1": {
+            "Q": 0,
+            "R": 0
+          },
+          "Pos2": {
+            "Q": 0,
+            "R": -1
+          }
+        },
+        {
+          "Types": [
+            "om:standard"
+          ],
+          "Pos1": {
+            "Q": -1,
+            "R": 0
+          },
+          "Pos2": {
+            "Q": 0,
+            "R": 0
+          }
+        },
+        {
+          "Types": [
+            "om:standard"
+          ],
+          "Pos1": {
+            "Q": 0,
+            "R": 0
+          },
+          "Pos2": {
+            "Q": 1,
+            "R": -1
+          }
+        },
+        {
+          "Types": [
+            "om:standard"
+          ],
+          "Pos1": {
+            "Q": -1,
+            "R": 1
+          },
+          "Pos2": {
+            "Q": 0,
+            "R": 1
+          }
+        },
+        {
+          "Types": [
+            "om:standard"
+          ],
+          "Pos1": {
+            "Q": 0,
+            "R": 1
+          },
+          "Pos2": {
+            "Q": 1,
+            "R": 0
+          }
+        },
+        {
+          "Types": [
+            "om:standard"
+          ],
+          "Pos1": {
+            "Q": 0,
+            "R": 1
+          },
+          "Pos2": {
+            "Q": 0,
+            "R": 0
+          }
+        }
+      ]
+    }
+  ]
+}

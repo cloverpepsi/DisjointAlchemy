@@ -1,0 +1,37 @@
+{
+  "Id": "Disjoint_0_3",
+  "Name": "\u003CWater Polarization\u003E",
+  "Permissions": "Duplication, CoreTools, BaronWheel",
+  "Inputs": [
+    {
+      "Name": "\u003CDepolarized Tripartite Water\u003E",
+      "Atoms": {
+        "1,0": {
+          "Type": "om:salt"
+        },
+        "3,0": {
+          "Type": "om:salt"
+        },
+        "1,2": {
+          "Type": "om:water"
+        }
+      }
+    }
+  ],
+  "Outputs": [
+    {
+      "Name": "\u003CPolarized Tripartite Water\u003E",
+      "Atoms": {
+        "1,0": {
+          "Type": "om:salt"
+        },
+        "3,0": {
+          "Type": "om:water"
+        },
+        "1,2": {
+          "Type": "om:water"
+        }
+      }
+    }
+  ]
+}

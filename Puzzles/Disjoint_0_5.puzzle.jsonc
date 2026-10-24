@@ -1,0 +1,65 @@
+{
+  "Id": "Disjoint_0_5",
+  "Name": "\u003CBipartite Alcohol\u003E",
+  "Permissions": "Duplication, CoreTools, BaronWheel",
+  "Inputs": [
+    {
+      "Name": "\u003CBipartite Salt\u003E",
+      "Atoms": {
+        "1,0": {
+          "Type": "om:salt"
+        },
+        "2,0": {
+          "Type": "om:salt"
+        }
+      }
+    }
+  ],
+  "Outputs": [
+    {
+      "Name": "\u003CBipartite Alcohol\u003E",
+      "Atoms": {
+        "1,0": {
+          "Type": "om:salt"
+        },
+        "-1,1": {
+          "Type": "om:salt"
+        },
+        "0,1": {
+          "Type": "om:water"
+        },
+        "0,2": {
+          "Type": "om:fire"
+        }
+      },
+      "Bonds": [
+        {
+          "Types": [
+            "om:standard"
+          ],
+          "Pos1": {
+            "Q": 1,
+            "R": 0
+          },
+          "Pos2": {
+            "Q": 0,
+            "R": 1
+          }
+        },
+        {
+          "Types": [
+            "om:standard"
+          ],
+          "Pos1": {
+            "Q": -1,
+            "R": 1
+          },
+          "Pos2": {
+            "Q": 0,
+            "R": 1
+          }
+        }
+      ]
+    }
+  ]
+}

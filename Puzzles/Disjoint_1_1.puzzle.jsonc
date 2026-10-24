@@ -1,0 +1,115 @@
+{
+  "Id": "Disjoint_1_1",
+  "Name": "\u003CEffulgent Glass Polish\u003E",
+  "Permissions": "Projection, Rejection, CoreTools",
+  "Inputs": [
+    {
+      "Name": "\u003CBipartite Silvered Lead\u003E",
+      "Atoms": {
+        "0,0": {
+          "Type": "om:silver"
+        },
+        "2,0": {
+          "Type": "om:salt"
+        },
+        "2,1": {
+          "Type": "om:lead"
+        },
+        "3,-1": {
+          "Type": "om:lead"
+        }
+      },
+      "Bonds": [
+        {
+          "Types": [
+            "om:standard"
+          ],
+          "Pos1": {
+            "Q": 2,
+            "R": 0
+          },
+          "Pos2": {
+            "Q": 2,
+            "R": 1
+          }
+        },
+        {
+          "Types": [
+            "om:standard"
+          ],
+          "Pos1": {
+            "Q": 2,
+            "R": 0
+          },
+          "Pos2": {
+            "Q": 3,
+            "R": -1
+          }
+        }
+      ]
+    }
+  ],
+  "Outputs": [
+    {
+      "Name": "\u003CEffulgent Glass Polish\u003E",
+      "Atoms": {
+        "0,0": {
+          "Type": "om:tin"
+        },
+        "2,0": {
+          "Type": "om:salt"
+        },
+        "2,1": {
+          "Type": "om:tin"
+        },
+        "3,-1": {
+          "Type": "om:tin"
+        },
+        "1,0": {
+          "Type": "om:quicksilver"
+        }
+      },
+      "Bonds": [
+        {
+          "Types": [
+            "om:standard"
+          ],
+          "Pos1": {
+            "Q": 2,
+            "R": 0
+          },
+          "Pos2": {
+            "Q": 2,
+            "R": 1
+          }
+        },
+        {
+          "Types": [
+            "om:standard"
+          ],
+          "Pos1": {
+            "Q": 2,
+            "R": 0
+          },
+          "Pos2": {
+            "Q": 3,
+            "R": -1
+          }
+        },
+        {
+          "Types": [
+            "om:standard"
+          ],
+          "Pos1": {
+            "Q": 1,
+            "R": 0
+          },
+          "Pos2": {
+            "Q": 2,
+            "R": 0
+          }
+        }
+      ]
+    }
+  ]
+}

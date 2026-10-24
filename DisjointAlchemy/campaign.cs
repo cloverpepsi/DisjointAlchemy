@@ -1,202 +1,139 @@
-﻿//using Mono.Cecil.Cil;
-//using MonoMod.Cil;
-//using MonoMod.RuntimeDetour;
-//using MonoMod.Utils;
+﻿﻿#pragma warning disable CS1591 // Missing XML comment for publicly visible type or member
+#pragma warning disable CS0626 // Method, operator, or accessor is marked external and has no attributes on it
+
+//using Mono.Cecil.Cil;
+using MonoMod;
+using MonoMod.Cil;
+using MonoMod.Utils;
 using Quintessential;
-using Quintessential.Serialization;
+//using Quintessential.Serialization;
 //using Quintessential.Settings;
 //using SDL2;
 using System;
 using System.IO;
 using System.Linq;
 using System.Collections.Generic;
+
 //using System.Globalization;
-//using System.Reflection;
+using System.Reflection;
+using DisjointAlchemy;
 
-// all this code is taken from True Animismus Campaign and pared down, which I believe is taken from Reductive Metallurgy and pared down.
+public class patch_OptionsScreen : OptionsScreen {
 
-namespace DisjointAlchemy {
+    [MonoModIgnore]
+    public CampaignItemType itemType;
 
-//using PartType = class_139;
-//using Permissions = enum_149;
-//using BondType = enum_126;
-//using BondSite = class_222;
-//using AtomTypes = class_175;
-//using PartTypes = class_191;
-using Texture = class_256;
-//using Song = class_186;
-//using Tip = class_215;
-//using Font = class_1;
+    public extern void orig_RenderFrame(float timeDelta);
+	public void RenderFrame(float timeDelta)
+	{
+		if (Solitaire.currentCampaignIsDisjoint())
+		{
+			var screen_dyn = new DynamicData((OptionsScreen)(object)this);
+			var currentStoryPanel = screen_dyn.Get<StoryPanel>("storyPanel");
+			var stringArray = new DynamicData(currentStoryPanel).Get<string[]>("parsedText");
+			if (!stringArray.Any(x => x.Contains("Serena") || x.Contains("Jerin") || x.Contains("Talma")))
+			{
+				var myVignette = new LocalizedVignette("options-Disjoint");
+				myVignette.vignettePath = "options-Disjoint";
+				screen_dyn.Set("storyPanel", new StoryPanel((Maybe<LocalizedVignette>)myVignette, false));
+			}
+		}
+		orig_RenderFrame(timeDelta);
+	}
+}
 
-public static class CampaignLoader
-{
-    const string FirstPuzzleID = "Disjoint_0_0c";
-    private static Campaign campaign_self;
-    private static AdvancedContentModelDisjoint campaign_model;
+public class patch_StoryPanel : StoryPanel {
+    public patch_StoryPanel(Maybe<LocalizedVignette> vignette, bool b) : base(vignette, b){}
+    public extern void orig_RenderFrame(float timeDelta, Vector2 pos, int index, Tuple<int, LocString>[] tuple);
+	public void RenderFrame(float timeDelta, Vector2 pos, int index, Tuple<int, LocString>[] tuple)
+	{
 
-    public const enum_129 typePuzzle = (enum_129)0;
-    public const enum_129 typeCutscene = (enum_129)1;
-    public const enum_129 typeDocument = (enum_129)2;
-    public const enum_129 typeSolitaire = (enum_129)3;
+		if (Solitaire.currentCampaignIsDisjoint() && tuple.Length == 2 && tuple[0].Item2.ToString() == "Complete the prologue")
+		{
+			// then we're doing the options code while in the Disjoint campaign
+			// hijack the inputs so we draw it our way
+			bool flag = DisjointAlchemy.DisjointAlchemy.optionsUnlock.IsComplete();
+			index = flag ? 1 : 0;
+		}
 
-    public static bool CurrentCampaignIsDisjoint() => campaign_self == Campaigns.field_2330;
-    public static AdvancedContentModelDisjoint getModel() => campaign_model;
+		orig_RenderFrame(timeDelta, pos, index, tuple);
+	}
+}
 
-    /////////////////////////////////////////////////////////////////////////////////////////////////
-    // helpers
-    private static void patchCampaign(Campaign campaign)
-    {
+public class patch_JournalScreen : JournalScreen {
+    public patch_JournalScreen(bool showDifficultyWarningIfNeeded) : base(showDifficultyWarningIfNeeded) {}
 
-        foreach (CampaignChapter campaignChapter in campaign.field_2309)
+    private extern void orig_RenderPuzzleSelect(Puzzle puzzle, Vector2 pos, bool isLarge);
+    private void RenderPuzzleSelect(Puzzle puzzle, Vector2 pos, bool isLarge) {
+
+        Texture puzzleBg = isLarge ? Assets.textures.journal.puzzle_large : Assets.textures.journal.puzzle_small;
+        Bounds2 bounds = Bounds2.WithSize(pos, puzzleBg.size.ToVector2());
+        bool hover = bounds.Contains(InputManager.MousePos());
+
+        if (puzzle.puzzleId == "production-sigmar")
         {
-            foreach (CampaignItem campaignItem in campaignChapter.field_2314)
+            Texture tick = true /* TODO: count wins */ ? Assets.textures.puzzle_select.list_checked : Assets.textures.puzzle_select.list_unchecked;
+            Texture divider = isLarge ? Assets.textures.journal.divider_large : Assets.textures.journal.divider_small;
+            TextureRenderer.RenderText("Sigmar's Garden", pos + new Vector2(9, -19), Assets.fonts.crimson_15, UIConsts.lightTextColor, 0, 1f, 0.6f, float.MaxValue, float.MaxValue, 0, new Color(), null, int.MaxValue, false, true);
+            UI.DrawTexture(tick, pos + new Vector2(puzzleBg.size.X - 27, -23f));
+            UI.DrawTexture(puzzleBg, pos);
+            UI.DrawTexture(divider, pos + new Vector2(7f, -34f));
+            UI.DrawTexture(hover ? Solitaire.sigmarHoverSprite : Solitaire.sigmarSprite, bounds.Min + new Vector2(13f, 13f));
+            if (hover && InputManager.IsClickPressed(MouseButtonType.LeftClick))
             {
-                string field2322 = campaignItem.field_2322;
-                if (campaignItem.field_2325.method_1085())
-                {
-                    Puzzle puzzle = campaignItem.field_2325.method_1087();
-                    puzzle.field_2766 = field2322;
-                    Array.Resize(ref Puzzles.field_2816, Puzzles.field_2816.Length + 1);
-                    Puzzles.field_2816[Puzzles.field_2816.Length - 1] = puzzle;
-                    foreach (PuzzleInputOutput puzzleInputOutput in puzzle.field_2770.Union(puzzle.field_2771))
-                    {
-                        if (!puzzleInputOutput.field_2813.field_2639.method_1085())
-                            puzzleInputOutput.field_2813.field_2639 = (Maybe<LocString>)class_134.method_253("Molecule", string.Empty);
-                    }
-                }
+                var solitaireScreen = new SolitaireScreen(SolitaireType.Normal);
+                UI.OpenScreen(solitaireScreen);
+                Assets.sounds.click_button.PlaySound(1f);
             }
         }
-        
-    }
 
-    public static void Load()
-    {
-        // load campaign model
-        string filepath;
-        if (!DisjointAlchemy.findModMetaFilepath("DisjointAlchemy", out filepath) || !File.Exists(filepath + "/Puzzles/Disjoint.advanced.yaml"))
+        else if (puzzle.puzzleId == "Disjoint-j01-polarized-salts")
         {
-            Logger.Log("[DisjointAlchemy] Could not find 'Disjoint.advanced.yaml' in the folder '" + filepath + "/Puzzles/'");
-            throw new Exception("modifyCampaignDisjoint: Campaign data is missing.");
-        }
-        using (StreamReader streamReader = new StreamReader(filepath + "/Puzzles/Disjoint.advanced.yaml"))
-        {
-            campaign_model = YamlHelper.Deserializer.Deserialize<AdvancedContentModelDisjoint>(streamReader);
-        }
 
-        // hooking
-        On.Solution.method_1958 += Solution_Method_1958;
-    }
-
-    /////////////////////////////////////////////////////////////////////////////////////////////////
-    // tips
-    static void initializeTips()
-    {
-        // manually load the puzzle file needed for tips
-        string subpath = "/Puzzles/Disjoint-ch0-0-modding-sandbox.puzzle.yaml";
-        string filepath;
-        if (!DisjointAlchemy.findModMetaFilepath("DisjointAlchemy", out filepath) || !File.Exists(filepath + subpath))
-        {
-            Logger.Log("[DisjointAlchemy] Could not find 'Disjoint-ch0-0-modding-sandbox.puzzle.yaml in the folder '" + filepath + "/Puzzles/'");
-            throw new Exception("LoadPuzzleContent: Tip data is missing.");
-        }
-        var tipsPuzzle = PuzzleModel.FromModel(YamlHelper.Deserializer.Deserialize<PuzzleModel>(File.ReadAllText(filepath + subpath)));
-
-        Array.Resize(ref Puzzles.field_2816, Puzzles.field_2816.Length + 1);
-        Puzzles.field_2816[Puzzles.field_2816.Length - 1] = tipsPuzzle;
-    }
-
-    /////////////////////////////////////////////////////////////////////////////////////////////////
-    // puzzle-loader functions
-    public static Dictionary<string, Action<Puzzle>> LevelLoaders = new()
-    {
-        {FirstPuzzleID, LoadFirstPuzzle }
-    };
-
-    static void LoadFirstPuzzle(Puzzle puzzle) => StoryPanelPatcher.setOptionsUnlock(puzzle);
-
-    #region polymer input/output puzzle loaders
-
-    static void LoadPolymerOutputs(Puzzle puzzle) // REMOVE THIS ONCE QUINTESSENTIAL FIXES THE BUG
-    {
-        for (int i = 0; i < puzzle.field_2771.Length; i++)
-        {
-            var output = puzzle.field_2771[i];
-            output.field_2813 = MoleculeEditorScreen.method_1133(output.field_2813, class_181.field_1716);
-        }
-    }
-
-    #endregion
-
-    /////////////////////////////////////////////////////////////////////////////////////////////////
-    // main functions
-
-    public static void modifyCampaign()
-    {
-
-        // fetch campaign data
-        Logger.Log(QuintessentialLoader.AllCampaigns);
-        foreach (Campaign campaign in QuintessentialLoader.AllCampaigns)
-        {
-            Logger.Log("Checking for campaign.QuintTitle == \"Disjoint Alchemy\"...");
-            if (campaign.QuintTitle == "Disjoint Alchemy")
+            bool num = GameLogic.instance.saveData.IsComplete(puzzle);
+            Texture texture = isLarge ? Assets.textures.journal.puzzle_large : Assets.textures.journal.puzzle_small;
+            Texture texture2 = isLarge ? Assets.textures.journal.divider_large : Assets.textures.journal.divider_small;
+            Texture texture3 = num ? Assets.textures.puzzle_select.list_checked : Assets.textures.puzzle_select.list_unchecked;
+            float num2 = isLarge ? 468 : 294;
+            string text = puzzle.journalAuthor.HasValue() ? $"{puzzle.puzzleName} ({puzzle.journalAuthor.GetValue()})" : ((string)puzzle.puzzleName);
+            if (TextureRenderer.RenderText(text, pos + new Vector2(9f, -19f), Assets.fonts.crimson_15, UIConsts.lightTextColor, TextAlignment.Left, 1f, 0.6f, float.MaxValue, float.MaxValue, 0, default(Color), null, int.MaxValue, calculateBounds: true, doRender: false).Width < num2)
             {
-                campaign_self = campaign;
-                patchCampaign(campaign_self);
-                break;
+                num2 = float.MaxValue;
+            }
+            TextureRenderer.RenderText(text, pos + new Vector2(9f, -19f), Assets.fonts.crimson_15, UIConsts.lightTextColor, TextAlignment.Left, 1f, 0.6f, float.MaxValue, num2, 0, default(Color), null, int.MaxValue, calculateBounds: false, doRender: true);
+            TextureRenderer.Render(texture3, pos + new Vector2(texture.size.X - 27, -23f));
+            TextureRenderer.Render(texture2, pos + new Vector2(isLarge ? 7 : 7, -34f));
+            TextureRenderer.Render(texture, pos);
+			TextureRenderer.Render(Editor.RenderMoleculeForDisplay(new MoleculeBuilder()
+                .Push(-1, 0)
+                .Atom(AtomTypes.vitae)
+                .Bond(1, 0)
+                .Atom(AtomTypes.salt)
+				.Bond(1, -1)
+				.Atom(AtomTypes.mors)
+				.Pop()
+                .Push(-1,2)
+				.Atom(AtomTypes.vitae)
+				.Bond(1, 0)
+				.Atom(AtomTypes.salt)
+				.Bond(1, 0)
+				.Atom(AtomTypes.mors)
+                .Pop()
+                .Push(2, -2)
+                .Atom(AtomTypes.vitae)
+                .Bond(1, 0)
+                .Atom(AtomTypes.salt)
+                .Bond(0,-1)
+                .Atom(AtomTypes.mors), isInput: false, hover, new Vector2(500f, 500f), isLarge, 0.65f).GetTarget().renderedTexture, bounds.Min + new Vector2(17f, 8f));
+
+            if (hover && InputManager.IsClickPressed(MouseButtonType.LeftClick))
+            {
+                Tuple<MusicTrack, Sound> tuple = PuzzleEditorScreen.RandomTrack(puzzle);
+                GameLogic.instance.PushScreen(new PuzzleInfoScreen(puzzle, tuple.Item1, tuple.Item2, MaybeHelper.empty));
+                Volume.PlaySound(Assets.sounds.click_button, 1f);
             }
         }
-        List<string> sigmarsGardensIDList = new List<string>();
-        StoryPanelPatcher.CreateSigmarStoryUnlocks(campaign_model.SigmarStoryUnlocks);
 
-        foreach (var garden in campaign_model.SigmarsGardens)
-        {
-            sigmarsGardensIDList.Add(garden);
-        }
-        ////////////////////////////////////////
-        // modify the campaign using the data //
-        ////////////////////////////////////////
-        Logger.Log("[DisjointAlchemy] Modifying campaign levels.");
-        CampaignChapter[] campaignChapters = campaign_self.field_2309;
-        foreach (var campaignChapter in campaignChapters)
-        {
-            if (DisjointAlchemy.AdvancedContent.LeftHandedChapters.Contains(campaignChapter.field_2310)) campaignChapter.field_2321 = true;
-
-            foreach (var campaignItem in campaignChapter.field_2314)
-            {
-                // modifiy puzzle data as necessary
-                if (campaignItem.field_2325.method_1085())
-                {
-                    Puzzle puzzle = campaignItem.field_2325.method_1087();
-                    string puzzleID = puzzle.field_2766;
-
-					// run hard-coded stuff
-					if (LevelLoaders.ContainsKey(puzzleID)) LevelLoaders[puzzleID](puzzle);
-
-                    DisjointAlchemy.AdvancedContent.modifyCampaignItem(campaignItem);
-
-                    if (sigmarsGardensIDList.Contains(puzzleID))
-                    {
-                        // change item into a Sigmars Garden
-                        campaignItem.field_2324 = typeSolitaire;
-                        DisjointAlchemy.customSolitaires.Add(campaignItem.field_2326); // SOLITAIRE_ICON_TEMP
-                    }
-                    
-                }
-            }
-        }
+        else { orig_RenderPuzzleSelect(puzzle, pos, isLarge); }
     }
-
-    public static Maybe<Solution> Solution_Method_1958(On.Solution.orig_method_1958 orig, string filePath)
-    {
-        foreach (var dir in QuintessentialLoader.ModContentDirectories)
-        {
-            try
-            {
-                return orig(Path.Combine(dir, filePath));
-            }
-            catch (Exception) { }
-        }
-
-        return orig(filePath);
-    }
-}}
+}

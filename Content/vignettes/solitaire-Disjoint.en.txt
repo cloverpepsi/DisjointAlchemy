@@ -17,7 +17,7 @@ Jerin: Mmh.
 Serena: Oh, I'm just teasing you. You don't actually have to keep playing.
 Jerin: Well... I still want to.
 
------ After winning 5 games.
+----- After winning 10 games.
 
 Jerin: When did you come up with this variant of the game?
 Serena: Back home, I'd sneak into my mother's alchemy office and play Sigmar's on some of her production cabinets.
@@ -27,7 +27,7 @@ Jerin: I never played this before coming to the university.
 Jerin: Someone in one of my classes showed it to me. I can't seem to remember her name, though.
 Jerin: Come to think of it, she was awfully kind to me during my first few weeks. I didn't really know what I was doing. 
 
------ After winning 10 games.
+----- After winning 25 games.
 
 Serena: "Awfully kind"?
 Jerin: Well, yes. I think she noticed that I wasn't familiar with the "culture" around alchemical engineers, and-
@@ -39,7 +39,7 @@ Jerin: Maybe I should talk to her and apologize...
 Serena: Oh, don't take it seriously. Honestly, I think it would be stranger to apologize now.
 Jerin: Mmmh.
 
------ After winning 25 games.
+----- After winning 50 games.
 
 Serena: You've never mentioned much about your life before coming to the University.
 Jerin: It's because I'd rather keep it to myself.
@@ -51,7 +51,19 @@ Jerin: I suppose it's why I feel so out of place here.
 Serena: It's been well over two years, though. Surely you don't _still_ feel out of place?
 Jerin: Well, I certainly feel a lot more comfortable with you around.
 
------ After winning 50 games.
+----- After winning 75 games.
+
+Jerin: Do you even use this cabinet anymore?
+Jerin: Lately, I've felt as though you just leave it out for me to play with.
+Serena: Well...
+Serena: That's not too far from the truth.
+Serena: I do already have plenty of cabinets to use for classwork. You don't need to worry about this one.
+Serena: The chambers are too small for most exercises involving them, anyways.
+Jerin: Still, I can't help but feel a little bad for co-opting _your_ alchemical engine as a pastime.
+Serena: Really, I don't mind. If it brings you joy, then enjoy it.
+Jerin: I'll take your word for it.
+
+----- After winning 100 games.
 
 Jerin: Don't you have better things to do than watch me play with these marbles all day?
 Serena: I like the company.
@@ -66,3 +78,4 @@ Serena: Don't mistake competence with enjoyment.
 Jerin: Well, it's quite fortunate that I'm both good at _and_ enjoying this game.
 Serena: Don't go boasting now. Perhaps someone will think you're trying to usurp their Sigmar's Garden prowess!
 Jerin: Hah. Perhaps.
+

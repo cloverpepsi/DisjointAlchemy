@@ -1,0 +1,84 @@
+{
+  "Id": "Disjoint_1_3",
+  "Name": "\u003CSnow Artifice\u003E",
+  "Permissions": "Duplication, CoreTools, BaronWheel",
+  "Inputs": [
+    {
+      "Name": "\u003CBipartite Stabilized Air\u003E",
+      "Atoms": {
+        "1,0": {
+          "Type": "om:salt"
+        },
+        "0,2": {
+          "Type": "om:air"
+        }
+      }
+    }
+  ],
+  "Outputs": [
+    {
+      "Name": "\u003CArtifical Snow Crystal\u003E",
+      "Atoms": {
+        "0,0": {
+          "Type": "om:water"
+        },
+        "2,0": {
+          "Type": "om:water"
+        },
+        "0,2": {
+          "Type": "om:water"
+        },
+        "0,1": {
+          "Type": "om:air"
+        },
+        "1,1": {
+          "Type": "om:air"
+        },
+        "1,0": {
+          "Type": "om:air"
+        }
+      },
+      "Bonds": [
+        {
+          "Types": [
+            "om:standard"
+          ],
+          "Pos1": {
+            "Q": 0,
+            "R": 1
+          },
+          "Pos2": {
+            "Q": 1,
+            "R": 1
+          }
+        },
+        {
+          "Types": [
+            "om:standard"
+          ],
+          "Pos1": {
+            "Q": 1,
+            "R": 0
+          },
+          "Pos2": {
+            "Q": 0,
+            "R": 1
+          }
+        },
+        {
+          "Types": [
+            "om:standard"
+          ],
+          "Pos1": {
+            "Q": 1,
+            "R": 0
+          },
+          "Pos2": {
+            "Q": 1,
+            "R": 1
+          }
+        }
+      ]
+    }
+  ]
+}

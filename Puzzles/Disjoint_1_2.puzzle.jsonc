@@ -1,0 +1,100 @@
+{
+  "Id": "Disjoint_1_2",
+  "Name": "\u003CReinventing The Wheel\u003E",
+  "Permissions": "Duplication, CoreTools, BaronWheel",
+  "Inputs": [
+    {
+      "Name": "\u003CTripartite Salt\u003E",
+      "Atoms": {
+        "0,1": {
+          "Type": "om:salt"
+        },
+        "2,0": {
+          "Type": "om:salt"
+        },
+        "1,2": {
+          "Type": "om:salt"
+        }
+      }
+    }
+  ],
+  "Outputs": [
+    {
+      "Name": "\u003CBipartite Van Berlo\u0027s Wheel\u003E",
+      "Atoms": {
+        "0,1": {
+          "Type": "om:salt"
+        },
+        "2,0": {
+          "Type": "om:earth"
+        },
+        "1,2": {
+          "Type": "om:water"
+        },
+        "0,2": {
+          "Type": "om:air"
+        },
+        "2,1": {
+          "Type": "om:salt"
+        },
+        "1,0": {
+          "Type": "om:fire"
+        }
+      },
+      "Bonds": [
+        {
+          "Types": [
+            "om:standard"
+          ],
+          "Pos1": {
+            "Q": 0,
+            "R": 1
+          },
+          "Pos2": {
+            "Q": 1,
+            "R": 0
+          }
+        },
+        {
+          "Types": [
+            "om:standard"
+          ],
+          "Pos1": {
+            "Q": 0,
+            "R": 1
+          },
+          "Pos2": {
+            "Q": 0,
+            "R": 2
+          }
+        },
+        {
+          "Types": [
+            "om:standard"
+          ],
+          "Pos1": {
+            "Q": 2,
+            "R": 1
+          },
+          "Pos2": {
+            "Q": 2,
+            "R": 0
+          }
+        },
+        {
+          "Types": [
+            "om:standard"
+          ],
+          "Pos1": {
+            "Q": 2,
+            "R": 1
+          },
+          "Pos2": {
+            "Q": 1,
+            "R": 2
+          }
+        }
+      ]
+    }
+  ]
+}

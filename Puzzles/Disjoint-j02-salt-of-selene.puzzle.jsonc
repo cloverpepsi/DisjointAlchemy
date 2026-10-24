@@ -1,0 +1,335 @@
+{
+  "Id": "Disjoint-j02-salt-of-selene",
+  "Name": "\u003CSalt of Selene\u003E",
+  "Author": "Van Parre, N.",
+  "Permissions": "CoreTools",
+  "CustomPermissions": [
+    "disjoint_alchemy:disjunction"
+  ],
+  "Inputs": [
+    {
+      "Name": "\u003CElemental Salt\u003E",
+      "Atoms": {
+        "0,0": {
+          "Type": "om:salt"
+        }
+      }
+    },
+    {
+      "Name": "\u003CElemental Salt\u003E",
+      "Atoms": {
+        "0,0": {
+          "Type": "om:salt"
+        }
+      }
+    },
+    {
+      "Name": "\u003CElemental Silver\u003E",
+      "Atoms": {
+        "0,0": {
+          "Type": "om:silver"
+        }
+      }
+    }
+  ],
+  "Outputs": [
+    {
+      "Name": "\u003CSalt of Selene\u003E",
+      "Atoms": {
+        "0,0": {
+          "Type": "om:silver"
+        },
+        "-1,1": {
+          "Type": "om:salt"
+        },
+        "1,0": {
+          "Type": "om:salt"
+        },
+        "0,-1": {
+          "Type": "om:salt"
+        },
+        "1,-2": {
+          "Type": "om:salt"
+        },
+        "0,-2": {
+          "Type": "om:salt"
+        },
+        "-1,-1": {
+          "Type": "om:salt"
+        },
+        "-2,0": {
+          "Type": "om:salt"
+        },
+        "-2,1": {
+          "Type": "om:salt"
+        },
+        "-2,2": {
+          "Type": "om:salt"
+        },
+        "-1,2": {
+          "Type": "om:salt"
+        },
+        "0,2": {
+          "Type": "om:salt"
+        },
+        "1,1": {
+          "Type": "om:salt"
+        },
+        "2,0": {
+          "Type": "om:salt"
+        },
+        "2,-1": {
+          "Type": "om:salt"
+        },
+        "2,-2": {
+          "Type": "om:salt"
+        },
+        "-1,0": {
+          "Type": "om:salt"
+        },
+        "0,1": {
+          "Type": "om:salt"
+        },
+        "1,-1": {
+          "Type": "om:salt"
+        }
+      },
+      "Bonds": [
+        {
+          "Types": [
+            "om:standard"
+          ],
+          "Pos1": {
+            "Q": -2,
+            "R": 0
+          },
+          "Pos2": {
+            "Q": -2,
+            "R": 1
+          }
+        },
+        {
+          "Types": [
+            "om:standard"
+          ],
+          "Pos1": {
+            "Q": -2,
+            "R": 1
+          },
+          "Pos2": {
+            "Q": -2,
+            "R": 2
+          }
+        },
+        {
+          "Types": [
+            "om:standard"
+          ],
+          "Pos1": {
+            "Q": -2,
+            "R": 2
+          },
+          "Pos2": {
+            "Q": -1,
+            "R": 2
+          }
+        },
+        {
+          "Types": [
+            "om:standard"
+          ],
+          "Pos1": {
+            "Q": -1,
+            "R": 2
+          },
+          "Pos2": {
+            "Q": 0,
+            "R": 2
+          }
+        },
+        {
+          "Types": [
+            "om:standard"
+          ],
+          "Pos1": {
+            "Q": 0,
+            "R": 2
+          },
+          "Pos2": {
+            "Q": 1,
+            "R": 1
+          }
+        },
+        {
+          "Types": [
+            "om:standard"
+          ],
+          "Pos1": {
+            "Q": 1,
+            "R": 1
+          },
+          "Pos2": {
+            "Q": 2,
+            "R": 0
+          }
+        },
+        {
+          "Types": [
+            "om:standard"
+          ],
+          "Pos1": {
+            "Q": 2,
+            "R": -1
+          },
+          "Pos2": {
+            "Q": 2,
+            "R": 0
+          }
+        },
+        {
+          "Types": [
+            "om:standard"
+          ],
+          "Pos1": {
+            "Q": 2,
+            "R": -2
+          },
+          "Pos2": {
+            "Q": 2,
+            "R": -1
+          }
+        },
+        {
+          "Types": [
+            "om:standard"
+          ],
+          "Pos1": {
+            "Q": 1,
+            "R": -2
+          },
+          "Pos2": {
+            "Q": 2,
+            "R": -2
+          }
+        },
+        {
+          "Types": [
+            "om:standard"
+          ],
+          "Pos1": {
+            "Q": 0,
+            "R": -2
+          },
+          "Pos2": {
+            "Q": 1,
+            "R": -2
+          }
+        },
+        {
+          "Types": [
+            "om:standard"
+          ],
+          "Pos1": {
+            "Q": -1,
+            "R": -1
+          },
+          "Pos2": {
+            "Q": 0,
+            "R": -2
+          }
+        },
+        {
+          "Types": [
+            "om:standard"
+          ],
+          "Pos1": {
+            "Q": -2,
+            "R": 0
+          },
+          "Pos2": {
+            "Q": -1,
+            "R": -1
+          }
+        },
+        {
+          "Types": [
+            "om:standard"
+          ],
+          "Pos1": {
+            "Q": -1,
+            "R": 1
+          },
+          "Pos2": {
+            "Q": 0,
+            "R": 0
+          }
+        },
+        {
+          "Types": [
+            "om:standard"
+          ],
+          "Pos1": {
+            "Q": 0,
+            "R": -1
+          },
+          "Pos2": {
+            "Q": 0,
+            "R": 0
+          }
+        },
+        {
+          "Types": [
+            "om:standard"
+          ],
+          "Pos1": {
+            "Q": 0,
+            "R": 0
+          },
+          "Pos2": {
+            "Q": 1,
+            "R": 0
+          }
+        },
+        {
+          "Types": [
+            "om:standard"
+          ],
+          "Pos1": {
+            "Q": 0,
+            "R": 0
+          },
+          "Pos2": {
+            "Q": 1,
+            "R": -1
+          }
+        },
+        {
+          "Types": [
+            "om:standard"
+          ],
+          "Pos1": {
+            "Q": 0,
+            "R": 0
+          },
+          "Pos2": {
+            "Q": 0,
+            "R": 1
+          }
+        },
+        {
+          "Types": [
+            "om:standard"
+          ],
+          "Pos1": {
+            "Q": -1,
+            "R": 0
+          },
+          "Pos2": {
+            "Q": 0,
+            "R": 0
+          }
+        }
+      ]
+    }
+  ]
+}

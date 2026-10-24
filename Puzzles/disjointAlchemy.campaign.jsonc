@@ -1,0 +1,458 @@
+{
+  "Title": "Disjoint Alchemy",
+  "Chapters": [
+    {
+      "Title": "Prologue",
+      "Name": "A Path Forward",
+      "Location": "The Downriver Quarters",
+      "Items": [
+        {
+          "Id": "Disjoint_doc_0",
+          "Name": "Letter of Acceptance",
+          "Type": "Letter",
+          "IconSmall": "textures/puzzle_select/icon_document_small",
+          "Icon": "textures/puzzle_select/icon_document",
+          "Document": {
+            "Items": [
+              {
+                "Texture": "textures/documents/letter_1",
+                "Alignment": "Center"
+              },
+              {
+                "Section": 0,
+                "Alignment": "TopEdge",
+                "Offset": { "X": 236, "Y": 555 },
+                "Font": "Cormorant 12.75"
+              },
+              {
+                "Section": 1,
+                "Alignment": "TopEdge",
+                "Offset": { "X": 236, "Y": 250 },
+                "Font": "Cormorant 12.75"
+              }
+            ]
+          }          
+        },
+        {
+          "Id": "Disjoint_0_0c",
+          "Name": "Two Years Later",
+          "Type": "Cutscene",
+          "Puzzle": "Disjoint_0_0c",
+          "UnlockRequirement": {
+            "Type": "Single",
+            "Id": "Disjoint_doc_0"
+          },
+          "Music": "music/Story2",
+          "Fanfare": "sounds/fanfare_solving3"
+        }
+      ],
+      "Background": "textures/disjoint/backgrounds/background_prologue",
+      "LockedIcon": "textures/puzzle_select/chapter_locked_0",
+      "UnlockedIcon": "textures/puzzle_select/chapter_unlocked_0",
+      "HoverIcon": "textures/puzzle_select/chapter_hover_0",
+      "GemIcon": "textures/puzzle_select/chapter_gem_0",
+      "ButtonOffset": {
+        "X": 118,
+        "Y": 62
+      }
+    },
+    {
+      "Title": "Chapter I",
+      "Name": "Learning to Walk",
+      "Location": "Imperial University",
+      "Items": [
+        {
+          "Id": "Disjoint_0_1",
+          "Name": "Lesson: Disjoint Molecules",
+          "Type": "Puzzle",
+          "Puzzle": "Disjoint_0_1",
+          "Music": "music/Solving3",
+          "Fanfare": "sounds/fanfare_solving3",
+          "IconSmall": "textures/puzzle_select/icon_tutorial_small",
+          "Icon": "textures/puzzle_select/icon_tutorial"
+        },
+        {
+          "Id": "Disjoint_0_2",
+          "Name": "Lesson: Disjoint Unbonding",
+          "Type": "Puzzle",
+          "Puzzle": "Disjoint_0_2",
+          "UnlockRequirement": {
+            "Type": "Single",
+            "Id": "Disjoint_0_1"
+          },
+          "Music": "music/Solving3",
+          "Fanfare": "sounds/fanfare_solving3",
+          "IconSmall": "textures/puzzle_select/icon_tutorial_small",
+          "Icon": "textures/puzzle_select/icon_tutorial"
+        },
+        {
+          "Id": "Disjoint_0_3",
+          "Name": "Lesson: Water Polarization",
+          "Type": "Puzzle",
+          "Puzzle": "Disjoint_0_3",
+          "UnlockRequirement": {
+            "Type": "Single",
+            "Id": "Disjoint_0_2"
+          },
+          "Music": "music/Solving3",
+          "Fanfare": "sounds/fanfare_solving3",
+          "IconSmall": "textures/puzzle_select/icon_tutorial_small",
+          "Icon": "textures/puzzle_select/icon_tutorial"
+        },
+        {
+          "Id": "Disjoint_0_4",
+          "Name": "Lesson: Reductive Metallurgy",
+          "Type": "Puzzle",
+          "Puzzle": "Disjoint_0_4",
+          "UnlockRequirement": {
+            "Type": "Single",
+            "Id": "Disjoint_0_3"
+          },
+          "Music": "music/Solving3",
+          "Fanfare": "sounds/fanfare_solving3",
+          "IconSmall": "textures/puzzle_select/icon_tutorial_small",
+          "Icon": "textures/puzzle_select/icon_tutorial"
+        },
+        {
+          "Id": "Disjoint_0_5",
+          "Name": "Bipartite Alcohol",
+          "Type": "Puzzle",
+          "Puzzle": "Disjoint_0_5",
+          "UnlockRequirement": {
+            "Type": "Single",
+            "Id": "Disjoint_0_4"
+          },
+          "Music": "music/Solving3",
+          "Fanfare": "sounds/fanfare_solving3"
+        }
+      ],
+      "Background": "textures/puzzle_select/background_0",
+      "LockedIcon": "textures/puzzle_select/chapter_locked_1",
+      "UnlockedIcon": "textures/puzzle_select/chapter_unlocked_1",
+      "HoverIcon": "textures/puzzle_select/chapter_hover_1",
+      "GemIcon": "textures/puzzle_select/chapter_gem_1",
+      "ButtonOffset": {
+        "X": 168,
+        "Y": 114
+      }
+    },
+    {
+      "Title": "Chapter II",
+      "Name": "So You Can Run",
+      "Location": "Imperial University",
+      "Items": [
+        {
+          "Id": "Disjoint_1_1",
+          "Name": "Effulgent Glass Polish",
+          "Type": "Puzzle",
+          "Puzzle": "Disjoint_1_1",
+          "Music": "music/Solving3",
+          "Fanfare": "sounds/fanfare_solving3"
+        },
+        {
+          "Id": "Disjoint_1_2",
+          "Name": "Reinventing the Wheel",
+          "Type": "Puzzle",
+          "Puzzle": "Disjoint_1_2",
+          "UnlockRequirement": {
+            "Type": "Single",
+            "Id": "Disjoint_1_1"
+          },
+          "Music": "music/Solving3",
+          "Fanfare": "sounds/fanfare_solving3"
+        },
+        {
+          "Id": "Disjoint_1_3",
+          "Name": "Snow Artifice",
+          "Type": "Puzzle",
+          "Puzzle": "Disjoint_1_3",
+          "UnlockRequirement": {
+            "Type": "Single",
+            "Id": "Disjoint_1_2"
+          },
+          "Music": "music/Solving3",
+          "Fanfare": "sounds/fanfare_solving3"
+        },
+        {
+          "Id": "solitaire-Disjoint",
+          "Name": "Sigmar\u0027s Garden",
+          "Type": "Solitaire",
+          "UnlockRequirement": {
+            "Type": "Single",
+            "Id": "Disjoint_1_3"
+          },
+          "Vignette": false,
+          "Music": "music/Solving1",
+          "Fanfare": "sounds/fanfare_solving1",
+          "IconSmall": "textures/puzzle_select/icon_solitaire_small",
+          "Icon": "textures/puzzle_select/icon_solitaire"
+        },
+        {
+          "Id": "Disjoint_1_4",
+          "Name": "Unknottable Thread",
+          "Type": "Puzzle",
+          "Puzzle": "Disjoint_1_4",
+          "UnlockRequirement": {
+            "Type": "Single",
+            "Id": "Disjoint_1_3"
+          },
+          "Music": "music/Solving3",
+          "Fanfare": "sounds/fanfare_solving3"
+        },
+        {
+          "Id": "Disjoint_1_5",
+          "Name": "Litharge Crystal",
+          "Type": "Puzzle",
+          "Puzzle": "Disjoint_1_5",
+          "UnlockRequirement": {
+            "Type": "Single",
+            "Id": "Disjoint_1_4"
+          },
+          "Music": "music/Solving3",
+          "Fanfare": "sounds/fanfare_solving3"
+        },
+        {
+          "Id": "Disjoint_1_6",
+          "Name": "Potent Alcohol",
+          "Type": "Puzzle",
+          "Puzzle": "Disjoint_1_6",
+          "UnlockRequirement": {
+            "Type": "Single",
+            "Id": "Disjoint_1_5"
+          },
+          "Music": "music/Solving3",
+          "Fanfare": "sounds/fanfare_solving3"
+        },
+        {
+          "Id": "Disjoint_2_0c",
+          "Name": "A Night of Revelry",
+          "Type": "Cutscene",
+          //"Puzzle": "Disjoint_2_0c",
+          "UnlockRequirement": {
+            "Type": "Single",
+            "Id": "Disjoint_1_6"
+          },
+          "Music": "music/Story2",
+          "Fanfare": "sounds/fanfare_solving3"
+        }
+      ],
+      "Background": "textures/disjoint/backgrounds/background_1",
+      "LockedIcon": "textures/puzzle_select/chapter_locked_2",
+      "UnlockedIcon": "textures/puzzle_select/chapter_unlocked_2",
+      "HoverIcon": "textures/puzzle_select/chapter_hover_2",
+      "GemIcon": "textures/puzzle_select/chapter_gem_2",
+      "ButtonOffset": {
+        "X": 234,
+        "Y": 148
+      }
+    },
+    {
+      "Title": "Chapter III",
+      "Name": "Just Don\u0027t Forget",
+      "Location": "Imperial University",
+      "Items": [
+        {
+          "Id": "Disjoint_2_1",
+          "Name": "Headache Remedy",
+          "Type": "Puzzle",
+          "Puzzle": "Disjoint_2_1",
+          "Music": "music/Solving3",
+          "Fanfare": "sounds/fanfare_solving3"
+        },
+        {
+          "Id": "Disjoint_2_2",
+          "Name": "Aerosol Lubricant",
+          "Type": "Puzzle",
+          "Puzzle": "Disjoint_2_2",
+          "UnlockRequirement": {
+            "Type": "Single",
+            "Id": "Disjoint_2_1"
+          },
+          "Music": "music/Solving3",
+          "Fanfare": "sounds/fanfare_solving3"
+        },
+        {
+          "Id": "solitaire-Disjoint",
+          "Name": "Sigmar\u0027s Garden",
+          "Type": "Solitaire",
+          "UnlockRequirement": {
+            "Type": "Single",
+            "Id": "Disjoint_2_2"
+          },
+          "Vignette": false,
+          "Music": "music/Solving1",
+          "Fanfare": "sounds/fanfare_solving1",
+          "IconSmall": "textures/puzzle_select/icon_solitaire_small",
+          "Icon": "textures/puzzle_select/icon_solitaire"
+        },
+        {
+          "Id": "Disjoint_2_3",
+          "Name": "Erasable Ink",
+          "Type": "Puzzle",
+          "Puzzle": "Disjoint_2_3",
+          "UnlockRequirement": {
+            "Type": "Single",
+            "Id": "Disjoint_2_2"
+          },
+          "Music": "music/Solving3",
+          "Fanfare": "sounds/fanfare_solving3"
+        },
+        {
+          "Id": "Disjoint_2_4",
+          "Name": "Frictional Filament",
+          "Type": "Puzzle",
+          "Puzzle": "Disjoint_2_4",
+          "UnlockRequirement": {
+            "Type": "Single",
+            "Id": "Disjoint_2_2"
+          },
+          "Music": "music/Solving3",
+          "Fanfare": "sounds/fanfare_solving3"
+        },
+        {
+          "Id": "Disjoint_2_5",
+          "Name": "Sparkler Dust",
+          "Type": "Puzzle",
+          "Puzzle": "Disjoint_2_5",
+          "UnlockRequirement": {
+            "Type": "Single",
+            "Id": "Disjoint_2_4"
+          },
+          "Music": "music/Solving3",
+          "Fanfare": "sounds/fanfare_solving3"
+        },
+        {
+          "Id": "Disjoint_2_5c",
+          "Name": "All Consuming",
+          "Type": "Cutscene",
+          //"Puzzle": "Disjoint_2_5c",
+          "UnlockRequirement": {
+            "Type": "Single",
+            "Id": "Disjoint_2_5"
+          },
+          "Music": "music/Story2",
+          "Fanfare": "sounds/fanfare_solving3"
+        }
+      ],
+      "Background": "textures/disjoint/backgrounds/background_2",
+      "LockedIcon": "textures/puzzle_select/chapter_locked_3",
+      "UnlockedIcon": "textures/puzzle_select/chapter_unlocked_3",
+      "HoverIcon": "textures/puzzle_select/chapter_hover_3",
+      "GemIcon": "textures/puzzle_select/chapter_gem_3",
+      "ButtonOffset": {
+        "X": 308,
+        "Y": 159
+      }
+    },
+    {
+      "Title": "Chapter IV",
+      "Name": "To Take in the View",
+      "Location": "Imperial University",
+      "Items": [
+        {
+          "Id": "Disjoint_3_1",
+          "Name": "Suspended Quintessence",
+          "Type": "Puzzle",
+          "Puzzle": "Disjoint_3_1",
+          "Music": "music/Solving3",
+          "Fanfare": "sounds/fanfare_solving3"
+        },
+        {
+          "Id": "solitaire-Disjoint",
+          "Name": "Sigmar\u0027s Garden",
+          "Type": "Solitaire",
+          "UnlockRequirement": {
+            "Type": "Single",
+            "Id": "Disjoint_3_1"
+          },
+          "Vignette": false,
+          "Music": "music/Solving1",
+          "Fanfare": "sounds/fanfare_solving1",
+          "IconSmall": "textures/puzzle_select/icon_solitaire_small",
+          "Icon": "textures/puzzle_select/icon_solitaire"
+        },
+        {
+          "Id": "Disjoint_3_2",
+          "Name": "Voltaic Crystal",
+          "Type": "Puzzle",
+          "Puzzle": "Disjoint_3_2",
+          "UnlockRequirement": {
+            "Type": "Single",
+            "Id": "Disjoint_3_1"
+          },
+          "Music": "music/Solving3",
+          "Fanfare": "sounds/fanfare_solving3"
+        },
+        {
+          "Id": "Disjoint_3_3",
+          "Name": "Synthetic Silk",
+          "Type": "Puzzle",
+          "Puzzle": "Disjoint_3_3",
+          "UnlockRequirement": {
+            "Type": "Single",
+            "Id": "Disjoint_3_2"
+          },
+          "Music": "music/Solving3",
+          "Fanfare": "sounds/fanfare_solving3"
+        },
+        {
+          "Id": "Disjoint_3_2c",
+          "Name": "The Confrontation",
+          "Type": "Cutscene",
+          //"Puzzle": "Disjoint_3_2c",
+          "UnlockRequirement": {
+            "Type": "Single",
+            "Id": "Disjoint_3_3"
+          },
+          "Music": "music/Story2",
+          "Fanfare": "sounds/fanfare_solving3"
+        },
+        {
+          "Id": "Disjoint_3_4",
+          "Name": "Shimmering Lipstick",
+          "Type": "Puzzle",
+          "Puzzle": "Disjoint_3_4",
+          "UnlockRequirement": {
+            "Type": "Single",
+            "Id": "Disjoint_3_2c"
+          },
+          "Music": "music/Solving3",
+          "Fanfare": "sounds/fanfare_solving3"
+        },
+        {
+          "Id": "Disjoint_3_5",
+          "Name": "Floral Fragrance",
+          "Type": "Puzzle",
+          "Puzzle": "Disjoint_3_5",
+          "UnlockRequirement": {
+            "Type": "Single",
+            "Id": "Disjoint_3_4"
+          },
+          "Music": "music/Solving3",
+          "Fanfare": "sounds/fanfare_solving3"
+        },
+        {
+          "Id": "Disjoint_3_5c",
+          "Name": "The Confession",
+          "Type": "Cutscene",
+          //"Puzzle": "Disjoint_3_5c",
+          "UnlockRequirement": {
+            "Type": "Single",
+            "Id": "Disjoint_3_5"
+          },
+          "Music": "music/Story2",
+          "Fanfare": "sounds/fanfare_solving3"
+        }
+      ],
+      "Background": "textures/disjoint/backgrounds/background_3",
+      "LockedIcon": "textures/puzzle_select/chapter_locked_4",
+      "UnlockedIcon": "textures/puzzle_select/chapter_unlocked_4",
+      "HoverIcon": "textures/puzzle_select/chapter_hover_4",
+      "GemIcon": "textures/puzzle_select/chapter_gem_4",
+      "ButtonOffset": {
+        "X": 381,
+        "Y": 148
+      }
+    }
+  ]
+}

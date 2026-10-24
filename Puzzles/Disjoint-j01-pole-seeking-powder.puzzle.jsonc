@@ -1,0 +1,132 @@
+{
+  "Id": "Disjoint-j01-pole-seeking-powder",
+  "Name": "\u003CPole-Seeking Powder\u003E",
+  "Author": "Duriel, W.",
+  "Permissions": "Duplication, LifeAndDeath, CoreTools, BaronWheel",
+  "CustomPermissions": [
+    "disjoint_alchemy:disjunction"
+  ],
+  "Inputs": [
+    {
+      "Name": "\u003CTristabilized Salt\u003E",
+      "Atoms": {
+        "0,0": {
+          "Type": "om:salt"
+        },
+        "1,0": {
+          "Type": "om:salt"
+        },
+        "0,1": {
+          "Type": "om:salt"
+        }
+      },
+      "Bonds": [
+        {
+          "Types": [
+            "om:standard"
+          ],
+          "Pos1": {
+            "Q": 0,
+            "R": 0
+          },
+          "Pos2": {
+            "Q": 1,
+            "R": 0
+          }
+        },
+        {
+          "Types": [
+            "om:standard"
+          ],
+          "Pos1": {
+            "Q": 0,
+            "R": 0
+          },
+          "Pos2": {
+            "Q": 0,
+            "R": 1
+          }
+        }
+      ]
+    }
+  ],
+  "Outputs": [
+    {
+      "Name": "\u003CPole-Seeking Powder\u003E",
+      "Atoms": {
+        "0,0": {
+          "Type": "om:earth"
+        },
+        "1,1": {
+          "Type": "om:earth"
+        },
+        "1,2": {
+          "Type": "om:vitae"
+        },
+        "2,1": {
+          "Type": "om:vitae"
+        },
+        "-1,0": {
+          "Type": "om:mors"
+        },
+        "0,-1": {
+          "Type": "om:mors"
+        }
+      },
+      "Bonds": [
+        {
+          "Types": [
+            "om:standard"
+          ],
+          "Pos1": {
+            "Q": 1,
+            "R": 2
+          },
+          "Pos2": {
+            "Q": 1,
+            "R": 1
+          }
+        },
+        {
+          "Types": [
+            "om:standard"
+          ],
+          "Pos1": {
+            "Q": 1,
+            "R": 1
+          },
+          "Pos2": {
+            "Q": 2,
+            "R": 1
+          }
+        },
+        {
+          "Types": [
+            "om:standard"
+          ],
+          "Pos1": {
+            "Q": -1,
+            "R": 0
+          },
+          "Pos2": {
+            "Q": 0,
+            "R": 0
+          }
+        },
+        {
+          "Types": [
+            "om:standard"
+          ],
+          "Pos1": {
+            "Q": 0,
+            "R": 0
+          },
+          "Pos2": {
+            "Q": 0,
+            "R": -1
+          }
+        }
+      ]
+    }
+  ]
+}

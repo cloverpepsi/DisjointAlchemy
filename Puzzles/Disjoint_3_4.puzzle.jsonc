@@ -1,0 +1,183 @@
+{
+  "Id": "Disjoint_3_4",
+  "Name": "\u003CShimmering Lipstick\u003E",
+  "Permissions": "Duplication, Projection, Purification, Disposal, Rejection, CoreTools",
+  "Inputs": [
+    {
+      "Name": "\u003CBipartite Ash\u003E",
+      "Atoms": {
+        "0,0": {
+          "Type": "om:earth"
+        },
+        "2,0": {
+          "Type": "om:fire"
+        }
+      }
+    },
+    {
+      "Name": "\u003CBipartite Stabilized Copper\u003E",
+      "Atoms": {
+        "0,0": {
+          "Type": "om:salt"
+        },
+        "1,0": {
+          "Type": "om:copper"
+        }
+      }
+    }
+  ],
+  "Outputs": [
+    {
+      "Name": "\u003CShimmering Lipstick\u003E",
+      "Atoms": {
+        "0,-1": {
+          "Type": "om:earth"
+        },
+        "0,0": {
+          "Type": "om:earth"
+        },
+        "-2,0": {
+          "Type": "om:salt"
+        },
+        "-1,1": {
+          "Type": "om:salt"
+        },
+        "-2,1": {
+          "Type": "om:fire"
+        },
+        "1,1": {
+          "Type": "om:salt"
+        },
+        "-1,2": {
+          "Type": "om:salt"
+        },
+        "0,2": {
+          "Type": "om:silver"
+        },
+        "1,0": {
+          "Type": "om:earth"
+        }
+      },
+      "Bonds": [
+        {
+          "Types": [
+            "om:standard"
+          ],
+          "Pos1": {
+            "Q": -2,
+            "R": 1
+          },
+          "Pos2": {
+            "Q": -1,
+            "R": 1
+          }
+        },
+        {
+          "Types": [
+            "om:standard"
+          ],
+          "Pos1": {
+            "Q": -2,
+            "R": 1
+          },
+          "Pos2": {
+            "Q": -2,
+            "R": 0
+          }
+        },
+        {
+          "Types": [
+            "om:standard"
+          ],
+          "Pos1": {
+            "Q": 0,
+            "R": 0
+          },
+          "Pos2": {
+            "Q": 0,
+            "R": -1
+          }
+        },
+        {
+          "Types": [
+            "om:standard"
+          ],
+          "Pos1": {
+            "Q": 0,
+            "R": 2
+          },
+          "Pos2": {
+            "Q": 1,
+            "R": 1
+          }
+        },
+        {
+          "Types": [
+            "om:standard"
+          ],
+          "Pos1": {
+            "Q": -1,
+            "R": 2
+          },
+          "Pos2": {
+            "Q": 0,
+            "R": 2
+          }
+        },
+        {
+          "Types": [
+            "om:standard"
+          ],
+          "Pos1": {
+            "Q": 0,
+            "R": 0
+          },
+          "Pos2": {
+            "Q": 1,
+            "R": 0
+          }
+        }
+      ]
+    }
+  ],
+  "ProductionInfo": {
+    "Chambers": [
+      {
+        "Pos": {
+          "Q": -5,
+          "R": 0
+        },
+        "Name": "Large"
+      },
+      {
+        "Pos": {
+          "Q": 3,
+          "R": 0
+        },
+        "Name": "Medium"
+      }
+    ],
+    "Conduits": [
+      {
+        "Pos1": {
+          "Q": -2,
+          "R": -1
+        },
+        "Pos2": {
+          "Q": 1,
+          "R": 0
+        },
+        "Hexes": [
+          {
+            "Q": 0,
+            "R": 0
+          },
+          {
+            "Q": 0,
+            "R": 1
+          }
+        ]
+      }
+    ]
+  }
+}

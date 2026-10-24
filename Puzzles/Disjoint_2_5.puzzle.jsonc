@@ -1,0 +1,132 @@
+{
+  "Id": "Disjoint_2_5",
+  "Name": "\u003CSparkler Dust\u003E",
+  "Permissions": "PrismaBonder, Duplication, CoreTools",
+  "Inputs": [
+    {
+      "Name": "\u003CBipartite Smoke\u003E",
+      "Atoms": {
+        "0,0": {
+          "Type": "om:fire"
+        },
+        "1,0": {
+          "Type": "om:air"
+        }
+      }
+    }
+  ],
+  "Outputs": [
+    {
+      "Name": "\u003CSparkler Dust\u003E",
+      "Atoms": {
+        "0,0": {
+          "Type": "om:fire"
+        },
+        "-1,0": {
+          "Type": "om:fire"
+        },
+        "-2,1": {
+          "Type": "om:fire"
+        },
+        "1,-1": {
+          "Type": "om:fire"
+        },
+        "-2,0": {
+          "Type": "om:salt"
+        },
+        "1,0": {
+          "Type": "om:salt"
+        },
+        "2,-1": {
+          "Type": "om:air"
+        },
+        "-3,1": {
+          "Type": "om:air"
+        }
+      },
+      "Bonds": [
+        {
+          "Types": [
+            "om:prisma2",
+            "om:prisma1",
+            "om:prisma0"
+          ],
+          "Pos1": {
+            "Q": -1,
+            "R": 0
+          },
+          "Pos2": {
+            "Q": 0,
+            "R": 0
+          }
+        },
+        {
+          "Types": [
+            "om:standard"
+          ],
+          "Pos1": {
+            "Q": -2,
+            "R": 1
+          },
+          "Pos2": {
+            "Q": -2,
+            "R": 0
+          }
+        },
+        {
+          "Types": [
+            "om:standard"
+          ],
+          "Pos1": {
+            "Q": 1,
+            "R": 0
+          },
+          "Pos2": {
+            "Q": 1,
+            "R": -1
+          }
+        }
+      ]
+    }
+  ],
+  "ProductionInfo": {
+    "Chambers": [
+      {
+        "Pos": {
+          "Q": -5,
+          "R": 0
+        },
+        "Name": "Large"
+      },
+      {
+        "Pos": {
+          "Q": 3,
+          "R": 0
+        },
+        "Name": "Medium"
+      }
+    ],
+    "Conduits": [
+      {
+        "Pos1": {
+          "Q": -2,
+          "R": -1
+        },
+        "Pos2": {
+          "Q": 1,
+          "R": 0
+        },
+        "Hexes": [
+          {
+            "Q": 0,
+            "R": 0
+          },
+          {
+            "Q": 0,
+            "R": 1
+          }
+        ]
+      }
+    ]
+  }
+}

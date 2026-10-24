@@ -1,0 +1,32 @@
+{
+  "Id": "Disjoint_0_2",
+  "Name": "\u003CDisjoint Unbonding\u003E",
+  "Permissions": "CoreTools",
+  "Inputs": [
+    {
+      "Name": "\u003CTripartite Salt\u003E",
+      "Atoms": {
+        "1,0": {
+          "Type": "om:salt"
+        },
+        "2,0": {
+          "Type": "om:salt"
+        },
+        "3,0": {
+          "Type": "om:salt"
+        }
+      }
+    }
+  ],
+  "Outputs": [
+    {
+      "Name": "\u003CElemental Salt\u003E",
+      "Atoms": {
+        "0,0": {
+          "Type": "om:salt"
+        }
+      }
+    }
+  ],
+  "OutputMultiplier": 3
+}

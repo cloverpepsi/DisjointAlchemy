@@ -1,0 +1,24 @@
+{
+  "Id": "production-sigmar",
+  "Name": "\u003CSigmar\u0027s Garden\u003E",
+  "Author": "Penney, S.",
+  "Permissions": "CoreTools",
+  "Inputs": [
+    {
+      "Atoms": {
+        "0,0": {
+          "Type": "om:salt"
+        }
+      }
+    }
+  ],
+  "Outputs": [
+    {
+      "Atoms": {
+        "0,0": {
+          "Type": "om:salt"
+        }
+      }
+    }
+  ]
+}

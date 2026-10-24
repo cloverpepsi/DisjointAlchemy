@@ -1,0 +1,85 @@
+{
+  "Id": "Disjoint-j02-synthesis-via-disjunction",
+  "Name": "\u003CSynthesis Via Disjunction\u003E",
+  "Author": "Talma, G.",
+  "Permissions": "Duplication, CoreTools, BaronWheel",
+  "CustomPermissions": [
+    "disjoint_alchemy:disjunction",
+    "disjoint_alchemy:talma"
+  ],
+  "Inputs": [
+    {
+      "Name": "\u003CStabilized Salt\u003E",
+      "Atoms": {
+        "0,0": {
+          "Type": "om:salt"
+        },
+        "1,0": {
+          "Type": "om:salt"
+        }
+      },
+      "Bonds": [
+        {
+          "Types": [
+            "om:standard"
+          ],
+          "Pos1": {
+            "Q": 0,
+            "R": 0
+          },
+          "Pos2": {
+            "Q": 1,
+            "R": 0
+          }
+        }
+      ]
+    }
+  ],
+  "Outputs": [
+    {
+      "Name": "\u003CBipartite Alcohol\u003E",
+      "Atoms": {
+        "1,0": {
+          "Type": "om:salt"
+        },
+        "-1,1": {
+          "Type": "om:salt"
+        },
+        "0,1": {
+          "Type": "om:water"
+        },
+        "0,2": {
+          "Type": "om:fire"
+        }
+      },
+      "Bonds": [
+        {
+          "Types": [
+            "om:standard"
+          ],
+          "Pos1": {
+            "Q": 1,
+            "R": 0
+          },
+          "Pos2": {
+            "Q": 0,
+            "R": 1
+          }
+        },
+        {
+          "Types": [
+            "om:standard"
+          ],
+          "Pos1": {
+            "Q": -1,
+            "R": 1
+          },
+          "Pos2": {
+            "Q": 0,
+            "R": 1
+          }
+        }
+      ]
+    }
+  ]
+}

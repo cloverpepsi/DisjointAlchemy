@@ -1,0 +1,146 @@
+{
+  "Id": "Disjoint_2_2",
+  "Name": "\u003CAerosol Lubricant\u003E",
+  "Permissions": "Duplication, Projection, Disposal, Rejection, Division, CoreTools",
+  "CustomPermissions": [
+    "disjoint_alchemy:talma"
+  ],
+  "Inputs": [
+    {
+      "Name": "\u003CBipartite Mist\u003E",
+      "Atoms": {
+        "0,0": {
+          "Type": "om:air"
+        },
+        "1,0": {
+          "Type": "om:water"
+        }
+      }
+    },
+    {
+      "Name": "\u003CElemental Gold\u003E",
+      "Atoms": {
+        "0,0": {
+          "Type": "om:gold"
+        }
+      }
+    }
+  ],
+  "Outputs": [
+    {
+      "Name": "\u003CAerosol Lubricant\u003E",
+      "Atoms": {
+        "0,0": {
+          "Type": "om:salt"
+        },
+        "1,0": {
+          "Type": "om:water"
+        },
+        "0,-1": {
+          "Type": "om:water"
+        },
+        "-1,1": {
+          "Type": "om:water"
+        },
+        "-1,0": {
+          "Type": "om:air"
+        },
+        "0,1": {
+          "Type": "om:air"
+        },
+        "1,-1": {
+          "Type": "om:air"
+        },
+        "-2,0": {
+          "Type": "om:tin"
+        },
+        "0,2": {
+          "Type": "om:tin"
+        },
+        "2,-2": {
+          "Type": "om:tin"
+        }
+      },
+      "Bonds": [
+        {
+          "Types": [
+            "om:standard"
+          ],
+          "Pos1": {
+            "Q": -1,
+            "R": 1
+          },
+          "Pos2": {
+            "Q": -1,
+            "R": 0
+          }
+        },
+        {
+          "Types": [
+            "om:standard"
+          ],
+          "Pos1": {
+            "Q": 0,
+            "R": 1
+          },
+          "Pos2": {
+            "Q": 1,
+            "R": 0
+          }
+        },
+        {
+          "Types": [
+            "om:standard"
+          ],
+          "Pos1": {
+            "Q": 0,
+            "R": -1
+          },
+          "Pos2": {
+            "Q": 1,
+            "R": -1
+          }
+        },
+        {
+          "Types": [
+            "om:standard"
+          ],
+          "Pos1": {
+            "Q": -2,
+            "R": 0
+          },
+          "Pos2": {
+            "Q": -1,
+            "R": 0
+          }
+        },
+        {
+          "Types": [
+            "om:standard"
+          ],
+          "Pos1": {
+            "Q": 0,
+            "R": 2
+          },
+          "Pos2": {
+            "Q": 0,
+            "R": 1
+          }
+        },
+        {
+          "Types": [
+            "om:standard"
+          ],
+          "Pos1": {
+            "Q": 1,
+            "R": -1
+          },
+          "Pos2": {
+            "Q": 2,
+            "R": -2
+          }
+        }
+      ]
+    }
+  ]
+}

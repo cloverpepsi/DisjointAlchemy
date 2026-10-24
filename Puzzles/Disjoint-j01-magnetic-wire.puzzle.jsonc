@@ -1,0 +1,108 @@
+{
+  "Id": "Disjoint-j01-magnetic-wire",
+  "Name": "\u003CMagnetic Wire\u003E",
+  "Author": "Talma, G.",
+  "Permissions": "CoreTools",
+  "Inputs": [
+    {
+      "Name": "\u003CBipartite Animismus\u003E",
+      "Atoms": {
+        "0,0": {
+          "Type": "om:vitae"
+        },
+        "2,0": {
+          "Type": "om:mors"
+        }
+      }
+    },
+    {
+      "Name": "\u003CElemental Copper\u003E",
+      "Atoms": {
+        "0,0": {
+          "Type": "om:copper"
+        }
+      }
+    }
+  ],
+  "Outputs": [
+    {
+      "Atoms": {
+        "0,0": {
+          "Type": "om:copper"
+        },
+        "2,0": {
+          "Type": "om:repeat"
+        },
+        "0,1": {
+          "Type": "om:vitae"
+        },
+        "1,-1": {
+          "Type": "om:vitae"
+        },
+        "2,-1": {
+          "Type": "om:mors"
+        },
+        "1,0": {
+          "Type": "om:copper"
+        },
+        "1,1": {
+          "Type": "om:mors"
+        }
+      },
+      "Bonds": [
+        {
+          "Types": [
+            "om:standard"
+          ],
+          "Pos1": {
+            "Q": 0,
+            "R": 0
+          },
+          "Pos2": {
+            "Q": 1,
+            "R": -1
+          }
+        },
+        {
+          "Types": [
+            "om:standard"
+          ],
+          "Pos1": {
+            "Q": 1,
+            "R": 1
+          },
+          "Pos2": {
+            "Q": 1,
+            "R": 0
+          }
+        },
+        {
+          "Types": [
+            "om:standard"
+          ],
+          "Pos1": {
+            "Q": 1,
+            "R": 0
+          },
+          "Pos2": {
+            "Q": 2,
+            "R": -1
+          }
+        },
+        {
+          "Types": [
+            "om:standard"
+          ],
+          "Pos1": {
+            "Q": 0,
+            "R": 1
+          },
+          "Pos2": {
+            "Q": 0,
+            "R": 0
+          }
+        }
+      ]
+    }
+  ]
+}

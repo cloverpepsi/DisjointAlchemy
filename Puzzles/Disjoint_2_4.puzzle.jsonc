@@ -1,0 +1,110 @@
+{
+  "Id": "Disjoint_2_4",
+  "Name": "\u003CFrictional Filament\u003E",
+  "Permissions": "Projection, Purification, CoreTools",
+  "CustomPermissions": [
+    "disjoint_alchemy:talma"
+  ],
+  "Inputs": [
+    {
+      "Name": "\u003CBipartite Lead Amalgam\u003E",
+      "Atoms": {
+        "0,0": {
+          "Type": "om:lead"
+        },
+        "-1,2": {
+          "Type": "om:quicksilver"
+        }
+      }
+    },
+    {
+      "Name": "\u003CBipartite Lead Amalgam\u003E",
+      "Atoms": {
+        "0,0": {
+          "Type": "om:lead"
+        },
+        "-1,2": {
+          "Type": "om:quicksilver"
+        }
+      }
+    }
+  ],
+  "Outputs": [
+    {
+      "Atoms": {
+        "2,0": {
+          "Type": "om:iron"
+        },
+        "1,-1": {
+          "Type": "om:quicksilver"
+        },
+        "1,1": {
+          "Type": "om:quicksilver"
+        },
+        "0,0": {
+          "Type": "om:iron"
+        },
+        "3,0": {
+          "Type": "om:iron"
+        },
+        "4,0": {
+          "Type": "om:repeat"
+        }
+      },
+      "Bonds": [
+        {
+          "Types": [
+            "om:standard"
+          ],
+          "Pos1": {
+            "Q": 0,
+            "R": 0
+          },
+          "Pos2": {
+            "Q": 1,
+            "R": -1
+          }
+        },
+        {
+          "Types": [
+            "om:standard"
+          ],
+          "Pos1": {
+            "Q": 1,
+            "R": 1
+          },
+          "Pos2": {
+            "Q": 2,
+            "R": 0
+          }
+        },
+        {
+          "Types": [
+            "om:standard"
+          ],
+          "Pos1": {
+            "Q": 2,
+            "R": 0
+          },
+          "Pos2": {
+            "Q": 3,
+            "R": 0
+          }
+        },
+        {
+          "Types": [
+            "om:standard"
+          ],
+          "Pos1": {
+            "Q": 3,
+            "R": 0
+          },
+          "Pos2": {
+            "Q": 4,
+            "R": 0
+          }
+        }
+      ]
+    }
+  ]
+}

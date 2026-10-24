@@ -1,0 +1,146 @@
+{
+  "Id": "Disjoint_3_2",
+  "Name": "\u003CVoltaic Crystal\u003E",
+  "Permissions": "Duplication, Projection, Division, CoreTools, BaronWheel",
+  "Inputs": [
+    {
+      "Name": "\u003CBipartite Lead Amalgam\u003E",
+      "Atoms": {
+        "0,0": {
+          "Type": "om:lead"
+        },
+        "1,0": {
+          "Type": "om:quicksilver"
+        }
+      }
+    },
+    {
+      "Name": "\u003CBipartite Salt\u003E",
+      "Atoms": {
+        "0,0": {
+          "Type": "om:salt"
+        },
+        "-1,2": {
+          "Type": "om:salt"
+        }
+      }
+    }
+  ],
+  "Outputs": [
+    {
+      "Name": "\u003CVoltaic Crystal\u003E",
+      "Atoms": {
+        "0,0": {
+          "Type": "om:quicksilver"
+        },
+        "-1,0": {
+          "Type": "om:lead"
+        },
+        "0,1": {
+          "Type": "om:lead"
+        },
+        "1,-1": {
+          "Type": "om:lead"
+        },
+        "-1,2": {
+          "Type": "om:salt"
+        },
+        "1,1": {
+          "Type": "om:fire"
+        },
+        "2,-1": {
+          "Type": "om:salt"
+        },
+        "1,-2": {
+          "Type": "om:fire"
+        },
+        "-1,-1": {
+          "Type": "om:salt"
+        },
+        "-2,1": {
+          "Type": "om:fire"
+        }
+      },
+      "Bonds": [
+        {
+          "Types": [
+            "om:standard"
+          ],
+          "Pos1": {
+            "Q": -1,
+            "R": 2
+          },
+          "Pos2": {
+            "Q": 0,
+            "R": 1
+          }
+        },
+        {
+          "Types": [
+            "om:standard"
+          ],
+          "Pos1": {
+            "Q": 0,
+            "R": 1
+          },
+          "Pos2": {
+            "Q": 1,
+            "R": 1
+          }
+        },
+        {
+          "Types": [
+            "om:standard"
+          ],
+          "Pos1": {
+            "Q": 1,
+            "R": -1
+          },
+          "Pos2": {
+            "Q": 2,
+            "R": -1
+          }
+        },
+        {
+          "Types": [
+            "om:standard"
+          ],
+          "Pos1": {
+            "Q": 1,
+            "R": -1
+          },
+          "Pos2": {
+            "Q": 1,
+            "R": -2
+          }
+        },
+        {
+          "Types": [
+            "om:standard"
+          ],
+          "Pos1": {
+            "Q": -1,
+            "R": 0
+          },
+          "Pos2": {
+            "Q": -1,
+            "R": -1
+          }
+        },
+        {
+          "Types": [
+            "om:standard"
+          ],
+          "Pos1": {
+            "Q": -2,
+            "R": 1
+          },
+          "Pos2": {
+            "Q": -1,
+            "R": 0
+          }
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,29 @@
+{
+  "disjoint_alchemy": {
+    "": "Disjoint Alchemy",
+    "description": "A modded campaign focused on the concept of 'disjoint alchemy': alchemy involving molecules that are not fully connected by bond networks.",
+    "permissions": {
+      "talma":"Talma's Wheel",
+      "disjunction":"Glyph of Disjunction"
+    },
+    "parts":{
+      "talma-alt": {
+        "":"Talma's Wheel",
+        "description":"By using Talma's wheel with the glyph of disjunction, you can accomplish absolutely nothing."
+      },
+      "talma": {
+        "":"Talma's Wheel",
+        "description":"By using Talma's wheel with the glyph of disjuncti- oh, that doesn't exist? I guess it doesn't do anything."
+      },
+      "disjunction": {
+        "":"Glyph of Disjunction",
+        "description":"The glyph of disjunction combines two molecules together into a disjoint molecule via two salt atoms."
+      }
+    },
+    "characters":{
+      "talma": "Professor Genea Talma",
+      "serena": "Serena Penney",
+      "jerin": "Jerin Tenka"
+    }
+  }
+}

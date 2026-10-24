@@ -1,0 +1,42 @@
+{
+  "Id": "Disjoint_0_4",
+  "Name": "\u003CBipartite Metals\u003E",
+  "Permissions": "Projection, Rejection, CoreTools",
+  "Inputs": [
+    {
+      "Name": "\u003CBipartite Tin\u003E",
+      "Atoms": {
+        "1,0": {
+          "Type": "om:tin"
+        },
+        "3,0": {
+          "Type": "om:tin"
+        }
+      }
+    }
+  ],
+  "Outputs": [
+    {
+      "Name": "\u003CBipartite Lead\u003E",
+      "Atoms": {
+        "1,0": {
+          "Type": "om:lead"
+        },
+        "3,0": {
+          "Type": "om:lead"
+        }
+      }
+    },
+    {
+      "Name": "\u003CBipartite Iron\u003E",
+      "Atoms": {
+        "1,0": {
+          "Type": "om:iron"
+        },
+        "3,0": {
+          "Type": "om:iron"
+        }
+      }
+    }
+  ]
+}

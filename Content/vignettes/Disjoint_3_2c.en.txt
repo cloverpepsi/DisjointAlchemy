@@ -1,3 +1,5 @@
+Background: textures/disjoint/backgrounds/background_1
+Title: Student Dormitories, Imperial University
 Portraits: Serena, Jerin
 
 Serena: The truth is that I didn't actually need help with studying.

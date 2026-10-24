@@ -1,0 +1,151 @@
+{
+  "Id": "Disjoint-j02-potion-of-endurance",
+  "Name": "\u003CTonic of Endurance\u003E",
+  "Author": "Penney, S.",
+  "Permissions": "Purification, CoreTools",
+  "CustomPermissions": [
+    "disjoint_alchemy:disjunction"
+  ],
+  "Inputs": [
+    {
+      "Name": "\u003CEssence of Mars\u003E",
+      "Atoms": {
+        "0,0": {
+          "Type": "om:water"
+        },
+        "1,0": {
+          "Type": "om:salt"
+        },
+        "0,-1": {
+          "Type": "om:salt"
+        },
+        "-1,1": {
+          "Type": "om:iron"
+        }
+      },
+      "Bonds": [
+        {
+          "Types": [
+            "om:standard"
+          ],
+          "Pos1": {
+            "Q": 0,
+            "R": 0
+          },
+          "Pos2": {
+            "Q": 1,
+            "R": 0
+          }
+        },
+        {
+          "Types": [
+            "om:standard"
+          ],
+          "Pos1": {
+            "Q": 0,
+            "R": -1
+          },
+          "Pos2": {
+            "Q": 0,
+            "R": 0
+          }
+        },
+        {
+          "Types": [
+            "om:standard"
+          ],
+          "Pos1": {
+            "Q": -1,
+            "R": 1
+          },
+          "Pos2": {
+            "Q": 0,
+            "R": 0
+          }
+        }
+      ]
+    }
+  ],
+  "Outputs": [
+    {
+      "Name": "\u003CTonic of Endurance\u003E",
+      "Atoms": {
+        "0,0": {
+          "Type": "om:copper"
+        },
+        "-1,0": {
+          "Type": "om:water"
+        },
+        "1,0": {
+          "Type": "om:water"
+        },
+        "1,1": {
+          "Type": "om:salt"
+        },
+        "2,-1": {
+          "Type": "om:salt"
+        },
+        "-1,-1": {
+          "Type": "om:salt"
+        },
+        "-2,1": {
+          "Type": "om:salt"
+        }
+      },
+      "Bonds": [
+        {
+          "Types": [
+            "om:standard"
+          ],
+          "Pos1": {
+            "Q": -1,
+            "R": 0
+          },
+          "Pos2": {
+            "Q": 0,
+            "R": 0
+          }
+        },
+        {
+          "Types": [
+            "om:standard"
+          ],
+          "Pos1": {
+            "Q": 0,
+            "R": 0
+          },
+          "Pos2": {
+            "Q": 1,
+            "R": 0
+          }
+        },
+        {
+          "Types": [
+            "om:standard"
+          ],
+          "Pos1": {
+            "Q": -1,
+            "R": -1
+          },
+          "Pos2": {
+            "Q": -1,
+            "R": 0
+          }
+        },
+        {
+          "Types": [
+            "om:standard"
+          ],
+          "Pos1": {
+            "Q": 1,
+            "R": 0
+          },
+          "Pos2": {
+            "Q": 1,
+            "R": 1
+          }
+        }
+      ]
+    }
+  ]
+}

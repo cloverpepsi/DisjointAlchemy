@@ -1,0 +1,173 @@
+{
+  "Id": "Disjoint-j01-inductive-fiber",
+  "Name": "\u003CInductive Fiber\u003E",
+  "Author": "Penney, J.",
+  "Permissions": "LifeAndDeath, CoreTools",
+  "Inputs": [
+    {
+      "Name": "\u003CTripartite Hematite\u003E",
+      "Atoms": {
+        "0,0": {
+          "Type": "om:salt"
+        },
+        "1,0": {
+          "Type": "om:iron"
+        },
+        "-1,0": {
+          "Type": "om:iron"
+        }
+      }
+    }
+  ],
+  "Outputs": [
+    {
+      "Atoms": {
+        "0,0": {
+          "Type": "om:vitae"
+        },
+        "1,0": {
+          "Type": "om:salt"
+        },
+        "0,1": {
+          "Type": "om:iron"
+        },
+        "2,0": {
+          "Type": "om:mors"
+        },
+        "2,-1": {
+          "Type": "om:iron"
+        },
+        "3,0": {
+          "Type": "om:salt"
+        },
+        "2,1": {
+          "Type": "om:iron"
+        },
+        "3,-1": {
+          "Type": "om:iron"
+        },
+        "4,0": {
+          "Type": "om:repeat"
+        },
+        "3,1": {
+          "Type": "om:iron"
+        },
+        "4,-1": {
+          "Type": "om:iron"
+        },
+        "1,-1": {
+          "Type": "om:iron"
+        },
+        "1,1": {
+          "Type": "om:iron"
+        }
+      },
+      "Bonds": [
+        {
+          "Types": [
+            "om:standard"
+          ],
+          "Pos1": {
+            "Q": 0,
+            "R": 0
+          },
+          "Pos2": {
+            "Q": 1,
+            "R": 0
+          }
+        },
+        {
+          "Types": [
+            "om:standard"
+          ],
+          "Pos1": {
+            "Q": 1,
+            "R": 0
+          },
+          "Pos2": {
+            "Q": 2,
+            "R": 0
+          }
+        },
+        {
+          "Types": [
+            "om:standard"
+          ],
+          "Pos1": {
+            "Q": 2,
+            "R": 0
+          },
+          "Pos2": {
+            "Q": 3,
+            "R": 0
+          }
+        },
+        {
+          "Types": [
+            "om:standard"
+          ],
+          "Pos1": {
+            "Q": 3,
+            "R": 0
+          },
+          "Pos2": {
+            "Q": 4,
+            "R": 0
+          }
+        },
+        {
+          "Types": [
+            "om:standard"
+          ],
+          "Pos1": {
+            "Q": 2,
+            "R": 1
+          },
+          "Pos2": {
+            "Q": 3,
+            "R": 1
+          }
+        },
+        {
+          "Types": [
+            "om:standard"
+          ],
+          "Pos1": {
+            "Q": 3,
+            "R": -1
+          },
+          "Pos2": {
+            "Q": 4,
+            "R": -1
+          }
+        },
+        {
+          "Types": [
+            "om:standard"
+          ],
+          "Pos1": {
+            "Q": 1,
+            "R": -1
+          },
+          "Pos2": {
+            "Q": 2,
+            "R": -1
+          }
+        },
+        {
+          "Types": [
+            "om:standard"
+          ],
+          "Pos1": {
+            "Q": 0,
+            "R": 1
+          },
+          "Pos2": {
+            "Q": 1,
+            "R": 1
+          }
+        }
+      ]
+    }
+  ]
+}

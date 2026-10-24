@@ -1,3 +1,5 @@
+Background: textures/disjoint/backgrounds/background_1
+Title: Student Dormitories, Imperial University
 Portraits: Serena, Jerin
 
 Serena: Well, that was fun! The food really was much better than I expected it would be, and-

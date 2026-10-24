@@ -1,0 +1,27 @@
+{
+  "Title": "The Journal of Disjoint Alchemy",
+  "Volumes": [
+    {
+      "IssueName": "Volume XVII, Issue I: Magnetism in Animismus",
+      "FlavorText": "The atoms of vitae and mors, while most often used in the context of the forces of life and death, have an equally important property of mutual magnetism: the opposite animus charges exert an attractive force on one another. This property in disjoint compounds seems to be heightened, and this issue is dedicated to landmark experiments that helped to demonstrate this concept.",
+      "Puzzles": [
+        "Disjoint-j01-magnetic-wire",
+        "Disjoint-j01-polarized-salts",
+        "Disjoint-j01-ferrofluid",
+        "Disjoint-j01-inductive-fiber",
+        "production-sigmar"
+      ]
+    },
+    {
+      "IssueName": "Volume XVII, Issue II: Applications of Disjunction",
+      "FlavorText": "The Glyph of Disjunction is viewed by some alchemists as a mere curiosity that costs more to produce than it is worth, due to the fact that the reaction it enables can already very easily be done outside of the alchemical engine. This is not the case, however. This issue explores a handful of alchemical processes that can be significantly expedited with the use of the glyph, as well as the original experiment by Genea Talma that confirmed its functionality.",
+      "Puzzles": [
+        "Disjoint-j02-synthesis-via-disjunction",
+        "Disjoint-j01-pole-seeking-powder",
+        "Disjoint-j02-potion-of-endurance",
+        "Disjoint-j02-salt-of-selene",
+        "Disjoint-j02-crystallized-steel"
+      ]
+    }
+  ]
+}
