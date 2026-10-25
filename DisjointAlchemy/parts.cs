@@ -222,7 +222,7 @@ public class patch_Sim : Sim {
 
 public abstract class patch_SolutionEditorBase : SolutionEditorBase {
 
-    [MonoModILInject("layer_0_RenderPartBase")]
+    /*[MonoModILInject("layer_0_RenderPartBase")]
     public static void PatchCage(MethodDefinition method, CustomAttribute attrib)
     {
         Console.WriteLine("Patching RenderPartBase atom cages");
@@ -245,7 +245,7 @@ public abstract class patch_SolutionEditorBase : SolutionEditorBase {
         gremlin.RemoveRange(1);
         gremlin.Emit(OpCodes.Ldarg_1);
         gremlin.Emit(OpCodes.Call, getArmLenMD);
-    }
+    }*/
 
     public extern void orig_RenderGlow(Part part, Vector2 pos, float alpha);
     public void RenderGlow(Part part, Vector2 pos, float alpha)
