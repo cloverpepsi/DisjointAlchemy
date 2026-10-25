@@ -1,3 +1,1 @@
-This mod requires [Reductive Metallurgy](https://github.com/icwass/ReductiveMetallurgy) as a dependency. 
-
-Modding framework: https://github.com/ErikHaag/Quintessential
+A modded campaign for the game Opus Magnum focused on the concept of 'disjoint alchemy': alchemy involving molecules that are not fully connected by bond networks.
