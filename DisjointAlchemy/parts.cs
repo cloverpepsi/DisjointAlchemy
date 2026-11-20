@@ -61,7 +61,7 @@ public static class Parts
     // these two methods are taken from Brimstone API
     public static Maybe<Molecule> FindMoleculeRelative(Sim sim, Part part, HexIndex offset)
     {
-        if (!sim.FindAtom(part.InFrontBy(offset)).GetOrDefault(out AtomReference atom))
+        if (!sim.FindAtom(part.GlobalPosFromLocal(offset)).GetOrDefault(out AtomReference atom))
         {
             return MaybeHelper.empty;
         }
@@ -92,8 +92,8 @@ public static class Parts
             isFullHexCover = true, // Is a glyph
             glowTexture = disjunctionGlow, // Shadow/glow
             strokeTexture = disjunctionStroke, // Stroke/outline
-            baseTexture = disjunctionIcon, // Panel icon
-            hoverTexture = disjunctionHover, // Hovered panel icon
+            iconTexture = disjunctionIcon, // Panel icon
+            iconHoverTexture = disjunctionHover, // Hovered panel icon
             glyphHexes = new HexIndex[]
             {
                 disjunctionL,
@@ -120,8 +120,8 @@ public static class Parts
 
         Talma = new PartType
         {
-            baseTexture = talmaIcon, // Panel icon
-            hoverTexture = talmaHover, // Hovered panel icon
+            iconTexture = talmaIcon, // Panel icon
+            iconHoverTexture = talmaHover, // Hovered panel icon
             cost = 30,
             isUnique = true,
             layer = PartTypeLayer.Top,
@@ -155,8 +155,8 @@ public static class Parts
                 PartType type = part.GetType();
                 if (type == Disjunction)
                 {
-                    HexIndex relative_hex_L = part.InFrontBy(disjunctionL);
-                    HexIndex relative_hex_R = part.InFrontBy(disjunctionR);
+                    HexIndex relative_hex_L = part.GlobalPosFromLocal(disjunctionL);
+                    HexIndex relative_hex_R = part.GlobalPosFromLocal(disjunctionR);
                     if (sim.FindAtomRelative(part, disjunctionL).GetOrDefault(out AtomReference s1) && s1.atomType == AtomTypes.salt &&
                         sim.FindAtomRelative(part, disjunctionR).GetOrDefault(out AtomReference s2) && s2.atomType == AtomTypes.salt)
                     {
@@ -211,7 +211,7 @@ public class patch_Sim : Sim {
 			{
                 foreach (HexIndex key3 in part.GetType().attachedAtoms.Keys)
                 {
-                    HexIndex localHex = part.InFrontBy(key3);
+                    HexIndex localHex = part.GlobalPosFromLocal(key3);
                     if (HexIndex.Distance(key2, localHex) == 0) { return true; }
                 }
 			}

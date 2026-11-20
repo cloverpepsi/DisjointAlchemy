@@ -20,14 +20,15 @@
               },
               {
                 "Section": 0,
-                "Alignment": "TopEdge",
-                "Offset": { "X": 236, "Y": 555 },
-                "Font": "Cormorant 12.75"
+                "Alignment": "TopLeft",
+                "Offset": { "X": -473, "Y": 120 },
+                "Font": "Cormorant 12.75",
+                "LineWidth": 950
               },
               {
                 "Section": 1,
-                "Alignment": "TopEdge",
-                "Offset": { "X": 236, "Y": 250 },
+                "Alignment": "TopLeft",
+                "Offset": { "X": -473, "Y": -200 },
                 "Font": "Cormorant 12.75"
               }
             ]
